@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import styled from "styled-components";
+
+// Define the styled components
+const ComingSoonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+`;
+
+const ComingSoonText = styled.div`
+  color: #333;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ComingSoonContainer>
+        <ComingSoonText>
+          <h1>Welcome to Damodar Global Venture</h1>
+          <h2>Coming Soon!</h2>
+          <p>We are working on to bring you something amazing. Stay tuned!</p>
+        </ComingSoonText>
+      </ComingSoonContainer>
+    </>
   );
 }
 
