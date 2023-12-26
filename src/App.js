@@ -1,5 +1,12 @@
 import "./App.css";
 import styled from "styled-components";
+import Navbar from "./component/Navbar";
+import Carousel from "./component/Carousel";
+import AboutUs from "./component/About";
+import CertificatesSection from "./component/Certificate";
+import ProductsSection from "./component/Product";
+import FeedbackSection from "./component/Feedback";
+import ContactForm from "./component/Contact";
 
 // Define the styled components
 const ComingSoonContainer = styled.div`
@@ -18,13 +25,20 @@ const ComingSoonText = styled.div`
 function App() {
   return (
     <>
-      <ComingSoonContainer>
+      {/* <ComingSoonContainer>
         <ComingSoonText>
           <h1>Welcome to Damodar Global Venture</h1>
           <h2>Coming Soon!</h2>
           <p>We are working on to bring you something amazing. Stay tuned!</p>
         </ComingSoonText>
-      </ComingSoonContainer>
+      </ComingSoonContainer> */}
+      <Navbar />
+      <Carousel />
+      <AboutUs />
+      <CertificatesSection />
+      <ProductsSection />
+      <FeedbackSection />
+      <ContactForm />
     </>
   );
 }
