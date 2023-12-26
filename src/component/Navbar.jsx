@@ -187,7 +187,9 @@ const Navbar = () => {
               </Link>
             </NavLink>
             <Dropdown>
-              <StyledLink href="#Products">Products</StyledLink>
+              <Link to="Products" smooth duration={500}>
+                <StyledLink href="#Products">Products</StyledLink>
+              </Link>
               {/* <DropdownContent>
                 <DropdownLink href="#service1">Service 1</DropdownLink>
                 <DropdownLink href="#service2">Service 2</DropdownLink>
