@@ -7,6 +7,8 @@ import CertificatesSection from "./component/Certificate";
 import ProductsSection from "./component/Product";
 import FeedbackSection from "./component/Feedback";
 import ContactForm from "./component/Contact";
+import OfficeLocationMap from "./component/Map";
+import Footer from "./component/Footer";
 
 // Define the styled components
 const ComingSoonContainer = styled.div`
@@ -39,6 +41,8 @@ function App() {
       <ProductsSection />
       <FeedbackSection />
       <ContactForm />
+      <OfficeLocationMap />
+      <Footer />
     </>
   );
 }
