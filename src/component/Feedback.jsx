@@ -5,14 +5,14 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const FeedbackSectionContainer = styled.div`
   padding: 50px;
-  background-color: #e6f7ff;
+  background-color: #f8f8f8; /* Light background color */
   text-align: center;
 `;
 
 const FeedbackList = styled.ul`
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -32,7 +32,8 @@ const RatingStars = styled.div`
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background-color: #5b5b5b;
+  margin-bottom: 15px;
+  background-color: #333; /* Dark background color */
   color: #fff;
 `;
 
@@ -42,12 +43,11 @@ const FeedbackContent = styled.div`
 
 const UserName = styled.p`
   font-weight: bold;
-  color: #5b5b5b;
-  margin-bottom: 10px;
+  color: #333; /* Dark text color */
 `;
 
 const FeedbackDescription = styled.p`
-  color: #333;
+  color: #555; /* Slightly darker text color */
 `;
 
 const StarIcon = styled(FontAwesomeIcon)`
@@ -73,7 +73,7 @@ const FeedbackSection = () => {
 
   return (
     <FeedbackSectionContainer id="feedback">
-      <h2>User Feedback</h2>
+      <h2>Users Feedback</h2>
       <FeedbackList>
         {feedbackData.map((feedback) => (
           <FeedbackItem key={feedback.id}>

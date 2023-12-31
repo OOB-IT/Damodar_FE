@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 // Import product category images
 import categoryImage1 from "../assets/category1.png";
-import categoryImage2 from "../assets/category2.jpg";
 
 const ProductsSectionContainer = styled.div`
   padding: 50px;
@@ -57,7 +56,6 @@ const ProductsSection = () => {
 
   const categories = [
     { id: 1, name: "Category 1", image: categoryImage1 },
-    { id: 2, name: "Category 2", image: categoryImage2 },
     // Add more categories as needed
   ];
 

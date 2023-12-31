@@ -9,6 +9,9 @@ import FeedbackSection from "./component/Feedback";
 import ContactForm from "./component/Contact";
 import OfficeLocationMap from "./component/Map";
 import Footer from "./component/Footer";
+import WhatWeDo from "./component/WhatWeDo";
+import WhyChooseUs from "./component/WhychooseUs";
+import MembershipCertification from "./component/Certificate";
 
 // Define the styled components
 const ComingSoonContainer = styled.div`
@@ -38,9 +41,12 @@ function App() {
         <Navbar />
         <Carousel />
         <AboutUs />
-        {/* <CertificatesSection />
+        <WhatWeDo />
+        <WhyChooseUs />
+        <FeedbackSection />
+        <MembershipCertification />
+        {/* 
       <ProductsSection />
-      <FeedbackSection />
       <ContactForm />
       <OfficeLocationMap /> */}
         <Footer />

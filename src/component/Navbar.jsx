@@ -7,7 +7,7 @@ import { Link, animateScroll as scroll } from "react-scroll";
 
 const NavbarContainer = styled.nav`
   background-color: ${({ transparent }) =>
-    transparent ? "rgba(51, 51, 51, 0.2)" : "rgba(51, 51, 51, 1)"};
+    transparent ? "rgba(51, 51, 51, 0)" : "rgba(51, 51, 51, 1)"};
   padding: 10px 0;
   position: ${({ scrolling, transparent }) =>
     scrolling || !transparent ? "fixed" : "absolute"};

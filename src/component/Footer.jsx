@@ -89,15 +89,18 @@ const ContactEmail = styled.p`
 
 const SocialIcons = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
 
-  & > StyledLink {
-    margin-right: 10px;
+  @media (max-width: 767px) {
+    align-items: center; /* Apply these styles only for screens smaller than 768px */
+    justify-content: center;
   }
 `;
 
 const StyledLink = styled.a`
   color: white;
+  text-decoration: none; /* Remove underline */
+  margin-right: 20px;
 `;
 
 const Footer = () => {
@@ -112,16 +115,16 @@ const Footer = () => {
             <SitemapTitle>Quick Links</SitemapTitle>
             <SitemapList>
               <SitemapItem>
-                <StyledLink href="#">Home</StyledLink>
+                <StyledLink href="#">> Home</StyledLink>
               </SitemapItem>
               <SitemapItem>
-                <StyledLink href="#">About Us</StyledLink>
+                <StyledLink href="#">> About Us</StyledLink>
               </SitemapItem>
               <SitemapItem>
-                <StyledLink href="#">Services</StyledLink>
+                <StyledLink href="#">> Services</StyledLink>
               </SitemapItem>
               <SitemapItem>
-                <StyledLink href="#">Contact</StyledLink>
+                <StyledLink href="#">> Contact</StyledLink>
               </SitemapItem>
             </SitemapList>
           </SitemapContainer>
@@ -130,10 +133,10 @@ const Footer = () => {
             <SitemapTitle>Products Links</SitemapTitle>
             <SitemapList>
               <SitemapItem>
-                <StyledLink href="#">Food products</StyledLink>
+                <StyledLink href="#">> Food products</StyledLink>
               </SitemapItem>
               <SitemapItem>
-                <StyledLink href="#">Handicraft</StyledLink>
+                <StyledLink href="#">> Handicraft</StyledLink>
               </SitemapItem>
             </SitemapList>
           </SitemapContainer>
