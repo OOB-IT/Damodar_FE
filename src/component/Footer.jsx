@@ -1,5 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import logo from "../assets/damodarr.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faXTwitter,
+  faInstagram,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
 const FooterContainer = styled.div`
   background-color: #333;
@@ -11,7 +19,7 @@ const FooterContent = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; /* Center items vertically */
 
   @media (max-width: 767px) {
     flex-direction: column;
@@ -19,55 +27,135 @@ const FooterContent = styled.div`
   }
 `;
 
-const SiteMap = styled.div`
+const LogoSection = styled.div`
+  flex: 2;
+`;
+
+const Logo = styled.img`
+  width: 200px;
+  margin: 0 auto; /* Center the image horizontally */
+`;
+
+const SiteMapSection = styled.div`
+  display: flex; /* Use flexbox to make children side by side */
+  flex: 2;
+  flex-direction: column; /* Arrange children vertically on small screens */
+
+  @media (min-width: 768px) {
+    flex-direction: row; /* Arrange children horizontally on larger screens */
+  }
+`;
+
+const SitemapContainer = styled.div`
+  margin-bottom: 20px; /* Add some spacing between title and list */
+  margin-right: 20px; /* Add some spacing between title and list */
+
+  @media (min-width: 768px) {
+    margin-bottom: 0; /* Remove spacing between title and list on larger screens */
+  }
+`;
+
+const SitemapTitle = styled.h5`
+  margin-bottom: 10px;
+`;
+
+const SitemapList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;
+
+const SitemapItem = styled.li`
+  margin-bottom: 8px;
+  color: white !important;
+`;
+
+const ContactSection = styled.div`
   flex: 1;
-  margin-right: 20px;
+  margin-top: -60px;
 
   @media (max-width: 767px) {
-    margin-bottom: 20px;
+    margin-top: 20px; /* Add some spacing at the top */
   }
+`;
+
+const ContactTitle = styled.h4`
+  margin-bottom: 10px;
+`;
+
+const ContactEmail = styled.p`
+  margin-bottom: 10px;
 `;
 
 const SocialIcons = styled.div`
   display: flex;
+  justify-content: space-evenly;
 
-  & > a {
+  & > StyledLink {
     margin-right: 10px;
   }
+`;
+
+const StyledLink = styled.a`
+  color: white;
 `;
 
 const Footer = () => {
   return (
     <FooterContainer>
       <FooterContent>
-        <SiteMap>
-          <h3>Site Map</h3>
-          <ul>
-            <li>
-              <a href="#">Home</a>
-            </li>
-            <li>
-              <a href="#">About Us</a>
-            </li>
-            <li>
-              <a href="#">Services</a>
-            </li>
-            <li>
-              <a href="#">Contact</a>
-            </li>
-          </ul>
-        </SiteMap>
-        <SocialIcons>
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <img src="path-to-your-facebook-icon" alt="Facebook" />
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <img src="path-to-your-twitter-icon" alt="Twitter" />
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <img src="path-to-your-instagram-icon" alt="Instagram" />
-          </a>
-        </SocialIcons>
+        <LogoSection>
+          <Logo src={logo} alt="Company Logo" />
+        </LogoSection>
+        <SiteMapSection>
+          <SitemapContainer>
+            <SitemapTitle>Quick Links</SitemapTitle>
+            <SitemapList>
+              <SitemapItem>
+                <StyledLink href="#">Home</StyledLink>
+              </SitemapItem>
+              <SitemapItem>
+                <StyledLink href="#">About Us</StyledLink>
+              </SitemapItem>
+              <SitemapItem>
+                <StyledLink href="#">Services</StyledLink>
+              </SitemapItem>
+              <SitemapItem>
+                <StyledLink href="#">Contact</StyledLink>
+              </SitemapItem>
+            </SitemapList>
+          </SitemapContainer>
+
+          <SitemapContainer>
+            <SitemapTitle>Products Links</SitemapTitle>
+            <SitemapList>
+              <SitemapItem>
+                <StyledLink href="#">Food products</StyledLink>
+              </SitemapItem>
+              <SitemapItem>
+                <StyledLink href="#">Handicraft</StyledLink>
+              </SitemapItem>
+            </SitemapList>
+          </SitemapContainer>
+        </SiteMapSection>
+        <ContactSection>
+          <ContactTitle>Contact Us</ContactTitle>
+          <ContactEmail>Email: conatact@damodarr.com</ContactEmail>
+          <SocialIcons>
+            <StyledLink href="#" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faFacebook} />
+            </StyledLink>
+            <StyledLink href="#" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faXTwitter} />
+            </StyledLink>
+            <StyledLink href="#" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faInstagram} />
+            </StyledLink>
+            <StyledLink href="#" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faLinkedin} />
+            </StyledLink>
+          </SocialIcons>
+        </ContactSection>
       </FooterContent>
     </FooterContainer>
   );

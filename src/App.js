@@ -27,22 +27,24 @@ const ComingSoonText = styled.div`
 function App() {
   return (
     <>
-      {/* <ComingSoonContainer>
+      <reactFragment id="home">
+        {/* <ComingSoonContainer>
         <ComingSoonText>
           <h1>Welcome to Damodar Global Venture</h1>
           <h2>Coming Soon!</h2>
           <p>We are working on to bring you something amazing. Stay tuned!</p>
         </ComingSoonText>
       </ComingSoonContainer> */}
-      <Navbar />
-      <Carousel />
-      <AboutUs />
-      <CertificatesSection />
+        <Navbar />
+        <Carousel />
+        <AboutUs />
+        {/* <CertificatesSection />
       <ProductsSection />
       <FeedbackSection />
       <ContactForm />
-      <OfficeLocationMap />
-      <Footer />
+      <OfficeLocationMap /> */}
+        <Footer />
+      </reactFragment>
     </>
   );
 }

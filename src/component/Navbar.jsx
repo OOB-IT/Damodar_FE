@@ -6,8 +6,8 @@ import logo from "../assets/logo.png";
 import { Link, animateScroll as scroll } from "react-scroll";
 
 const NavbarContainer = styled.nav`
-  background-color: ${({ scrolling, transparent }) =>
-    scrolling || !transparent ? "rgba(51, 51, 51, 0.8)" : "#333"};
+  background-color: ${({ transparent }) =>
+    transparent ? "rgba(51, 51, 51, 0.2)" : "rgba(51, 51, 51, 1)"};
   padding: 10px 0;
   position: ${({ scrolling, transparent }) =>
     scrolling || !transparent ? "fixed" : "absolute"};
@@ -18,9 +18,8 @@ const NavbarContainer = styled.nav`
   @media (max-width: 768px) {
     background-color: ${({ scrolling, transparent }) =>
       scrolling || !transparent
-        ? "rgba(51, 51, 51, 0.8)"
+        ? "rgba(51, 51, 51, 1)"
         : "rgba(51, 51, 51, 0.5)"};
-    // Adjust the rgba value to control the transparency level for mobile view
   }
 `;
 
@@ -48,11 +47,12 @@ const NavLinks = styled.ul`
   gap: 20px;
 
   @media (max-width: 768px) {
+    margin-top: 5px;
     flex-direction: column;
     align-items: center;
     width: 100%;
     padding: 10px 0;
-    background-color: rgba(51, 51, 51, 0.5);
+    background-color: rgba(51, 51, 51, 1);
     position: absolute;
     top: 65px;
     right: 0;
@@ -101,10 +101,13 @@ const StyledLink = styled.a`
 const DropdownContent = styled.div`
   display: none;
   position: absolute;
-  background-color: #333;
+  background-color: ${({ transparent }) =>
+    transparent ? "rgba(51, 51, 51, 0.2)" : "#333"};
   min-width: 160px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  border-radius: 8px;
+  overflow: hidden;
 `;
 
 const DropdownLink = styled(StyledLink)`
@@ -113,9 +116,15 @@ const DropdownLink = styled(StyledLink)`
   text-decoration: none;
   color: #fff;
   transition: background-color 0.3s ease-in-out;
+  border-bottom: 1px solid #555;
+
+  &:last-child {
+    border-bottom: none;
+  }
 
   &:hover {
-    background-color: #555;
+    border-bottom: none;
+    background-color: rgba(51, 51, 51, 0.2);
   }
 `;
 
@@ -138,16 +147,18 @@ const MenuButton = styled.div`
 
 const Navbar = () => {
   const [scrolling, setScrolling] = useState(false);
-  const [transparent, setTransparent] = useState(true); // Set initial state to true
+  const [atTop, setAtTop] = useState(true);
+  const [transparent, setTransparent] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.scrollY > 50;
 
-      if (scrolled !== scrolling) {
+      if ((atTop && scrolled) || (!atTop && !scrolled)) {
+        setAtTop(!scrolled);
+        setTransparent(!scrolled);
         setScrolling(scrolled);
-        setTransparent(false); // Change to false when scrolling starts
       }
     };
 
@@ -156,11 +167,12 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [scrolling]);
+  }, [atTop]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
   return (
     <>
       <NavbarContainer
@@ -177,31 +189,40 @@ const Navbar = () => {
           </MenuButton>
           <NavLinks isOpen={isOpen}>
             <NavLink>
+              <Link to="home" smooth duration={500}>
+                <StyledLink>Home</StyledLink>
+              </Link>
+            </NavLink>
+            <Dropdown transparent={transparent}>
               <Link to="about" smooth duration={500}>
-                <StyledLink>About</StyledLink>
+                <StyledLink href="#Products">About</StyledLink>
+              </Link>
+              <DropdownContent transparent={transparent}>
+                <DropdownLink href="#service1">Company</DropdownLink>
+                <DropdownLink href="#service3">Key Persons</DropdownLink>
+              </DropdownContent>
+            </Dropdown>
+
+            <NavLink>
+              <Link to="certificate" smooth duration={500}>
+                <StyledLink>Certificates</StyledLink>
               </Link>
             </NavLink>
             <NavLink>
               <Link to="gallary" smooth duration={500}>
-                <StyledLink>Certificates & Landscape</StyledLink>
+                <StyledLink>Gallary</StyledLink>
               </Link>
             </NavLink>
-            <Dropdown>
+            <Dropdown transparent={transparent} isOpen={isOpen}>
               <Link to="Products" smooth duration={500}>
                 <StyledLink href="#Products">Products</StyledLink>
               </Link>
-              {/* <DropdownContent>
-                <DropdownLink href="#service1">Service 1</DropdownLink>
-                <DropdownLink href="#service2">Service 2</DropdownLink>
-                <DropdownLink href="#service3">Service 3</DropdownLink>
-                <DropdownLink href="#service4">Service 4</DropdownLink>
-              </DropdownContent> */}
+              <DropdownContent transparent={transparent}>
+                <DropdownLink href="#service1">Food products</DropdownLink>
+                <DropdownLink href="#service2">Handicraft</DropdownLink>
+              </DropdownContent>
             </Dropdown>
-            <NavLink>
-              <Link to="feedback" smooth duration={500}>
-                <StyledLink href="#feedback">Feedback</StyledLink>
-              </Link>
-            </NavLink>
+
             <NavLink>
               <Link to="contact" smooth duration={500}>
                 <StyledLink href="#contact">Contact</StyledLink>
