@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Navbar from "./component/Navbar";
 import Carousel from "./component/Carousel";
 import AboutUs from "./component/About";
-import CertificatesSection from "./component/Certificate";
+import Certificates from "./component/Certificates";
 import ProductsSection from "./component/Product";
 import FeedbackSection from "./component/Feedback";
 import ContactForm from "./component/Contact";
@@ -11,7 +11,7 @@ import OfficeLocationMap from "./component/Map";
 import Footer from "./component/Footer";
 import WhatWeDo from "./component/WhatWeDo";
 import WhyChooseUs from "./component/WhychooseUs";
-import MembershipCertification from "./component/Certificate";
+import MembershipCertification from "./component/Certificates/CertificateElements";
 
 // Define the styled components
 const ComingSoonContainer = styled.div`
@@ -44,7 +44,7 @@ function App() {
         <WhatWeDo />
         <WhyChooseUs />
         <FeedbackSection />
-        <MembershipCertification />
+        <Certificates />
         {/* 
       <ProductsSection />
       <ContactForm />

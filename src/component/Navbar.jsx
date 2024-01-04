@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo_white.png";
 import { Link, animateScroll as scroll } from "react-scroll";
 
 const NavbarContainer = styled.nav`
@@ -17,9 +17,9 @@ const NavbarContainer = styled.nav`
 
   @media (max-width: 768px) {
     background-color: ${({ scrolling, transparent }) =>
-      scrolling || !transparent
-        ? "rgba(51, 51, 51, 1)"
-        : "rgba(51, 51, 51, 0.5)"};
+    scrolling || !transparent
+      ? "rgba(51, 51, 51, 1)"
+      : "rgba(51, 51, 51, 0.5)"};
   }
 `;
 
@@ -61,7 +61,7 @@ const NavLinks = styled.ul`
     opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
     transition: opacity 1.3s ease-in-out, transform 1s ease-in-out;
     transform: ${({ isOpen }) =>
-      isOpen ? "translateY(0)" : "translateY(-100%)"};
+    isOpen ? "translateY(0)" : "translateY(-100%)"};
   }
 `;
 
