@@ -1,34 +1,13 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-const Heading = styled.h4`
-  font-size: 2em;
-  margin-bottom: 30px;
-  position: relative;
-
-  &:after {
-    content: " >>>>";
-    display: inline-block;
-    color: white; /* Arrow color */
-    position: absolute;
-    top: 30px;
-    right: 0px;
-  }
-
-  @media (max-width: 767px) {
-    &:after {
-      display: none; /* Hide the arrow in mobile view */
-    }
-  }
-`;
-
 const ServicesContainer = styled.div`
-  background-color: #333; /* Dark background color */
-  color: #fff; /* Light text color */
+  background-color: #fff; /* Dark background color */
+  color: #333; /* Light text color */
   padding: 50px;
   display: flex;
   flex-direction: column;
-  text-align: center;
+  align-items: center; /* Center items on mobile view */
 
   @media (min-width: 768px) {
     flex-direction: row;
@@ -79,8 +58,6 @@ const Description = styled.p`
 const WhatWeDo = () => {
   return (
     <ServicesContainer id="services">
-      <Heading>What We Do </Heading>
-
       <ServiceBox>
         <Title>Export</Title>
         <Description>

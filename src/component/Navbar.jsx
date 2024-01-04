@@ -17,9 +17,9 @@ const NavbarContainer = styled.nav`
 
   @media (max-width: 768px) {
     background-color: ${({ scrolling, transparent }) =>
-    scrolling || !transparent
-      ? "rgba(51, 51, 51, 1)"
-      : "rgba(51, 51, 51, 0.5)"};
+      scrolling || !transparent
+        ? "rgba(51, 51, 51, 1)"
+        : "rgba(51, 51, 51, 0.5)"};
   }
 `;
 
@@ -61,7 +61,7 @@ const NavLinks = styled.ul`
     opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
     transition: opacity 1.3s ease-in-out, transform 1s ease-in-out;
     transform: ${({ isOpen }) =>
-    isOpen ? "translateY(0)" : "translateY(-100%)"};
+      isOpen ? "translateY(0)" : "translateY(-100%)"};
   }
 `;
 
@@ -189,34 +189,23 @@ const Navbar = () => {
           </MenuButton>
           <NavLinks isOpen={isOpen}>
             <NavLink>
-              <Link to="home" smooth duration={500}>
-                <StyledLink>Home</StyledLink>
-              </Link>
+              <StyledLink href="/">Home</StyledLink>
             </NavLink>
+
             <Dropdown transparent={transparent}>
               <Link to="about" smooth duration={500}>
-                <StyledLink href="#Products">About</StyledLink>
+                <StyledLink href="about">About</StyledLink>
               </Link>
               <DropdownContent transparent={transparent}>
-                <DropdownLink href="#service1">Company</DropdownLink>
-                <DropdownLink href="#service3">Key Persons</DropdownLink>
+                <DropdownLink href="/company">Company</DropdownLink>
+                <DropdownLink href="/keyperson">Key Persons</DropdownLink>
               </DropdownContent>
             </Dropdown>
-
             <NavLink>
-              <Link to="certificate" smooth duration={500}>
-                <StyledLink>Certificates</StyledLink>
-              </Link>
-            </NavLink>
-            <NavLink>
-              <Link to="gallary" smooth duration={500}>
-                <StyledLink>Gallary</StyledLink>
-              </Link>
+              <StyledLink href="/gallary">Gallary</StyledLink>
             </NavLink>
             <Dropdown transparent={transparent} isOpen={isOpen}>
-              <Link to="Products" smooth duration={500}>
-                <StyledLink href="#Products">Products</StyledLink>
-              </Link>
+              <StyledLink href="/Products">Products</StyledLink>
               <DropdownContent transparent={transparent}>
                 <DropdownLink href="#service1">Food products</DropdownLink>
                 <DropdownLink href="#service2">Handicraft</DropdownLink>
@@ -224,9 +213,7 @@ const Navbar = () => {
             </Dropdown>
 
             <NavLink>
-              <Link to="contact" smooth duration={500}>
-                <StyledLink href="#contact">Contact</StyledLink>
-              </Link>
+              <StyledLink href="/contact">Contact</StyledLink>
             </NavLink>
           </NavLinks>
         </NavbarContent>

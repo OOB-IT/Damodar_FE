@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import aboutImg from "../assets/damodarr.png";
+import aboutImg from "../assets/about.jpeg";
 
 const AboutContainer = styled.div`
   background-color: #fff;
@@ -26,7 +26,8 @@ const Description = styled.p`
   color: #555;
   font-size: 1.2em;
   margin-top: 10px;
-  max-width: 400px; /* Adjust the max-width as needed */
+  text-align: left;
+  max-width: 600px; /* Adjust the max-width as needed */
 `;
 
 const ProductImage = styled.img`
@@ -55,11 +56,13 @@ const AboutUs = () => {
       <div>
         <Title>About Us</Title>
         <Description>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-          scelerisque velit sit amet arcu cursus, vel tincidunt magna
-          scelerisque. Duis maximus justo vitae odio lacinia, id vulputate erat
-          venenatis. Suspendisse potenti. Integer nec luctus purus. Nunc nec
-          ligula eu nisi malesuada consectetur.
+          Founded on October 19, 2023, Damodarr Global Venture LLP is committed
+          to a mission of global business excellence, placing utmost value on
+          our customers. Our diverse range of high-quality products includes
+          Warmi Compost Fertilizer, Natural Honey, Paper Packaging Products, A-2
+          Pure Cow Ghee, and Cereal & Cereal Products. In addition to these
+          offerings, we specialize in personalized product sourcing to meet
+          individual customer requirements.
         </Description>
       </div>
     </AboutContainer>
