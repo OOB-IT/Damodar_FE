@@ -4,12 +4,14 @@ import WhatWeDo from "./WhatWeDo";
 
 const CompanyPageContainer = styled.div`
   text-align: center;
+  background-color: #ccc; /* Light gray background color */
+  padding-top: 80px; /* Adjusted padding-top */
 `;
 
 const HistoryCard = styled.div`
-  background-color: #fff; /* Set your desired background color */
+  background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: left;
   max-width: 600px;
   margin: 0 auto;
@@ -39,14 +41,14 @@ const BulletList = styled.ul`
 const BulletListItem = styled.li`
   margin-bottom: 10px;
   position: relative;
-  padding-left: 20px; /* Adjust the padding as needed */
+  padding-left: 20px;
 
   &:before {
-    content: "•"; /* Arrow bullet point */
+    content: "•";
     color: #333;
     font-size: 1.2em;
     position: absolute;
-    left: 0; /* Position the arrow before the first letter */
+    left: 0;
     top: 50%;
     transform: translateY(-50%);
   }
@@ -54,7 +56,7 @@ const BulletListItem = styled.li`
 
 const CompanyPage = () => {
   return (
-    <CompanyPageContainer style={{ paddingTop: "80px" }}>
+    <CompanyPageContainer>
       <HistoryHeading>Organization History</HistoryHeading>
       <HistoryCard>
         <BulletList>
@@ -82,7 +84,7 @@ const CompanyPage = () => {
           </BulletListItem>
           <BulletListItem>
             Discover the Damodarr difference – where global business meets
-            unparalleled quality and personalized service.
+            unparalleled quality and personalized service.
           </BulletListItem>
         </BulletList>
       </HistoryCard>

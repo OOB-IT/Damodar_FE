@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import logo from "../assets/logo_white.png";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavbarContainer = styled.nav`
   background-color: ${({ transparent }) =>
@@ -69,7 +69,7 @@ const NavLink = styled.li`
   position: relative;
 `;
 
-const StyledLink = styled.a`
+const StyledLink = styled.span`
   text-decoration: none;
   color: white;
   position: relative;
@@ -144,6 +144,7 @@ const MenuButton = styled.div`
     order: -1;
   }
 `;
+const linkStyle = { textDecoration: "none" };
 
 const Navbar = () => {
   const [scrolling, setScrolling] = useState(false);
@@ -189,31 +190,43 @@ const Navbar = () => {
           </MenuButton>
           <NavLinks isOpen={isOpen}>
             <NavLink>
-              <StyledLink href="/">Home</StyledLink>
+              <Link to="/" style={linkStyle}>
+                <StyledLink>Home</StyledLink>
+              </Link>
             </NavLink>
 
             <Dropdown transparent={transparent}>
-              <Link to="about" smooth duration={500}>
-                <StyledLink href="about">About</StyledLink>
-              </Link>
+              <StyledLink href="about">About</StyledLink>
               <DropdownContent transparent={transparent}>
-                <DropdownLink href="/company">Company</DropdownLink>
-                <DropdownLink href="/keyperson">Key Persons</DropdownLink>
+                <Link to="/company" style={linkStyle}>
+                  <DropdownLink>Company</DropdownLink>
+                </Link>
+                <Link to="/keyperson" style={linkStyle}>
+                  <DropdownLink>Key Persons</DropdownLink>
+                </Link>
               </DropdownContent>
             </Dropdown>
-            <NavLink>
-              <StyledLink href="/gallary">Gallary</StyledLink>
-            </NavLink>
+            {/* <NavLink>
+              <Link to="/gallary" style={linkStyle}>
+                <StyledLink>Gallary</StyledLink>
+              </Link>
+            </NavLink> */}
             <Dropdown transparent={transparent} isOpen={isOpen}>
-              <StyledLink href="/Products">Products</StyledLink>
+              <StyledLink>Products</StyledLink>
               <DropdownContent transparent={transparent}>
-                <DropdownLink href="#service1">Food products</DropdownLink>
-                <DropdownLink href="#service2">Handicraft</DropdownLink>
+                <Link to="/prod1" style={linkStyle}>
+                  <DropdownLink>Food products</DropdownLink>
+                </Link>
+                <Link to="/prod2" style={linkStyle}>
+                  <DropdownLink>Handicraft</DropdownLink>
+                </Link>
               </DropdownContent>
             </Dropdown>
 
             <NavLink>
-              <StyledLink href="/contact">Contact</StyledLink>
+              <Link to="/contact" style={linkStyle}>
+                <StyledLink href="/contact">Contact</StyledLink>
+              </Link>
             </NavLink>
           </NavLinks>
         </NavbarContent>
