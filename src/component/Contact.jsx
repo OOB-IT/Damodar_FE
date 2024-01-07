@@ -97,7 +97,7 @@ const ContactForm = () => {
   return (
     <ContactFormContainer id="contact">
       <FormWrapper>
-        <FormTitle>Contact Us and Give Feedback</FormTitle>
+        <FormTitle>Contact Us & Give Feedback</FormTitle>
         <RatingStars>
           {[1, 2, 3, 4, 5].map((index) => (
             <StarIcon
