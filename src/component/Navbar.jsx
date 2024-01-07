@@ -214,12 +214,12 @@ const Navbar = () => {
             <Dropdown transparent={transparent} isOpen={isOpen}>
               <StyledLink>Products</StyledLink>
               <DropdownContent transparent={transparent}>
-                <Link to="/prod1" style={linkStyle}>
-                  <DropdownLink>Food products</DropdownLink>
+                <Link to="/" style={linkStyle}>
+                  <DropdownLink>Comming Soon</DropdownLink>
                 </Link>
-                <Link to="/prod2" style={linkStyle}>
+                {/* <Link to="/prod2" style={linkStyle}>
                   <DropdownLink>Handicraft</DropdownLink>
-                </Link>
+                </Link> */}
               </DropdownContent>
             </Dropdown>
 

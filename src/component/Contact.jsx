@@ -5,7 +5,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const ContactFormContainer = styled.div`
   padding: 50px;
-  background-color: #f5f5f5;
+  background-color: #cccccc;
 `;
 
 const FormWrapper = styled.div`

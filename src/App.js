@@ -4,6 +4,8 @@ import Navbar from "./component/Navbar";
 import Footer from "./component/Footer";
 import RouteFile from "./RouteFile";
 import CompanyPage from "./component/Company";
+import KeyPerson from "./component/KeyPerson";
+import ContactForm from "./component/Contact";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Routes>
           <Route path="/" element={<RouteFile />} />
           <Route path="/company" element={<CompanyPage />} />
+          <Route path="/keyperson" element={<KeyPerson />} />
+          <Route path="/contact" element={<ContactForm />} />
         </Routes>
         <Footer />
       </div>
