@@ -1,7 +1,9 @@
-import cert1 from './certificate1.png'
-import cert2 from './certificate2.jpg'
-import gcci from './gcci.png'
-import msme from './msme.png'
-import uaadhar from './udyogaadhaar.png'
+import dgft from "./dgft.png";
+import fda from "./fda.png";
+import fieo from "./fieo.png";
+import fssai from "./fssai.png";
+import halal from "./halal.png";
+import apeda from "./apeda.png";
+import gmp from "./gmp.png";
 
-export { cert1, cert2, gcci, msme, uaadhar };
+export { dgft, gmp, apeda, fda, fieo, fssai, halal };
