@@ -6,6 +6,7 @@ import RouteFile from "./RouteFile";
 import CompanyPage from "./component/Company";
 import KeyPerson from "./component/KeyPerson";
 import ContactForm from "./component/Contact";
+import ProductsSection from "./component/Product";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/company" element={<CompanyPage />} />
           <Route path="/keyperson" element={<KeyPerson />} />
           <Route path="/contact" element={<ContactForm />} />
+          <Route path="/products" element={<ProductsSection />} />
         </Routes>
         <Footer />
       </div>

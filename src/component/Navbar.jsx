@@ -47,11 +47,11 @@ const NavLinks = styled.ul`
   gap: 20px;
 
   @media (max-width: 768px) {
-    margin-top: 5px;
+    margin-top: -3px;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 10px 0;
+    padding: 35px 0;
     background-color: rgba(51, 51, 51, 1);
     position: absolute;
     top: 65px;
@@ -108,6 +108,9 @@ const DropdownContent = styled.div`
   z-index: 1;
   border-radius: 8px;
   overflow: hidden;
+  @media (max-width: 768px) {
+    background-color: #333; /* Set the background color to dark for mobile view */
+  }
 `;
 
 const DropdownLink = styled(StyledLink)`
@@ -212,15 +215,15 @@ const Navbar = () => {
               </Link>
             </NavLink> */}
             <Dropdown transparent={transparent} isOpen={isOpen}>
-              <StyledLink>Products</StyledLink>
-              <DropdownContent transparent={transparent}>
-                <Link to="/" style={linkStyle}>
-                  <DropdownLink>Comming Soon</DropdownLink>
-                </Link>
-                {/* <Link to="/prod2" style={linkStyle}>
+              <Link to="/products" style={linkStyle}>
+                <StyledLink>Products</StyledLink>
+              </Link>
+              {/* <DropdownContent transparent={transparent}>
+                <DropdownLink>Comming Soon</DropdownLink>
+                <Link to="/prod2" style={linkStyle}>
                   <DropdownLink>Handicraft</DropdownLink>
-                </Link> */}
-              </DropdownContent>
+                </Link>
+              </DropdownContent> */}
             </Dropdown>
 
             <NavLink>

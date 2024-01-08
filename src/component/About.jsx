@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import aboutImg from "../assets/about.jpeg";
+import aboutImg from "../assets/about.jpg";
 
 const AboutContainer = styled.div`
   background-color: #fff;

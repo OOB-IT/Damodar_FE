@@ -1,30 +1,35 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-// Import product category images
 import categoryImage1 from "../assets/category1.png";
 
 const ProductsSectionContainer = styled.div`
-  padding: 50px;
-  background-color: #f9f9f9;
+  padding: 20px; /* Adjust padding for smaller screens */
+  background-color: #cccccc;
   text-align: center;
 `;
 
 const ProductCategories = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
   margin-bottom: 20px;
 `;
 
 const CategoryBox = styled.div`
+  flex: 0 0 calc(15.3333% - 10px); /* Adjust width for three boxes in a row */
   cursor: pointer;
+
+  @media (max-width: 767px) {
+    flex: 0 0 calc(50% - 10px); /* Adjust width for two boxes in a row on small screens */
+  }
 `;
 
 const CategoryImage = styled.img`
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
+  width: 100%; /* Make images fill the container */
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
   border-radius: 8px;
   transition: transform 0.3s ease-in-out;
 
@@ -35,19 +40,19 @@ const CategoryImage = styled.img`
 
 const ProductDetailsContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const ProductImage = styled.img`
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
+  width: 100%; /* Make images fill the container */
+  max-width: 300px;
+  height: auto; /* Maintain aspect ratio */
   border-radius: 8px;
 `;
 
 const ProductDescription = styled.div`
-  max-width: 600px;
+  max-width: 100%; /* Make text fill the container */
   padding: 20px;
 `;
 
@@ -56,6 +61,8 @@ const ProductsSection = () => {
 
   const categories = [
     { id: 1, name: "Category 1", image: categoryImage1 },
+    { id: 2, name: "Category 2", image: categoryImage1 },
+    { id: 3, name: "Category 3", image: categoryImage1 },
     // Add more categories as needed
   ];
 

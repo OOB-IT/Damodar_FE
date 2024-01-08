@@ -5,7 +5,7 @@ const KeyPerson = () => {
   const owner1 = {
     name: "Darshit Patel",
     image: "url_to_owner1_image.jpg",
-    bio: "Co-founder & CEO",
+    bio: "Founder & CEO",
   };
 
   const owner2 = {
