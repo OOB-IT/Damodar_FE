@@ -47,9 +47,6 @@ const SiteMapSection = styled.div`
 `;
 
 const SitemapContainer = styled.div`
-  margin-bottom: 20px; /* Add some spacing between title and list */
-  margin-right: 20px; /* Add some spacing between title and list */
-
   @media (min-width: 768px) {
     margin-bottom: 0; /* Remove spacing between title and list on larger screens */
   }
