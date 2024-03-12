@@ -1,0 +1,28 @@
+.certifiates-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.certificate-page-content {
+  width: 18rem;
+  padding: 10px;
+  position: relative; /* Position relative for pseudo-element */
+  border-radius: 10px; /* Add border radius */
+  overflow: hidden; /* Ensure gradient doesn't overflow the border radius */
+}
+
+.certificate-page-content::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 5px solid transparent; /* Set a transparent border */
+  border-image: linear-gradient(
+    to right,
+    #6372ff 0%,
+    #5ca9fb 100%
+  ); /* Define linear gradient for the border */
+  border-image-slice: 1; /* Ensure the entire border is filled with the gradient */
+  border-radius: inherit; /* Inherit border radius from parent */
+}

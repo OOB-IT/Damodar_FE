@@ -1,0 +1,165 @@
+{
+  "Header": {
+    "title": "Damodarr",
+    "paragraph": "Global Venture LLP",
+    "paragraph2": "Your premier destination for international trade solutions."
+  },
+  "About": {
+    "paragraph1": "Welcome to Damodarr  Global Venture LLP, your premier destination for international trade solutions. As a leading exporter and importer, we specialize in facilitating seamless transactions across borders, connecting businesses worldwide.",
+    "paragraph2": " At Damodarr GlobalVentureLLP, we pride ourselves on our commitment to excellence, reliability, and efficiency. With years of experience in the industry, our dedicated team ensures smooth operations and unparalleled customer satisfaction.",
+    "paragraph3": "From sourcing high-quality products to managing logistics and customs clearance, we handle every aspect of the export-import process with precision and professionalism. Whether you're looking to expand your market reach or streamline your supply chain, we're here to exceed your expectations. Explore our comprehensive range of services tailored to meet your unique business needs, and let us be your trusted partner in global trade success. Welcome aboard the journey to limitless opportunities with Damodarr Global Venture LLP.",
+    "paragraph4": " Explore our comprehensive range of services tailored to meet your unique business needs, and let us be your trusted partner in global trade success. Welcome aboard the journey to limitless opportunities with Damodarr Global Venture LLP.",
+    "Why": [
+      "Lorem ipsum dolor",
+      "Tempor incididunt",
+      "Lorem ipsum dolor",
+      "Incididunt ut labore"
+    ],
+    "Why2": [
+      "Aliquip ex ea commodo",
+      "Lorem ipsum dolor",
+      "Exercitation ullamco",
+      "Lorem ipsum dolor"
+    ]
+  },
+  "ProductCatalog": [
+    {
+      "title": "A2 Cow Ghee",
+      "largeImage": "img/catalog/ghee.jpg",
+      "smallImage": "img/catalog/ghee.jpg"
+    },
+    {
+      "title": "Honey",
+      "largeImage": "img/catalog/honey.jpg",
+      "smallImage": "img/catalog/honey.jpg"
+    },
+    {
+      "title": "Millets",
+      "largeImage": "img/catalog/millets.jpg",
+      "smallImage": "img/catalog/millets.jpg"
+    }
+  ],
+  "Services": [
+    {
+      "icon": "fa fa-wordpress",
+      "name": "Lorem ipsum dolor",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+    },
+    {
+      "icon": "fa fa-cart-arrow-down",
+      "name": "Consectetur adipiscing",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+    },
+    {
+      "icon": "fa fa-cloud-download",
+      "name": "Lorem ipsum dolor",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+    },
+    {
+      "icon": "fa fa-language",
+      "name": "Consectetur adipiscing",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+    },
+    {
+      "icon": "fa fa-plane",
+      "name": "Lorem ipsum dolor",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+    },
+    {
+      "icon": "fa fa-pie-chart",
+      "name": "Consectetur adipiscing",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+    }
+  ],
+  "Testimonials": [
+    {
+      "img": "img/testimonials/01.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "John Doe"
+    },
+    {
+      "img": "img/testimonials/02.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "Johnathan Doe"
+    },
+    {
+      "img": "img/testimonials/03.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "John Doe"
+    },
+    {
+      "img": "img/testimonials/04.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "Johnathan Doe"
+    },
+    {
+      "img": "img/testimonials/05.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "John Doe"
+    },
+    {
+      "img": "img/testimonials/06.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "Johnathan Doe"
+    }
+  ],
+  "Team": [
+    {
+      "img": "img/team/01.jpg",
+      "name": "John Doe",
+      "job": "Mr. Darshit works as an international export-import businessman, boasting over five years of experience in global business. He has a profound love for traveling and possesses market knowledge spanning numerous countries. As a potential leader, he aspires to change the world with his visionary ideas. Additionally, he provides services and products that have no negative impacts, promoting goodness and health for humans, animals, and the Earth."
+    },
+    {
+      "img": "img/team/02.jpg",
+      "name": "Mike Doe",
+      "job": "Senior Designer"
+    }
+  ],
+  "Contact": {
+    "address": "Textile Market, Sf No. 37 Near Chokdi, Navagadh, Jetpur 360375 ",
+    "phone": "+91 91044 03474",
+    "email": " info@damodarr.com",
+    "facebook": "fb.com",
+    "twitter": "twitter.com",
+    "youtube": "youtube.com"
+  },
+  "Features": [
+    {
+      "icon": "fa fa-shopping-cart",
+      "title": "Export",
+      "text": "We are Exporting best quality product around the world, You need best product on time you are at right place @ Damodarr Global Venture LLP"
+    },
+    {
+      "icon": "fa fa-bullhorn",
+      "title": "Import agent",
+      "text": "We help foreign company to introduce his best quality product in India and help them to find local partners in India."
+    },
+    {
+      "icon": "fa fa-group",
+      "title": "Sourcing Agent",
+      "text": "We are working as local partner of our foreign client to source best quality product from India as per client requirement and Specification."
+    }
+  ],
+  "Company": [
+    {
+      "icon": "fa fa-comments-o",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    },
+    {
+      "icon": "fa fa-bullhorn",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    },
+    {
+      "icon": "fa fa-group",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    },
+    {
+      "icon": "fa fa-magic",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    }
+  ]
+}

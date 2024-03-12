@@ -1,0 +1,20 @@
+.carousel-container {
+  position: relative;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 300px; /* Adjust the width of the gradient as needed */
+}
+
+.left {
+  left: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.7), transparent);
+}
+
+.right {
+  right: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.7), transparent);
+}
