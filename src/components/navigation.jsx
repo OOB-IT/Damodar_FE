@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import useViewType from "../utils/useViewType";
 
 import logo from "../asset/logo.png";
 import TitleBar from "./TitleBar";
 
-export const Navigation = (props) => {
+export const Navigation = () => {
   const navigate = useNavigate(); // useNavigate hook
   const location = useLocation();
+  const viewType = useViewType();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -42,11 +44,10 @@ export const Navigation = (props) => {
 
   return (
     <>
-      {location.pathname === "/" && <TitleBar />}{" "}
-      {/* Render TitleBar only when browser route is '/' */}
+      {location.pathname === "/" && viewType === "desktop" ? < TitleBar /> : " "}
       <nav
         id="menu"
-        style={{ zIndex: "8", paddingTop: isScrolled ? "20px" : "30px" }} // Update paddingTop based on scroll state
+        style={{ zIndex: "8", paddingTop: isScrolled && location.pathname === "/" ? "20px" : location.pathname === "/" ? "40px" : "20px" }} // Update paddingTop based on scroll state
         className="navbar navbar-default navbar-fixed-top"
       >
         <div className="container">
@@ -77,8 +78,7 @@ export const Navigation = (props) => {
                   src={logo}
                   style={{
                     maxHeight: "50px",
-                    maxWidth: "200px",
-                    marginRight: "10px",
+                    maxWidth: "200px"
                   }}
                   alt="Logo"
                 ></img>

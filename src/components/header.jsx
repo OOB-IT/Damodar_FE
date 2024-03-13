@@ -18,12 +18,6 @@ export const Header = (props) => {
                 <p style={{ fontSize: "2rem", margin: "1rem 0" }}>
                   {props.data ? props.data.paragraph2 : "Loading"}
                 </p>
-                {/* <a
-                  href="#features"
-                  className="btn btn-custom btn-lg page-scroll"
-                >
-                  Learn More
-                </a>{" "} */}
               </div>
             </div>
           </div>

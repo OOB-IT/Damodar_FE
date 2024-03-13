@@ -267,7 +267,7 @@ header .intro-text {
 /* Features Section */
 #features {
   background: #fafaff;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
 }
 #features i.fa {
   font-size: 38px;
@@ -282,6 +282,32 @@ header .intro-text {
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
 }
 /* About Section */
+.company {
+  background: url("../img/about-bg.jpg") center top no-repeat fixed;
+  background-size: cover;
+  padding: 60px 0 40px 0;
+  position: relative;
+}
+
+.company::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 1;
+}
+.company img {
+  position: relative;
+  z-index: 2;
+}
+.company .about-text {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 45px;
+}
 #about {
   padding: 100px 0;
 }
@@ -847,6 +873,13 @@ label {
 #contact .social ul li {
   display: inline-block;
   margin: 0 20px;
+}
+.social-links a {
+  font-size: 18px;
+  display: inline-block;
+  color: #fff;
+  padding-top: 5px;
+  margin-right: 8px;
 }
 #contact .social i.fa {
   font-size: 22px;

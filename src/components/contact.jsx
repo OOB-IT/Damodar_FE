@@ -139,8 +139,8 @@ export const Contact = (props) => {
                     </a>
                   </li>
                   <li>
-                    <a href={props.data ? props.data.twitter : "/"}>
-                      <i className='fa fa-twitter'></i>
+                    <a href={props.data ? props.data.linkedIn : "/"}>
+                      <i className='fa fa-linkedin'></i>
                     </a>
                   </li>
                   <li>
