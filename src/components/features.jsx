@@ -11,7 +11,7 @@ export const Features = (props) => {
           , zIndex: "2"
         }}
       >
-        <div className="section-title">
+        <div className="section-title" style={{ paddingTop: "10px" }}>
           <h2>What we do</h2>
           <p>
             Discover our core activities and services that drive our mission

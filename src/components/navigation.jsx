@@ -142,9 +142,9 @@ export const Navigation = () => {
                   Sourcing Agent
                 </Link>
               </li>
-              <li>
+              {location.pathname === "/" && <li>
                 <a href="#contact">Contact Us</a>
-              </li>
+              </li>}
               {/* <li>
               <Link
                 to='/contact'

@@ -2,17 +2,19 @@ import React, { useEffect, useState } from "react";
 import JsonData from "../data/data.json";
 import styled from "styled-components";
 import { Features } from "./features";
+import foto from '../asset/company.jpg'
 
 const AboutText = styled.div`
   background-color: rgba(255, 255, 255, 0.7);
-  padding: 10px 20px;
+  padding: 50px 20px 5px 20px;
+  margin-bottom: 50px;
 `;
 
 const ImageContainer = styled.div`
   width: 100%;
   overflow: hidden;
   z-index:99999;
-  border-radius: 0 0 10px 10px;
+  ${'' /* border-radius: 0 0 10px 10px; */}
 `;
 
 const ResponsiveImage = styled.img`
@@ -52,7 +54,8 @@ const Company = () => {
           </AboutText>
 
           <ImageContainer id="imageContainer">
-            <ResponsiveImage src="https://images.unsplash.com/photo-1634646809203-f3b4adff9127?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Damodarr Global Ventures LLP" />
+            {/* <ResponsiveImage src="https://images.unsplash.com/photo-1634646809203-f3b4adff9127?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Damodarr Global Ventures LLP" /> */}
+            <ResponsiveImage src={foto} alt="Damodarr Global Ventures LLP" />
           </ImageContainer>
 
           <Features data={fdata} />
