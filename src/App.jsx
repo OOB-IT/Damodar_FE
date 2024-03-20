@@ -10,6 +10,7 @@ import ProductDetails from "./components/ProductDetails";
 import ComingSoon from "./components/ComingSoon";
 import Company from "./components/Company";
 import CertificatePage from "./components/CertificatePage";
+import Products from "./components/Products";
 
 // Initialize SmoothScroll
 const scroll = new SmoothScroll('a[href*="#"]', {
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="/testimonials" element={<ComingSoon />} />
           <Route path="/company" element={<Company />} />
           <Route path="/certificate" element={<CertificatePage />} />
+          <Route path="/products" element={<Products />} />
           {/* Add a wildcard route for unmatched paths */}
           <Route path="*" element={<NotFound />} />
         </Routes>

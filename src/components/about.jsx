@@ -11,7 +11,7 @@ export const About = (props) => {
             {" "}
             <img
               src={about}
-              style={{ borderRadius: "10px" }}
+              style={{ borderRadius: "10px", objectFit: "cover" }}
               className='img-responsive'
               alt=''
             />{" "}
@@ -29,7 +29,7 @@ export const About = (props) => {
         <div className='row justify-content-center'>
           <div className='col-12 text-center'>
             <button type='submit' className='btn btn-custom btn-lg rounded'>
-              <Link style={{ color: "#f5f5f5" }} to='/about-detail'>
+              <Link style={{ color: "#f5f5f5" }} to='/company'>
                 View More
               </Link>
             </button>

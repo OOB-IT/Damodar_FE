@@ -16,7 +16,7 @@ const TitleBar = (props) => {
       }}
     >
       <div className="container location">
-        <a href="mailto:info@damodarr.com">
+        <a href="mailto:info@damodarr.com" target="blank_">
           <i className="fa fa-envelope-o"></i> info@damodarr.com
         </a>
       </div>

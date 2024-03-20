@@ -128,8 +128,8 @@ export const Navigation = () => {
               </li>
               <li>
                 <Link
-                  to="/product-detail"
-                  onClick={() => handleNavItemClick("/product-detail")} // Close navbar on click and navigate to '/product-detail'
+                  to="/products"
+                  onClick={() => handleNavItemClick("/products")} // Close navbar on click and navigate to '/product-detail'
                 >
                   Products
                 </Link>

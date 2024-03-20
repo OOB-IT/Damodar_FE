@@ -161,5 +161,13 @@
       "title": "Lorem ipsum",
       "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
     }
+  ],
+  "Products":[
+    { "ID": 1, "ProductTitle": "Product 1", "Type": "Millets", "FeaturedImage": "img/catalog/ghee.jpg" },
+    { "ID": 2, "ProductTitle": "Product 2", "Type": "Lentils", "FeaturedImage": "img/catalog/millets.jpg" },
+    { "ID": 3, "ProductTitle": "Product 3", "Type": "Millets", "FeaturedImage":  "img/catalog/ghee.jpg" },
+    { "ID": 4, "ProductTitle": "Product 4", "Type": "Millets", "FeaturedImage":  "img/catalog/millets.jpg" },
+    { "ID": 5, "ProductTitle": "Product 5", "Type": "Lentils", "FeaturedImage":  "img/catalog/ghee.jpg" },
+    { "ID": 6, "ProductTitle": "Product 6", "Type": "Millets", "FeaturedImage":  "img/catalog/millets.jpg" }
   ]
 }

@@ -36,8 +36,6 @@ const ImageCarousel = () => {
       showArrows={false}
       stopOnHover={false}
       transitionTime={500}
-      emulateTouch
-      swipeable
       slidesToShow={3} // Display 3 images at once
       centerMode
       centerSlidePercentage={100 / 3}
