@@ -693,7 +693,7 @@ header .intro-text {
   font-size: 18px;
   letter-spacing: 1px;
   font-weight: 500;
-  text-transform: uppercase;
+  /* text-transform: uppercase;  to  uppercase the letters */
 }
 .hover-bg:hover .hover-text > h4 {
   opacity: 1;

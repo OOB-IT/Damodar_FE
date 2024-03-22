@@ -36,8 +36,8 @@ const PortfolioContainer = styled.div`
     flex-direction: row;
     padding: 10px;
     flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
+    ${'' /* align-content: center;
+    justify-content: center; */}
 `;
 
 const PortfolioItem = styled.div`
@@ -90,6 +90,7 @@ const Products = () => {
   }, []);
 
   const products = landingPageData.Products
+  const categories = landingPageData.ProductCategories
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   const handleFilterClick = (category) => {
@@ -97,7 +98,11 @@ const Products = () => {
   };
 
   const filteredProducts = selectedCategory === 'All' ? products : products?.filter(product => product?.Type === selectedCategory);
-
+  const typeCounts = products?.reduce((counts, product) => {
+    const type = product.Type;
+    counts[type] = (counts[type] || 0) + 1;
+    return counts;
+  }, {});
   return (
     <ProductsContainer>
       <div className="container" data-aos="fade-up">
@@ -109,24 +114,15 @@ const Products = () => {
           <div className="row">
             <div className="col-lg-12">
               <PortfolioFilters className="portfolio-filters">
-                <PortfolioFilterItem
-                  onClick={() => handleFilterClick('All')}
-                  className={selectedCategory === 'All' ? 'filter-active' : ''}
-                >
-                  All
-                </PortfolioFilterItem>
-                <PortfolioFilterItem
-                  onClick={() => handleFilterClick('Lentils')}
-                  className={selectedCategory === 'Lentils' ? 'filter-active' : ''}
-                >
-                  Lentils
-                </PortfolioFilterItem>
-                <PortfolioFilterItem
-                  onClick={() => handleFilterClick('Millets')}
-                  className={selectedCategory === 'Millets' ? 'filter-active' : ''}
-                >
-                  Millets
-                </PortfolioFilterItem>
+                {categories?.map((category, index) => (
+                  <PortfolioFilterItem
+                    onClick={() => handleFilterClick(`${category.categoryName}`)}
+                    className={selectedCategory === `${category.categoryName}` ? 'filter-active' : ''}
+                  >
+                    {category.categoryName} ({categories[index].categoryFilter === 'all' ? products?.length : typeCounts[category.categoryName]})
+                  </PortfolioFilterItem>
+                )
+                )}
               </PortfolioFilters>
             </div>
           </div>
@@ -137,7 +133,10 @@ const Products = () => {
                   key={product.ID}
                   className={`col-lg-12 col-md-12 portfolio-item filter-${product.Type}`}
                 >
-                  <div className="portfolio-wrap">
+                  <div className="portfolio-wrap hover-bg">
+                    <div className='hover-text'>
+                      <h4>{product.ProductTitle}</h4>
+                    </div>
                     <PortfolioImage
                       src={`${product.FeaturedImage}`}
                       alt=""
