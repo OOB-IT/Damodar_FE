@@ -911,6 +911,14 @@ label {
   border-bottom: 2px solid #608dfd;
 }
 
+.saIcon {
+  color: #6372ff;
+}
+
+.saCardContainer {
+  background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
+}
+
 @media (max-width: 768px) {
   #about img {
     margin: 50px 0;

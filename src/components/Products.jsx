@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import JsonData from "../data/data.json";
+import Footer from './Footer';
 
 const ProductsContainer = styled.div`
   padding: 150px 0 0 0;
@@ -48,6 +49,10 @@ const PortfolioItem = styled.div`
   overflow: hidden;
   border-radius: 10px;
   z-index: 1;
+
+  &:hover{
+    transform: scale(1.03);
+    transition: all 0.2 ease-in-out;}
 `;
 
 const PortfolioImage = styled.img`
@@ -55,6 +60,7 @@ const PortfolioImage = styled.img`
   height: 100%;
   object-fit: cover;
   transition: all 0.6s;
+  
 `;
 
 const PortfolioInfo = styled.div`
@@ -111,7 +117,7 @@ const Products = () => {
           <p>Explore our Products.</p>
         </div>
         <section id="portfolio" className="portfolio">
-          <div className="row">
+          {/* <div className="row">
             <div className="col-lg-12">
               <PortfolioFilters className="portfolio-filters">
                 {categories?.map((category, index) => (
@@ -125,7 +131,7 @@ const Products = () => {
                 )}
               </PortfolioFilters>
             </div>
-          </div>
+          </div> */}
           <div className='container'>
             <PortfolioContainer data-aos="fade-up">
               {filteredProducts && filteredProducts.map((product) => (
@@ -152,6 +158,7 @@ const Products = () => {
           </div>
         </section>
       </div>
+      <Footer in={"in"} />
     </ProductsContainer>
   );
 };

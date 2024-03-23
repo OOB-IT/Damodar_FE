@@ -6,9 +6,9 @@ const Footer = (props) => {
       id='footer'
       style={
         props?.in
-          ? { position: "fixed", bottom: 0, width: "100%" }
-          : { bottom: 0, width: "100%" }
-      }>
+          ? { position: "fixed", bottom: 0, width: "100%", marginTop: "20px" }
+          : { bottom: 0, width: "100%", zIndex: "9", marginTop: "20px" }
+      } className="mt-3">
       <div className='container text-center '>
         <p>
           &copy; {new Date().getFullYear()} Damodarr Global Venture LLP. All

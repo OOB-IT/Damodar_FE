@@ -21,7 +21,6 @@ const HomeRoutes = () => {
       <ProductCatalog data={landingPageData.ProductCatalog} />
       <MembershipCertification />
       <Contact data={landingPageData.Contact} />
-      <Footer />
     </div>
   );
 };

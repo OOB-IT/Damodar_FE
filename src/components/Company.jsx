@@ -58,7 +58,7 @@ const Company = () => {
             <ResponsiveImage src={foto} alt="Damodarr Global Ventures LLP" />
           </ImageContainer>
 
-          <Features data={fdata} />
+          <Features data={fdata} showTitle={true} />
         </section>
       </div>
     </div>

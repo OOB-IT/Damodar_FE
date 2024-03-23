@@ -12,6 +12,7 @@ import Company from "./components/Company";
 import CertificatePage from "./components/CertificatePage";
 import Products from "./components/Products";
 import SourcingAgentPage from "./components/SourcingAgentPage";
+import Footer from './components/Footer';
 
 // Initialize SmoothScroll
 const scroll = new SmoothScroll('a[href*="#"]', {
@@ -37,6 +38,7 @@ const App = () => {
           {/* Add a wildcard route for unmatched paths */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );
