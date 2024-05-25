@@ -1,11 +1,50 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import JsonData from "../data/data.json";
-import Footer from './Footer';
+import Footer from "./Footer";
+import mainHoney from "../asset/product/mainHoney.jpg";
 
 const ProductsContainer = styled.div`
   padding: 150px 0 0 0;
   text-align: center;
+`;
+
+const SectionTitle = styled.div`
+  margin-bottom: 50px;
+`;
+
+const IntroSection = styled.section`
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const IntroImage = styled.img`
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  flex: 1;
+  margin: 10px;
+
+  @media (max-width: 768px) {
+    max-width: 90%;
+  }
+`;
+
+const IntroDescription = styled.div`
+  flex: 1;
+  padding: 10px;
+  text-align: left;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 const PortfolioFilters = styled.ul`
@@ -24,7 +63,7 @@ const PortfolioFilterItem = styled.li`
   transition: all 0.3s;
   padding: 8px 20px;
   border-radius: 10px;
-  
+
   &:hover,
   &.filter-active {
     background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
@@ -33,16 +72,14 @@ const PortfolioFilterItem = styled.li`
 `;
 
 const PortfolioContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
-    flex-wrap: wrap;
-    ${'' /* align-content: center;
-    justify-content: center; */}
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  flex-wrap: wrap;
 `;
 
 const PortfolioItem = styled.div`
-  margin:auto auto 20px auto;
+  margin: auto auto 20px auto;
   max-width: 350px;
   transition: 0.3s;
   position: relative;
@@ -50,9 +87,10 @@ const PortfolioItem = styled.div`
   border-radius: 10px;
   z-index: 1;
 
-  &:hover{
+  &:hover {
     transform: scale(1.03);
-    transition: all 0.2 ease-in-out;}
+    transition: all 0.2 ease-in-out;
+  }
 `;
 
 const PortfolioImage = styled.img`
@@ -60,7 +98,6 @@ const PortfolioImage = styled.img`
   height: 100%;
   object-fit: cover;
   transition: all 0.6s;
-  
 `;
 
 const PortfolioInfo = styled.div`
@@ -79,7 +116,6 @@ const PortfolioTitle = styled.h4`
   font-size: 18px;
   color: #fff;
   font-weight: 600;
-  color: #fff;
   margin-bottom: 0px;
 `;
 
@@ -95,65 +131,66 @@ const Products = () => {
     setLandingPageData(JsonData);
   }, []);
 
-  const products = landingPageData.Products
-  const categories = landingPageData.ProductCategories
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const products = landingPageData.Products;
+  const categories = landingPageData.ProductCategories;
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   const handleFilterClick = (category) => {
     setSelectedCategory(category);
   };
 
-  const filteredProducts = selectedCategory === 'All' ? products : products?.filter(product => product?.Type === selectedCategory);
+  const filteredProducts =
+    selectedCategory === "All"
+      ? products
+      : products?.filter((product) => product?.Type === selectedCategory);
   const typeCounts = products?.reduce((counts, product) => {
     const type = product.Type;
     counts[type] = (counts[type] || 0) + 1;
     return counts;
   }, {});
+
   return (
     <ProductsContainer>
-      <div className="container" data-aos="fade-up">
-        <div className="section-title">
-          <h2>Products</h2>
+      <div className='container' data-aos='fade-up'>
+        <SectionTitle className='section-title'>
+          <h2>Honey</h2>
           <p>Explore our Products.</p>
-        </div>
-        <section id="portfolio" className="portfolio">
-          {/* <div className="row">
-            <div className="col-lg-12">
-              <PortfolioFilters className="portfolio-filters">
-                {categories?.map((category, index) => (
-                  <PortfolioFilterItem
-                    onClick={() => handleFilterClick(`${category.categoryName}`)}
-                    className={selectedCategory === `${category.categoryName}` ? 'filter-active' : ''}
-                  >
-                    {category.categoryName} ({categories[index].categoryFilter === 'all' ? products?.length : typeCounts[category.categoryName]})
-                  </PortfolioFilterItem>
-                )
-                )}
-              </PortfolioFilters>
-            </div>
-          </div> */}
+        </SectionTitle>
+        <IntroSection>
+          <IntroImage
+            style={{ width: "40%" }}
+            src={mainHoney}
+            alt='Intro Image'
+          />
+          <IntroDescription>
+            <h3>Product Introduction</h3>
+            <p>
+              This is an introductory section for the products. It provides a
+              brief overview of what customers can expect from the product
+              offerings.
+            </p>
+          </IntroDescription>
+        </IntroSection>
+        <section id='portfolio' className='portfolio'>
           <div className='container'>
-            <PortfolioContainer data-aos="fade-up">
-              {filteredProducts && filteredProducts.map((product) => (
-                <PortfolioItem
-                  key={product.ID}
-                  className={`col-lg-12 col-md-12 portfolio-item filter-${product.Type}`}
-                >
-                  <div className="portfolio-wrap hover-bg">
-                    <div className='hover-text'>
-                      <h4>{product.ProductTitle}</h4>
+            <PortfolioContainer data-aos='fade-up'>
+              {filteredProducts &&
+                filteredProducts.map((product) => (
+                  <PortfolioItem
+                    key={product.ID}
+                    className={`col-lg-12 col-md-12 portfolio-item filter-${product.Type}`}>
+                    <div className='portfolio-wrap hover-bg'>
+                      <div className='hover-text'>
+                        <h4>{product.ProductTitle}</h4>
+                      </div>
+                      <PortfolioImage src={`${product.FeaturedImage}`} alt='' />
+                      <PortfolioInfo>
+                        <PortfolioTitle>{product.ProductTitle}</PortfolioTitle>
+                        <PortfolioType>{product.Type}</PortfolioType>
+                      </PortfolioInfo>
                     </div>
-                    <PortfolioImage
-                      src={`${product.FeaturedImage}`}
-                      alt=""
-                    />
-                    <PortfolioInfo>
-                      <PortfolioTitle>{product.ProductTitle}</PortfolioTitle>
-                      <PortfolioType>{product.Type}</PortfolioType>
-                    </PortfolioInfo>
-                  </div>
-                </PortfolioItem>
-              ))}
+                  </PortfolioItem>
+                ))}
             </PortfolioContainer>
           </div>
         </section>
