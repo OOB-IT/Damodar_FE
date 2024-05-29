@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSearchParams } from 'react-router-dom'
 import styled from "styled-components";
 import JsonData from "../data/data.json";
 import Footer from "./Footer";
@@ -126,11 +127,42 @@ const PortfolioType = styled.p`
 `;
 
 const Products = () => {
+  const productData = {
+    honey: {
+      pId: 1,
+      pUrlParam: 'honey',
+      pTitle: "Honey",
+      pimage: mainHoney,
+      pMetaDesc: "",
+      pDesc: ""
+    }, a2ghee: {
+      pId: 2,
+      pUrlParam: 'a2ghee',
+      pTitle: "A2 Ghee",
+      pimage: mainHoney,
+      pMetaDesc: "",
+      pDesc: ""
+    },
+    millets: {
+      pId: 3,
+      pUrlParam: 'millets',
+      pTitle: "Millets",
+      pimage: mainHoney,
+      pMetaDesc: "",
+      pDesc: ""
+    }
+  };
   const [landingPageData, setLandingPageData] = useState({});
+  const [product, setProduct] = useSearchParams();
+
+  console.log(product.get('p'));
   useEffect(() => {
     setLandingPageData(JsonData);
   }, []);
-
+  const [productDetails, setProductDetails] = useState({});
+  useEffect(() => {
+    setProductDetails(productData[[product.get('p')]]);
+  }, [product.get('p')]);
   const products = landingPageData.Products;
   const categories = landingPageData.ProductCategories;
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -153,7 +185,7 @@ const Products = () => {
     <ProductsContainer>
       <div className='container' data-aos='fade-up'>
         <SectionTitle className='section-title'>
-          <h2>Honey</h2>
+          <h2>{productDetails.pTitle}</h2>
           <p>Explore our Products.</p>
         </SectionTitle>
         <IntroSection>

@@ -53,8 +53,8 @@ export const Navigation = () => {
             isScrolled && location.pathname === "/"
               ? "20px"
               : location.pathname === "/"
-              ? "40px"
-              : "20px",
+                ? "40px"
+                : "20px",
         }} // Update paddingTop based on scroll state
         className='navbar navbar-default navbar-fixed-top'>
         <div className='container'>
@@ -141,15 +141,14 @@ export const Navigation = () => {
                 </a>
                 <ul className='dropdown-menu'>
                   <li>
-                    <Link to='/products'>Honey</Link>
+                    <Link to='/products?p=honey'>Honey</Link>
                   </li>
                   <li>
-                    <Link to='/products'>A2 cow Ghee</Link>
+                    <Link to='/products?p=a2ghee'>A2 cow Ghee</Link>
                   </li>
                   <li>
                     <Link
-                      to='/products'
-                      onClick={() => handleNavItemClick("/products")} // Close navbar on click and navigate to '/about-detail'
+                      to='/products?p=millets'
                     >
                       Millets
                     </Link>

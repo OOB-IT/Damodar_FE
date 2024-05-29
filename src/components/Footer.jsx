@@ -7,7 +7,7 @@ const Footer = (props) => {
       style={
         props?.in
           ? { position: "fixed", bottom: 0, width: "100%", marginTop: "20px" }
-          : { bottom: 0, width: "100%", zIndex: "9", marginTop: "20px" }
+          : { bottom: 0, width: "100%", marginTop: "20px" }
       } className="mt-3">
       <div className='container text-center '>
         <p>

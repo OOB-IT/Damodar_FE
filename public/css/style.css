@@ -858,6 +858,8 @@ label {
 }
 #contact .contact-item span {
   color: rgba(255, 255, 255, 1);
+  font-size: 1.5rem;
+  font-weight: 500;
   margin-bottom: 10px;
   display: block;
 }
@@ -895,6 +897,11 @@ label {
   color: #608dfd;
   background: #fff;
 }
+#contact .section-title p {
+  color: rgba(255, 255, 255, 1);
+  font-weight: 450;
+  font-size: 1.4rem;
+}
 /* Footer Section*/
 #footer {
   background: #f6f6f6;
@@ -926,4 +933,10 @@ label {
   #aboutDetail {
     padding: 100px 0 0 0;
   }
+}
+
+.contact-item > p {
+  color: rgba(255, 255, 255, 1);
+  font-weight: 450;
+  font-size: 1.4rem;
 }

@@ -18,7 +18,6 @@ const images = [
   { src: fieo, alt: "fieo" },
   { src: halal, alt: "halal" },
 ];
-console.log(images);
 const CertificatePage = () => {
   return (
     <div style={{ padding: "150px 0 0 0", textAlign: "center" }}>

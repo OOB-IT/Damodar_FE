@@ -48,10 +48,9 @@ const SourcingAgentPage = () => {
                 </div>
                 <HowWeWorkContainer>
                     <div className="container">
-                        <Title>How We Work</Title>
                         <div className="row justify-content-left text-justify">
                             <div className="col-lg-4 col-md-12 col-sm-12">
-
+                                <Title>How We Work</Title>
                                 As a sourcing agent, our core responsibility revolves around meticulously managing all tasks essential for meeting our buyers' requirements and delivering their orders within specified timelines. Our approach is characterized by a commitment to understanding each client's unique needs, allowing us to provide personalized solutions that surpass expectations. From sourcing quality products to negotiating favorable terms, we handle every aspect of the procurement process with professionalism and efficiency. By anticipating challenges and fostering transparent communication, we ensure smooth operations and cultivate trust with both buyers and suppliers. Our ultimate goal is to serve as strategic allies, enhancing our clients' competitiveness in the global marketplace through excellence and customer satisfaction.
                             </div>
                             <div className="col-lg-7 col-md-10 col-sm-12" style={viewType === "desktop" ? { marginTop: "70px", marginLeft: "50px", fontSize: "2.3rem" } : { marginTop: "20px" }}>
@@ -73,7 +72,7 @@ const SourcingAgentPage = () => {
                     </div>
                 </HowWeWorkContainer>
                 <div className="container saCardContainer" style={viewType === "desktop" ? { marginTop: "50px", padding: "50px" } : { marginTop: "20px", padding: "20px" }}>
-                    <h2 >What Is Your Benefit?</h2>
+                    <h2>What Is Your Benefit?</h2>
                     <BottomContainer style={viewType === "desktop" ? { marginTop: "50px" } : { marginTop: "20px" }} >
 
                         {cardData.map((card, index) => (
@@ -87,7 +86,6 @@ const SourcingAgentPage = () => {
                     </BottomContainer>
                 </div>
             </div>
-            <Footer in={"in"} />
         </SourcingAgentContainer>
     )
 }
