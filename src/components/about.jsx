@@ -22,17 +22,12 @@ export const About = (props) => {
               <p>{props.data ? props.data.paragraph1 : "loading..."}</p>
               <p>{props.data ? props.data.paragraph2 : "loading..."}</p>
               <p>{props.data ? props.data.paragraph3 : "loading..."}</p>
-              <p>{props.data ? props.data.paragraph4 : "loading..."}</p>
+              <button type='submit' className='btn btn-custom btn-lg rounded'>
+                <Link style={{ color: "#f5f5f5" }} to='/company'>
+                  View More
+                </Link>
+              </button>
             </div>
-          </div>
-        </div>
-        <div className='row justify-content-center'>
-          <div className='col-12 text-center'>
-            <button type='submit' className='btn btn-custom btn-lg rounded'>
-              <Link style={{ color: "#f5f5f5" }} to='/company'>
-                View More
-              </Link>
-            </button>
           </div>
         </div>
       </div>
