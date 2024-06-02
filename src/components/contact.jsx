@@ -36,8 +36,10 @@ export const Contact = (props) => {
   };
 
   const routeto = () => {
-    window.location.href =
-      "https://fieo.globallinker.com/network/profile/darshit-patel/568516";
+    window.open(
+      "https://fieo.globallinker.com/network/profile/darshit-patel/568516",
+      "_blank"
+    );
   };
 
   return (

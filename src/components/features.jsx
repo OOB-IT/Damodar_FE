@@ -9,7 +9,7 @@ export const Features = (props) => {
         className="text-center container"
         style={{
           marginTop: "50px",
-          paddingBottom: "50px",
+          paddingBottom: fromHome ? undefined : "50px",
           position: "relative",
           background: fromHome ? "none" : undefined,
           zIndex: "2",
