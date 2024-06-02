@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useSearchParams } from 'react-router-dom'
+import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 import JsonData from "../data/data.json";
 import Footer from "./Footer";
 import mainHoney from "../asset/product/mainHoney.jpg";
+import ghee from "../asset/product/ghee (1).jpg";
+import millets from "../asset/product/millets.jpg";
 
 const ProductsContainer = styled.div`
   padding: 150px 0 0 0;
@@ -93,6 +95,12 @@ const PortfolioItem = styled.div`
     transition: all 0.2 ease-in-out;
   }
 `;
+const PortfolioImgWrapper = styled.div`
+  width: 400px;
+  height: 300px;
+  overflow: hidden;
+  text-align: center;
+`;
 
 const PortfolioImage = styled.img`
   width: 100%;
@@ -130,69 +138,54 @@ const Products = () => {
   const productData = {
     honey: {
       pId: 1,
-      pUrlParam: 'honey',
+      pUrlParam: "honey",
       pTitle: "Honey",
       pimage: mainHoney,
       pMetaDesc: "",
-      pDesc: ""
-    }, a2ghee: {
+      pDesc: "",
+    },
+    a2ghee: {
       pId: 2,
-      pUrlParam: 'a2ghee',
+      pUrlParam: "a2ghee",
       pTitle: "A2 Ghee",
-      pimage: mainHoney,
+      pimage: ghee,
       pMetaDesc: "",
-      pDesc: ""
+      pDesc: "",
     },
     millets: {
       pId: 3,
-      pUrlParam: 'millets',
+      pUrlParam: "millets",
       pTitle: "Millets",
-      pimage: mainHoney,
+      pimage: millets,
       pMetaDesc: "",
-      pDesc: ""
-    }
+      pDesc: "",
+    },
   };
   const [landingPageData, setLandingPageData] = useState({});
   const [product, setProduct] = useSearchParams();
 
-  console.log(product.get('p'));
+  console.log(product.get("p"));
   useEffect(() => {
     setLandingPageData(JsonData);
   }, []);
   const [productDetails, setProductDetails] = useState({});
   useEffect(() => {
-    setProductDetails(productData[[product.get('p')]]);
-  }, [product.get('p')]);
+    setProductDetails(productData[[product.get("p")]]);
+  }, [product.get("p")]);
   const products = landingPageData.Products;
-  const categories = landingPageData.ProductCategories;
-  const [selectedCategory, setSelectedCategory] = useState("All");
-
-  const handleFilterClick = (category) => {
-    setSelectedCategory(category);
-  };
-
-  const filteredProducts =
-    selectedCategory === "All"
-      ? products
-      : products?.filter((product) => product?.Type === selectedCategory);
-  const typeCounts = products?.reduce((counts, product) => {
-    const type = product.Type;
-    counts[type] = (counts[type] || 0) + 1;
-    return counts;
-  }, {});
-
+  console.log(products && products["honey"]);
   return (
     <ProductsContainer>
-      <div className='container' data-aos='fade-up'>
-        <SectionTitle className='section-title'>
+      <div className="container" data-aos="fade-up">
+        <SectionTitle className="section-title">
           <h2>{productDetails.pTitle}</h2>
           <p>Explore our Products.</p>
         </SectionTitle>
         <IntroSection>
           <IntroImage
             style={{ width: "40%" }}
-            src={mainHoney}
-            alt='Intro Image'
+            src={productDetails.pimage}
+            alt="Intro Image"
           />
           <IntroDescription>
             <h3>Product Introduction</h3>
@@ -203,19 +196,25 @@ const Products = () => {
             </p>
           </IntroDescription>
         </IntroSection>
-        <section id='portfolio' className='portfolio'>
-          <div className='container'>
-            <PortfolioContainer data-aos='fade-up'>
-              {filteredProducts &&
-                filteredProducts.map((product) => (
+        <section id="portfolio" className="portfolio">
+          <div className="container">
+            <PortfolioContainer data-aos="fade-up">
+              {products &&
+                products[productDetails.pUrlParam].map((product) => (
                   <PortfolioItem
                     key={product.ID}
-                    className={`col-lg-12 col-md-12 portfolio-item filter-${product.Type}`}>
-                    <div className='portfolio-wrap hover-bg'>
-                      <div className='hover-text'>
+                    className={`col-lg-12 col-md-12 portfolio-item filter-${product.Type}`}
+                  >
+                    <div className="portfolio-wrap hover-bg">
+                      <div className="hover-text">
                         <h4>{product.ProductTitle}</h4>
                       </div>
-                      <PortfolioImage src={`${product.FeaturedImage}`} alt='' />
+                      <PortfolioImgWrapper>
+                        <PortfolioImage
+                          src={`${product.FeaturedImage}`}
+                          alt=""
+                        />
+                      </PortfolioImgWrapper>
                       <PortfolioInfo>
                         <PortfolioTitle>{product.ProductTitle}</PortfolioTitle>
                         <PortfolioType>{product.Type}</PortfolioType>
@@ -227,7 +226,6 @@ const Products = () => {
           </div>
         </section>
       </div>
-      <Footer in={"in"} />
     </ProductsContainer>
   );
 };

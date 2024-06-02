@@ -162,32 +162,142 @@
       "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
     }
   ],
-   "ProductCategories": [{
-    "categoryId": 1,
-    "categoryName": "All",
-    "categoryFilter": "all"
-  }, {
-    "categoryId": 2,
-    "categoryName": "Lentils",
-    "categoryFilter": "lentils"
-  }, {
-    "categoryId": 3,
-    "categoryName": "Millets",
-    "categoryFilter": "millets"
-  }, {
-    "categoryId": 4,
-    "categoryName": "Paper Products",
-    "categoryFilter": "paper"
-  }],
-  "Products":[
-    { "ID": 1, "ProductTitle": "Product 1", "Type": "Millets", "FeaturedImage": "img/catalog/ghee.jpg" },
-    { "ID": 2, "ProductTitle": "Product 2", "Type": "Lentils", "FeaturedImage": "img/catalog/millets.jpg" },
-    { "ID": 3, "ProductTitle": "Product 3", "Type": "Paper Products", "FeaturedImage":  "img/catalog/ghee.jpg" },
-    { "ID": 4, "ProductTitle": "Product 4", "Type": "Millets", "FeaturedImage":  "img/catalog/millets.jpg" },
-    { "ID": 5, "ProductTitle": "Product 5", "Type": "Lentils", "FeaturedImage":  "img/catalog/ghee.jpg" },
-    { "ID": 6, "ProductTitle": "Product 6", "Type": "Millets", "FeaturedImage":  "img/catalog/millets.jpg" },
-    { "ID": 7, "ProductTitle": "Product 7", "Type": "Paper Products", "FeaturedImage":  "img/catalog/ghee.jpg" },
-    { "ID": 8, "ProductTitle": "Product 8", "Type": "Millets", "FeaturedImage":  "img/catalog/millets.jpg" },
-    { "ID": 9, "ProductTitle": "Product 9", "Type": "Millets", "FeaturedImage":  "img/catalog/ghee.jpg" }
-  ]
+  "ProductCategories": [
+    {
+      "categoryId": 1,
+      "categoryName": "All",
+      "categoryFilter": "all"
+    },
+    {
+      "categoryId": 2,
+      "categoryName": "Lentils",
+      "categoryFilter": "lentils"
+    },
+    {
+      "categoryId": 3,
+      "categoryName": "Millets",
+      "categoryFilter": "millets"
+    },
+    {
+      "categoryId": 4,
+      "categoryName": "Paper Products",
+      "categoryFilter": "paper"
+    }
+  ],
+  "Products": {
+    "honey": [
+      {
+        "ID": 1,
+        "ProductTitle": "Product 1",
+        "Type": "Honey",
+        "FeaturedImage": "img/products/honey (8).jpg"
+      },
+      {
+        "ID": 2,
+        "ProductTitle": "Product 2",
+        "Type": "Honey",
+        "FeaturedImage": "img/products/honey (3).jpg"
+      },
+      {
+        "ID": 3,
+        "ProductTitle": "Product 3",
+        "Type": "Honey",
+        "FeaturedImage": "img/products/honey (4).jpg"
+      },
+      {
+        "ID": 4,
+        "ProductTitle": "Product 4",
+        "Type": "Honey",
+        "FeaturedImage": "img/products/honey (5).jpg"
+      },
+      {
+        "ID": 5,
+        "ProductTitle": "Product 5",
+        "Type": "Honey",
+        "FeaturedImage": "img/products/honey (6).jpg"
+      },
+      {
+        "ID": 6,
+        "ProductTitle": "Product 6",
+        "Type": "Honey",
+        "FeaturedImage": "img/products/honey (7).jpg"
+      }
+    ],
+    "a2ghee": [
+      {
+        "ID": 1,
+        "ProductTitle": "Product 1",
+        "Type": "Ghee",
+        "FeaturedImage": "img/products/ghee (2).jpg"
+      },
+      {
+        "ID": 2,
+        "ProductTitle": "Product 2",
+        "Type": "Ghee",
+        "FeaturedImage": "img/products/ghee (3).jpg"
+      },
+      {
+        "ID": 3,
+        "ProductTitle": "Product 3",
+        "Type": "Ghee",
+        "FeaturedImage": "img/products/ghee (4).jpg"
+      },
+      {
+        "ID": 4,
+        "ProductTitle": "Product 4",
+        "Type": "Ghee",
+        "FeaturedImage": "img/products/ghee (5).jpg"
+      },
+      {
+        "ID": 5,
+        "ProductTitle": "Product 5",
+        "Type": "Ghee",
+        "FeaturedImage": "img/products/ghee (6).jpg"
+      },
+      {
+        "ID": 6,
+        "ProductTitle": "Product 6",
+        "Type": "Ghee",
+        "FeaturedImage": "img/products/ghee (7).jpg"
+      }
+    ],
+    "millets": [
+      {
+        "ID": 1,
+        "ProductTitle": "Product 1",
+        "Type": "Millets",
+        "FeaturedImage": "img/products/millets (1).jpg"
+      },
+      {
+        "ID": 2,
+        "ProductTitle": "Product 2",
+        "Type": "Millets",
+        "FeaturedImage": "img/products/millets (1).jpeg"
+      },
+      {
+        "ID": 3,
+        "ProductTitle": "Product 3",
+        "Type": "Millets",
+        "FeaturedImage": "img/products/millets (2).jpeg"
+      },
+      {
+        "ID": 4,
+        "ProductTitle": "Product 4",
+        "Type": "Millets",
+        "FeaturedImage": "img/products/millets (3).jpeg"
+      },
+      {
+        "ID": 5,
+        "ProductTitle": "Product 5",
+        "Type": "Millets",
+        "FeaturedImage": "img/products/millets (4).jpeg"
+      },
+      {
+        "ID": 6,
+        "ProductTitle": "Product 6",
+        "Type": "Millets",
+        "FeaturedImage": "img/products/millets (5).jpeg"
+      }
+    ]
+  }
 }
