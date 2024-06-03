@@ -26,17 +26,20 @@
     {
       "title": "A2 Cow Ghee",
       "largeImage": "img/catalog/ghee.jpg",
-      "smallImage": "img/catalog/ghee.jpg"
+      "smallImage": "img/catalog/ghee.jpg",
+      "productPageUrl": "/products?p=a2ghee"
     },
     {
       "title": "Honey",
       "largeImage": "img/catalog/honey.jpg",
-      "smallImage": "img/catalog/honey.jpg"
+      "smallImage": "img/catalog/honey.jpg",
+      "productPageUrl": "/products?p=honey"
     },
     {
-      "title": "Millets",
+      "title": "Lentils",
       "largeImage": "img/catalog/millets.jpg",
-      "smallImage": "img/catalog/millets.jpg"
+      "smallImage": "img/catalog/millets.jpg",
+      "productPageUrl": "/products?p=lentils"
     }
   ],
   "Services": [
@@ -165,23 +168,43 @@
   "ProductCategories": [
     {
       "categoryId": 1,
-      "categoryName": "All",
-      "categoryFilter": "all"
+      "categoryName": "A-2 Cow Ghee",
+      "categoryUrl": "/products?p=a2ghee"
     },
     {
       "categoryId": 2,
-      "categoryName": "Lentils",
-      "categoryFilter": "lentils"
+      "categoryName": "Natural & raw honey",
+      "categoryUrl": "/products?p=honey"
     },
     {
       "categoryId": 3,
-      "categoryName": "Millets",
-      "categoryFilter": "millets"
+      "categoryName": "Lentils & Cereals",
+      "categoryUrl": "/products?p=lentils"
+    },
+     {
+      "categoryId": 4,
+      "categoryName": "Snacks & Namkeens",
+      "categoryUrl": "/products?p=snacks"
     },
     {
-      "categoryId": 4,
-      "categoryName": "Paper Products",
-      "categoryFilter": "paper"
+      "categoryId": 5,
+      "categoryName": "Paper packaging products",
+      "categoryUrl": "/products?p=paper"
+    },
+    {
+      "categoryId": 6,
+      "categoryName": "Sugarcane bagasse tableware",
+      "categoryUrl": "/products?p=sbt"
+    },
+    {
+      "categoryId": 7,
+      "categoryName": "Vermicompost fertilizer",
+      "categoryUrl": "/products?p=fertilizer"
+    },
+    {
+      "categoryId": 8,
+      "categoryName": "Wooden furniture",
+      "categoryUrl": "/products?p=furniture"
     }
   ],
   "Products": {
@@ -261,42 +284,232 @@
         "FeaturedImage": "img/products/ghee (7).jpg"
       }
     ],
-    "millets": [
+    "lentils": [
       {
         "ID": 1,
         "ProductTitle": "Product 1",
-        "Type": "Millets",
+        "Type": "Lentils",
         "FeaturedImage": "img/products/millets (1).jpg"
       },
       {
         "ID": 2,
         "ProductTitle": "Product 2",
-        "Type": "Millets",
+        "Type": "Lentils",
         "FeaturedImage": "img/products/millets (1).jpeg"
       },
       {
         "ID": 3,
         "ProductTitle": "Product 3",
-        "Type": "Millets",
+        "Type": "Lentils",
+        "FeaturedImage": "img/products/millets (2).jpeg"
+      },
+      {
+        "ID": 4,
+        "ProductTitle": "Ragi Millets",
+        "Type": "Lentils",
+        "FeaturedImage": "img/products/millets (6).jpg"
+      },
+      {
+        "ID": 5,
+        "ProductTitle": "Red Lentils",
+        "Type": "Lentils",
+        "FeaturedImage": "img/products/millets (7).jpg"
+      },
+      {
+        "ID": 6,
+        "ProductTitle": "Sorghum Millet",
+        "Type": "Lentils",
+        "FeaturedImage": "img/products/millets (8).jpg"
+      }
+    ],
+    "snacks": [
+      {
+        "ID": 1,
+        "ProductTitle": "Dry Snacks",
+        "Type": "Snacks",
+        "FeaturedImage": "img/products/dry snacks.jpg"
+      },
+      {
+        "ID": 2,
+        "ProductTitle": "Masala Boondi",
+        "Type": "Snacks",
+        "FeaturedImage": "img/products/masala boondi namkeen.jpg"
+      },
+      {
+        "ID": 3,
+        "ProductTitle": "Nadiyadi Mix",
+        "Type": "Snacks",
+        "FeaturedImage": "img/products/nadayadi mix namkeen.jpg"
+      },
+      {
+        "ID": 4,
+        "ProductTitle": "Ratlami Sev",
+        "Type": "Snacks",
+        "FeaturedImage": "img/products/ratlami sev namkeen.jpg"
+      },
+      {
+        "ID": 5,
+        "ProductTitle": "Wheat Chips",
+        "Type": "Snacks",
+        "FeaturedImage": "img/products/rectangle wheat chips.jpg"
+      },
+      {
+        "ID": 6,
+        "ProductTitle": "Rice Crackers",
+        "Type": "Snacks",
+        "FeaturedImage": "img/products/rice crackers.jpg"
+      }
+    ],
+    "paper": [
+      {
+        "ID": 1,
+        "ProductTitle": "Product 1",
+        "Type": "Paper Product",
+        "FeaturedImage": "img/products/millets (1).jpg"
+      },
+      {
+        "ID": 2,
+        "ProductTitle": "Product 2",
+        "Type": "Paper Product",
+        "FeaturedImage": "img/products/millets (1).jpeg"
+      },
+      {
+        "ID": 3,
+        "ProductTitle": "Product 3",
+        "Type": "Paper Product",
         "FeaturedImage": "img/products/millets (2).jpeg"
       },
       {
         "ID": 4,
         "ProductTitle": "Product 4",
-        "Type": "Millets",
+        "Type": "Paper Product",
         "FeaturedImage": "img/products/millets (3).jpeg"
       },
       {
         "ID": 5,
         "ProductTitle": "Product 5",
-        "Type": "Millets",
+        "Type": "Paper Product",
         "FeaturedImage": "img/products/millets (4).jpeg"
       },
       {
         "ID": 6,
         "ProductTitle": "Product 6",
-        "Type": "Millets",
+        "Type": "Paper Product",
         "FeaturedImage": "img/products/millets (5).jpeg"
+      }
+    ],
+    "sbt": [
+      {
+        "ID": 1,
+        "ProductTitle": "Sugarcane bagasse tray",
+        "Type": "Sugarcane",
+        "FeaturedImage": "img/products/sugarcane bagasse tray.jpg"
+      },
+      {
+        "ID": 2,
+        "ProductTitle": "Sugarcane bagasse plates",
+        "Type": "Sugarcane",
+        "FeaturedImage": "img/products/sugarcane bagasse plates.jpg"
+      },
+      {
+        "ID": 3,
+        "ProductTitle": "Sugarcane bagasse egg tray",
+        "Type": "Sugarcane",
+        "FeaturedImage": "img/products/sugarcane bagasse egg tray.jpg"
+      },
+      {
+        "ID": 4,
+        "ProductTitle": "Sugarcane bagasse cutlery",
+        "Type": "Sugarcane",
+        "FeaturedImage": "img/products/sugarcane bagasse cutlery.jpg"
+      },
+      {
+        "ID": 5,
+        "ProductTitle": "Sugarcane bagasse tableware",
+        "Type": "Sugarcane",
+        "FeaturedImage": "img/products/bagasse tableware.jpg"
+      },
+      {
+        "ID": 6,
+        "ProductTitle": "Sugarcane bagasse bowls",
+        "Type": "Sugarcane",
+        "FeaturedImage": "img/products/sugarcane bagasse bowls.jpg"
+      }
+    ],
+    "fertilizer": [
+      {
+        "ID": 1,
+        "ProductTitle": "Product 1",
+        "Type": "Fertilizer",
+        "FeaturedImage": "img/products/millets (1).jpg"
+      },
+      {
+        "ID": 2,
+        "ProductTitle": "Product 2",
+        "Type": "Fertilizer",
+        "FeaturedImage": "img/products/millets (1).jpeg"
+      },
+      {
+        "ID": 3,
+        "ProductTitle": "Product 3",
+        "Type": "Fertilizer",
+        "FeaturedImage": "img/products/millets (2).jpeg"
+      },
+      {
+        "ID": 4,
+        "ProductTitle": "Product 4",
+        "Type": "Fertilizer",
+        "FeaturedImage": "img/products/millets (3).jpeg"
+      },
+      {
+        "ID": 5,
+        "ProductTitle": "Product 5",
+        "Type": "Fertilizer",
+        "FeaturedImage": "img/products/millets (4).jpeg"
+      },
+      {
+        "ID": 6,
+        "ProductTitle": "Product 6",
+        "Type": "Fertilizer",
+        "FeaturedImage": "img/products/millets (5).jpeg"
+      }
+    ],
+    "furniture": [
+      {
+        "ID": 1,
+        "ProductTitle": "Wooden bookshelf",
+        "Type": "Furniture",
+        "FeaturedImage": "img/products/wooden bookshelf.jpg"
+      },
+      {
+        "ID": 2,
+        "ProductTitle": "Wooden TV unit",
+        "Type": "Furniture",
+        "FeaturedImage": "img/products/wooden tv unit.jpg"
+      },
+      {
+        "ID": 3,
+        "ProductTitle": "Wooden cabinets and sideboards",
+        "Type": "Furniture",
+        "FeaturedImage": "img/products/wooden cabinets and sideboards.jpg"
+      },
+      {
+        "ID": 4,
+        "ProductTitle": "Wooden sofaas",
+        "Type": "Furniture",
+        "FeaturedImage": "img/products/wooden sofaas.jpg"
+      },
+      {
+        "ID": 5,
+        "ProductTitle": "Wooden dinning and chairs",
+        "Type": "Furniture",
+        "FeaturedImage": "img/products/wooden dinning and chairs.jpg"
+      },
+      {
+        "ID": 6,
+        "ProductTitle": "Wooden center table",
+        "Type": "Furniture",
+        "FeaturedImage": "img/products/wooden center table.jpg"
       }
     ]
   }

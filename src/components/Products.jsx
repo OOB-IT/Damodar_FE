@@ -6,6 +6,10 @@ import Footer from "./Footer";
 import mainHoney from "../asset/product/mainHoney.jpg";
 import ghee from "../asset/product/ghee (1).jpg";
 import millets from "../asset/product/millets.jpg";
+import snacks from "../asset/product/dry snacks.jpg";
+import paper from "../asset/product/Paper.jpeg";
+import sbt from "../asset/product/sugarcane bagasse compartment meal tray.jpg";
+import furniture from "../asset/product/wooden bed.jpg";
 
 const ProductsContainer = styled.div`
   padding: 150px 0 0 0;
@@ -136,27 +140,67 @@ const PortfolioType = styled.p`
 
 const Products = () => {
   const productData = {
-    honey: {
-      pId: 1,
-      pUrlParam: "honey",
-      pTitle: "Honey",
-      pimage: mainHoney,
-      pMetaDesc: "",
-      pDesc: "",
-    },
     a2ghee: {
-      pId: 2,
+      pId: 1,
       pUrlParam: "a2ghee",
-      pTitle: "A2 Ghee",
+      pTitle: "A-2 Cow Ghee",
       pimage: ghee,
       pMetaDesc: "",
       pDesc: "",
     },
-    millets: {
+    honey: {
+      pId: 2,
+      pUrlParam: "honey",
+      pTitle: "Natural & raw honey",
+      pimage: mainHoney,
+      pMetaDesc: "",
+      pDesc: "",
+    },
+    lentils: {
       pId: 3,
-      pUrlParam: "millets",
-      pTitle: "Millets",
+      pUrlParam: "lentils",
+      pTitle: "Lentils & Cereals",
       pimage: millets,
+      pMetaDesc: "",
+      pDesc: "As a leading exporter from India, we take pride in offering a diverse range of high-quality lentils and cereals to the global market. Cultivated in the fertile soils of India and carefully selected, our products bring the authentic taste and nutritional benefits of Indian agriculture to your table.",
+    },
+    snacks: {
+      pId: 4,
+      pUrlParam: "snacks",
+      pTitle: "Snacks & Namkeens",
+      pimage: snacks,
+      pMetaDesc: "",
+      pDesc: "",
+    },
+    paper: {
+      pId: 5,
+      pUrlParam: "paper",
+      pTitle: "Paper packaging products",
+      pimage: paper,
+      pMetaDesc: "",
+      pDesc: "We understand the diverse needs of our global customers and offer customized packaging solutions to meet your specific requirements. Whether you need bulk packaging for commercial use or smaller, convenient packs for individual consumption, we have flexible options to suit your needs.",
+    },
+    sbt: {
+      pId: 6,
+      pUrlParam: "sbt",
+      pTitle: "Sugarcane bagasse tableware",
+      pimage: sbt,
+      pMetaDesc: "",
+      pDesc: "",
+    },
+    fertilizer: {
+      pId: 7,
+      pUrlParam: "fertilizer",
+      pTitle: "Vermicompost fertilizer",
+      pimage: millets,
+      pMetaesc: "",
+      pDesc: "",
+    },
+    furniture: {
+      pId: 8,
+      pUrlParam: "furniture",
+      pTitle: "Wooden furniture",
+      pimage: furniture,
       pMetaDesc: "",
       pDesc: "",
     },
@@ -173,7 +217,7 @@ const Products = () => {
     setProductDetails(productData[[product.get("p")]]);
   }, [product.get("p")]);
   const products = landingPageData.Products;
-  console.log(products && products["honey"]);
+  console.log(productDetails);
   return (
     <ProductsContainer>
       <div className="container" data-aos="fade-up">
@@ -189,11 +233,7 @@ const Products = () => {
           />
           <IntroDescription>
             <h3>Product Introduction</h3>
-            <p>
-              This is an introductory section for the products. It provides a
-              brief overview of what customers can expect from the product
-              offerings.
-            </p>
+            <p>{productDetails.pDesc ? productDetails.pDesc : "Lorem ipsum"}</p>
           </IntroDescription>
         </IntroSection>
         <section id="portfolio" className="portfolio">

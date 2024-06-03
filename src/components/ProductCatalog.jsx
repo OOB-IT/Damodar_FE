@@ -22,7 +22,7 @@ export const ProductCatalog = (props) => {
                 >
                   <Image
                     title={d.title}
-                    largeImage={d.largeImage}
+                    productPageUrl={d.productPageUrl}
                     smallImage={d.smallImage}
                   />
                 </div>

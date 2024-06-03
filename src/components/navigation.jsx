@@ -4,6 +4,7 @@ import useViewType from "../utils/useViewType";
 
 import logo from "../asset/logo.png";
 import TitleBar from "./TitleBar";
+import JsonData from "../data/data.json";
 
 export const Navigation = () => {
   const navigate = useNavigate(); // useNavigate hook
@@ -41,7 +42,12 @@ export const Navigation = () => {
     if (navbarToggler.classList.contains("collapsed")) return; // Navbar is already collapsed
     navbarToggler.click(); // Click to collapse the navbar
   };
+  const [landingPageData, setLandingPageData] = useState({});
+  useEffect(() => {
+    setLandingPageData(JsonData);
+  }, []);
 
+  const categories = landingPageData.ProductCategories;
   return (
     <>
       {location.pathname === "/" && viewType === "desktop" ? <TitleBar /> : " "}
@@ -140,19 +146,11 @@ export const Navigation = () => {
                   Products <span className='caret'></span>
                 </a>
                 <ul className='dropdown-menu'>
-                  <li>
-                    <Link to='/products?p=honey'>Honey</Link>
-                  </li>
-                  <li>
-                    <Link to='/products?p=a2ghee'>A2 cow Ghee</Link>
-                  </li>
-                  <li>
-                    <Link
-                      to='/products?p=millets'
-                    >
-                      Millets
-                    </Link>
-                  </li>
+                  {categories &&
+                    categories.map((category) => (
+                      <li>
+                        <Link key={category.categoryUrl} to={category.categoryUrl}>{category.categoryName}</Link>
+                      </li>))}
                 </ul>
               </li>
 
