@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 import JsonData from "../data/data.json";
-import Footer from "./Footer";
 import mainHoney from "../asset/product/mainHoney.jpg";
 import ghee from "../asset/product/ghee (1).jpg";
 import millets from "../asset/product/millets.jpg";
 import snacks from "../asset/product/dry snacks.jpg";
-import paper from "../asset/product/Paper.jpeg";
+import paper from "../asset/product/cup.jpg";
 import sbt from "../asset/product/sugarcane bagasse compartment meal tray.jpg";
 import furniture from "../asset/product/wooden bed.jpg";
+import fertilizer from "../asset/product/vermicompost smooth and natural.jpg"
 
 const ProductsContainer = styled.div`
   padding: 150px 0 0 0;
@@ -192,7 +192,7 @@ const Products = () => {
       pId: 7,
       pUrlParam: "fertilizer",
       pTitle: "Vermicompost fertilizer",
-      pimage: millets,
+      pimage: fertilizer,
       pMetaesc: "",
       pDesc: "",
     },

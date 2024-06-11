@@ -1,4 +1,18 @@
 {
+  "CompanyPage": {
+    "mainDesc": "At Damodarr Global Venture LLP, we are dedicated to delivering excellence in global trade. With a focus on quality, reliability, and customer satisfaction, we specialize in exporting a diverse range of high-quality products worldwide.",
+    "comprehensiveExportSolutions": "Comprehensive Export Solutions: From sourcing to shipping, we manage every aspect of the export process with precision and care.",
+    "customizedPackaging": "Customized Packaging: Tailored to meet your specific needs, our packaging solutions ensure your products arrive in perfect condition, every time.",
+    "regulatoryComplaince": "Regulatory Compliance: We navigate complex international regulations to ensure smooth, hassle-free transactions.",
+    "whyChooseTitle": "Why Choose Us?",
+    "whyChooseP1": "Trusted Quality: Our commitment to premium quality and rigorous quality control measures ensure you receive only the best products.",
+    "whyChooseP2": "Global Network: Leveraging our extensive network, we open doors to new markets and opportunities for your business.",
+    "whyChooseP3": "Proven Expertise: With years of experience, we bring unparalleled knowledge and expertise to every partnership.",
+    "keyPhrases": "Global Export Partner | Premium Quality | Reliable Shipping | Customized Packaging | Regulatory Compliance",
+    "discover1": "Discover the Damodarr Global Venture LLP difference – where your global trade needs are met with excellence and reliability.",
+    "discover2": "Join us and experience the benefits of a trusted export partner. Let's grow together!",
+    "contactUs": "Contact us today to learn more about how we can support your business needs."
+  },
   "Header": {
     "title": "Damodarr",
     "paragraph": "Global Venture LLP",
@@ -181,7 +195,7 @@
       "categoryName": "Lentils & Cereals",
       "categoryUrl": "/products?p=lentils"
     },
-     {
+    {
       "categoryId": 4,
       "categoryName": "Snacks & Namkeens",
       "categoryUrl": "/products?p=snacks"
@@ -363,39 +377,39 @@
     "paper": [
       {
         "ID": 1,
-        "ProductTitle": "Product 1",
+        "ProductTitle": "Premium paper bags",
         "Type": "Paper Product",
-        "FeaturedImage": "img/products/millets (1).jpg"
+        "FeaturedImage": "img/products/premium paper bags .jpg"
       },
       {
         "ID": 2,
-        "ProductTitle": "Product 2",
+        "ProductTitle": "Paper tubes and cores",
         "Type": "Paper Product",
-        "FeaturedImage": "img/products/millets (1).jpeg"
+        "FeaturedImage": "img/products/paper tubes and cores.jpg"
       },
       {
         "ID": 3,
-        "ProductTitle": "Product 3",
+        "ProductTitle": "Paper cups",
         "Type": "Paper Product",
-        "FeaturedImage": "img/products/millets (2).jpeg"
+        "FeaturedImage": "img/products/paper cups.jpg"
       },
       {
         "ID": 4,
-        "ProductTitle": "Product 4",
+        "ProductTitle": "Paper wraps",
         "Type": "Paper Product",
-        "FeaturedImage": "img/products/millets (3).jpeg"
+        "FeaturedImage": "img/products/paper wraps .jpg"
       },
       {
         "ID": 5,
-        "ProductTitle": "Product 5",
+        "ProductTitle": "Folding cartons",
         "Type": "Paper Product",
-        "FeaturedImage": "img/products/millets (4).jpeg"
+        "FeaturedImage": "img/products/folding cartons.jpg"
       },
       {
         "ID": 6,
-        "ProductTitle": "Product 6",
+        "ProductTitle": "Fertilizer cultivation process",
         "Type": "Paper Product",
-        "FeaturedImage": "img/products/millets (5).jpeg"
+        "FeaturedImage": "img/products/fertilizer cultivation process.jpg"
       }
     ],
     "sbt": [
@@ -439,39 +453,39 @@
     "fertilizer": [
       {
         "ID": 1,
-        "ProductTitle": "Product 1",
+        "ProductTitle": "Healthy Worms",
         "Type": "Fertilizer",
-        "FeaturedImage": "img/products/millets (1).jpg"
+        "FeaturedImage": "img/products/healthy worms.jpg"
       },
       {
         "ID": 2,
-        "ProductTitle": "Product 2",
+        "ProductTitle": "Fresh vermicompost",
         "Type": "Fertilizer",
-        "FeaturedImage": "img/products/millets (1).jpeg"
+        "FeaturedImage": "img/products/fresh vermicompost.jpg"
       },
       {
         "ID": 3,
-        "ProductTitle": "Product 3",
+        "ProductTitle": "Vermicompost quality packing",
         "Type": "Fertilizer",
-        "FeaturedImage": "img/products/millets (2).jpeg"
+        "FeaturedImage": "img/products/vermicompost quality packing.jpg"
       },
       {
         "ID": 4,
-        "ProductTitle": "Product 4",
+        "ProductTitle": "Vermicompost for organic farming",
         "Type": "Fertilizer",
-        "FeaturedImage": "img/products/millets (3).jpeg"
+        "FeaturedImage": "img/products/vermicompost for organic farming.jpg"
       },
       {
         "ID": 5,
-        "ProductTitle": "Product 5",
+        "ProductTitle": "Vermicompost export in jumbo",
         "Type": "Fertilizer",
-        "FeaturedImage": "img/products/millets (4).jpeg"
+        "FeaturedImage": "img/products/vermicompost export in jumbo.jpg"
       },
       {
         "ID": 6,
-        "ProductTitle": "Product 6",
+        "ProductTitle": "Fertilizer cultivation process",
         "Type": "Fertilizer",
-        "FeaturedImage": "img/products/millets (5).jpeg"
+        "FeaturedImage": "img/products/fertilizer cultivation process.jpg"
       }
     ],
     "furniture": [

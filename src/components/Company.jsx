@@ -30,7 +30,7 @@ const Company = () => {
     setLandingPageData(JsonData);
   }, []);
 
-  const data = landingPageData.About;
+  const data = landingPageData.CompanyPage;
   const fdata = landingPageData.Features;
 
   return (
@@ -48,8 +48,25 @@ const Company = () => {
         <section id="company" className="portfolio company">
           <AboutText>
             <div className="about-text">
-              <p>{data ? data.paragraph1 + data.paragraph2 : "loading..."}</p>
-              <p>{data ? data.paragraph3 + data.paragraph4 : "loading..."}</p>
+              <p>{data ? data.mainDesc : "loading..."}</p>
+              <h3>Our Services</h3>
+              <div className="">
+                <p>{data ? data.comprehensiveExportSolutions : "loading..."}</p>
+                <p>{data ? data.customizedPackaging : "loading..."}</p>
+                <p>{data ? data.regulatoryComplaince : "loading..."}</p>
+              </div>
+              <h3>{data ? data.whyChooseTitle : "loading..."}</h3>
+              <div className="">
+                <p>{data ? data.whyChooseP1 : "loading..."}</p>
+                <p>{data ? data.whyChooseP2 : "loading..."}</p>
+                <p>{data ? data.whyChooseP3 : "loading..."}</p>
+              </div>
+              <br />
+              <h5>{data ? data.keyPhrases : "loading..."}</h5>
+              <br />
+              <p>{data ? data.discover1 : "loading..."}</p>
+              <p>{data ? data.discover2 : "loading..."}</p>
+              {/* <p>{data ? data.paragraph3 + data.paragraph4 : "loading..."}</p> */}
             </div>
           </AboutText>
 
