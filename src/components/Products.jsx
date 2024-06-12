@@ -9,7 +9,7 @@ import snacks from "../asset/product/dry snacks.jpg";
 import paper from "../asset/product/cup.jpg";
 import sbt from "../asset/product/sugarcane bagasse compartment meal tray.jpg";
 import furniture from "../asset/product/wooden bed.jpg";
-import fertilizer from "../asset/product/vermicompost smooth and natural.jpg"
+import fertilizer from "../asset/product/vermicompost smooth and natural.jpg";
 
 const ProductsContainer = styled.div`
   padding: 150px 0 0 0;
@@ -146,7 +146,8 @@ const Products = () => {
       pTitle: "A-2 Cow Ghee",
       pimage: ghee,
       pMetaDesc: "",
-      pDesc: "",
+      pDesc:
+        "As a leading exporter from India, we proudly present our A-2 Pure Cow Ghee to the world. Sourced from indigenous A-2 cows, our ghee is a rich, golden treasure crafted using traditional methods to retain its natural goodness.",
     },
     honey: {
       pId: 2,
@@ -154,7 +155,8 @@ const Products = () => {
       pTitle: "Natural & raw honey",
       pimage: mainHoney,
       pMetaDesc: "",
-      pDesc: "",
+      pDesc:
+        "As a premier exporter from India, we are delighted to offer the world our exquisite Natural and Raw Honey. Harvested from the untouched forests and pristine farms of India, our honey is a testament to purity and natural goodness, free from additives and processing.",
     },
     lentils: {
       pId: 3,
@@ -162,7 +164,8 @@ const Products = () => {
       pTitle: "Lentils & Cereals",
       pimage: millets,
       pMetaDesc: "",
-      pDesc: "As a leading exporter from India, we take pride in offering a diverse range of high-quality lentils and cereals to the global market. Cultivated in the fertile soils of India and carefully selected, our products bring the authentic taste and nutritional benefits of Indian agriculture to your table.",
+      pDesc:
+        "As a leading exporter from India, we take pride in offering a diverse range of high-quality lentils and cereals to the global market. Cultivated in the fertile soils of India and carefully selected, our products bring the authentic taste and nutritional benefits of Indian agriculture to your table.",
     },
     snacks: {
       pId: 4,
@@ -170,7 +173,8 @@ const Products = () => {
       pTitle: "Snacks & Namkeens",
       pimage: snacks,
       pMetaDesc: "",
-      pDesc: "",
+      pDesc:
+        "As a premier exporter from India, we are excited to bring the delightful and diverse range of Indian snacks and namkeens to the global market. Our products are crafted using traditional recipes and the finest ingredients, ensuring an authentic taste that celebrates India's rich culinary heritage.",
     },
     paper: {
       pId: 5,
@@ -178,7 +182,8 @@ const Products = () => {
       pTitle: "Paper packaging products",
       pimage: paper,
       pMetaDesc: "",
-      pDesc: "We understand the diverse needs of our global customers and offer customized packaging solutions to meet your specific requirements. Whether you need bulk packaging for commercial use or smaller, convenient packs for individual consumption, we have flexible options to suit your needs.",
+      pDesc:
+        "As a leading exporter from India, we are proud to offer a diverse selection of eco-friendly paper packaging products to the global market. Our products are crafted with precision and care, using sustainable materials to meet the growing demand for environmentally conscious packaging solutions.",
     },
     sbt: {
       pId: 6,
@@ -186,7 +191,8 @@ const Products = () => {
       pTitle: "Sugarcane bagasse tableware",
       pimage: sbt,
       pMetaDesc: "",
-      pDesc: "",
+      pDesc:
+        "As a leading exporter from India, we are delighted to offer a comprehensive range of eco-friendly sugarcane bagasse tableware products to the global market. Made from the byproducts of sugarcane processing, our tableware is a sustainable and biodegradable alternative to conventional plastic and Styrofoam products, contributing to a greener planet.",
     },
     fertilizer: {
       pId: 7,
@@ -194,14 +200,16 @@ const Products = () => {
       pTitle: "Vermicompost fertilizer",
       pimage: fertilizer,
       pMetaesc: "",
-      pDesc: "",
+      pDesc:
+        "As a leading exporter from India, we are proud to offer our top-grade vermicompost fertilizer to the global market, with a special focus on Middle Eastern countries. Our vermicompost is produced using organic waste and earthworms, resulting in a nutrient-rich, eco-friendly fertilizer that promotes healthy soil and robust plant growth.",
     },
     furniture: {
       pId: 8,
       pUrlParam: "furniture",
       pTitle: "Wooden furniture",
       pimage: furniture,
-      pMetaDesc: "",
+      pMetaDesc:
+        "As a leading exporter from India, we are delighted to present our exquisite collection of wooden furniture, crafted with precision and elegance to cater to global tastes. Our furniture range includes beds, sofas, TV units, center tables, dining tables with chairs, wardrobes, cabinets, sideboards, and wine racks, all made from high-quality wood to ensure durability and timeless beauty.",
       pDesc: "",
     },
   };
@@ -233,7 +241,7 @@ const Products = () => {
           />
           <IntroDescription>
             <h3>Product Introduction</h3>
-            <p>{productDetails.pDesc ? productDetails.pDesc : "Lorem ipsum"}</p>
+            <p>{productDetails.pDesc ? productDetails.pDesc : ""}</p>
           </IntroDescription>
         </IntroSection>
         <section id="portfolio" className="portfolio">

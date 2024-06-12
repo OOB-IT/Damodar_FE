@@ -36,26 +36,66 @@
       "Lorem ipsum dolor"
     ]
   },
+
   "ProductCatalog": [
     {
-      "title": "A2 Cow Ghee",
+      "title": "A-2 pure cow ghee",
+      "desc": "Pure and nutritious cow ghee for your culinary delights.",
       "largeImage": "img/catalog/ghee.jpg",
       "smallImage": "img/catalog/ghee.jpg",
       "productPageUrl": "/products?p=a2ghee"
     },
     {
-      "title": "Honey",
+      "title": "Natural & raw honey",
+      "desc": "Delicious natural honey straight from the hive to your table.",
       "largeImage": "img/catalog/honey.jpg",
       "smallImage": "img/catalog/honey.jpg",
       "productPageUrl": "/products?p=honey"
     },
     {
-      "title": "Lentils",
+      "title": "Lentils & cereals",
+      "desc": "Nutritious lentils and cereals for a healthy diet.",
       "largeImage": "img/catalog/millets.jpg",
       "smallImage": "img/catalog/millets.jpg",
       "productPageUrl": "/products?p=lentils"
+    },
+    {
+      "title": "Snacks & namkeens",
+      "desc": "Delicious snacks and namkeens to satisfy your cravings.",
+      "largeImage": "img/catalog/snak.jpg",
+      "smallImage": "img/catalog/snak.jpg",
+      "productPageUrl": "/products?p=snacks"
+    },
+    {
+      "title": "Paper packaging products",
+      "desc": "Eco-friendly paper packaging products for sustainable living.",
+      "largeImage": "img/catalog/paper.jpg",
+      "smallImage": "img/catalog/paper.jpg",
+      "productPageUrl": "/products?p=paper"
+    },
+    {
+      "title": "sugarcane bagasse tableware",
+      "desc": "Durable and eco-friendly tableware made from sugarcane.",
+      "largeImage": "img/catalog/suger.jpg",
+      "smallImage": "img/catalog/suger.jpg",
+      "productPageUrl": "/products?p=sbt"
+    },
+    {
+      "title": "vermicompost fertilizer",
+      "desc": "Organic vermicompost fertilizer for healthier plants.",
+      "largeImage": "img/catalog/ferti.jpg",
+      "smallImage": "img/catalog/ferti.jpg",
+      "productPageUrl": "/products?p=fertilizer"
+    },
+    {
+      "title": "wooden & furniture",
+      "desc": "High-quality wooden furniture for your home and office.",
+      "largeImage": "img/catalog/sofa.jpg",
+      "smallImage": "img/catalog/sofa.jpg",
+      "productPageUrl": "/products?p=furniture"
     }
   ],
+
   "Services": [
     {
       "icon": "fa fa-wordpress",

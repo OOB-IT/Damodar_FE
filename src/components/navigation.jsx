@@ -52,81 +52,87 @@ export const Navigation = () => {
     <>
       {location.pathname === "/" && viewType === "desktop" ? <TitleBar /> : " "}
       <nav
-        id='menu'
+        id="menu"
         style={{
           zIndex: "8",
           paddingTop:
             isScrolled && location.pathname === "/"
               ? "20px"
               : location.pathname === "/"
-                ? "40px"
-                : "20px",
+              ? "40px"
+              : "20px",
         }} // Update paddingTop based on scroll state
-        className='navbar navbar-default navbar-fixed-top'>
-        <div className='container'>
-          <div className='navbar-header'>
-            <div className='d-flex align-items-center'>
+        className="navbar navbar-default navbar-fixed-top"
+      >
+        <div className="container">
+          <div className="navbar-header">
+            <div className="d-flex align-items-center">
               <button
-                type='button'
-                className='navbar-toggle collapsed'
-                data-toggle='collapse'
-                data-target='#bs-example-navbar-collapse-1'>
+                type="button"
+                className="navbar-toggle collapsed"
+                data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1"
+              >
                 {" "}
-                <span className='sr-only'>Toggle navigation</span>{" "}
-                <span className='icon-bar'></span>{" "}
-                <span className='icon-bar'></span>{" "}
-                <span className='icon-bar'></span>{" "}
+                <span className="sr-only">Toggle navigation</span>{" "}
+                <span className="icon-bar"></span>{" "}
+                <span className="icon-bar"></span>{" "}
+                <span className="icon-bar"></span>{" "}
               </button>
               <Link
-                to='/'
-                className='navbar-brand page-scroll'
+                to="/"
+                className="navbar-brand page-scroll"
                 style={{
                   paddingTop: "5px",
                   display: "flex",
                   alignItems: "center",
-                }}>
+                }}
+              >
                 <img
                   src={logo}
                   style={{
                     maxHeight: "50px",
                     maxWidth: "200px",
                   }}
-                  alt='Logo'></img>
+                  alt="Logo"
+                ></img>
               </Link>{" "}
             </div>
           </div>
           <div
-            className='collapse navbar-collapse'
-            id='bs-example-navbar-collapse-1'>
-            <ul className='nav navbar-nav navbar-right'>
+            className="collapse navbar-collapse"
+            id="bs-example-navbar-collapse-1"
+          >
+            <ul className="nav navbar-nav navbar-right">
               <li>
                 <Link
-                  to='/'
+                  to="/"
                   onClick={() => handleNavItemClick("/")} // Close navbar on click and navigate to '/'
                 >
                   Home
                 </Link>
               </li>
-              <li className='dropdown'>
+              <li className="dropdown">
                 <a
-                  href='#'
-                  className='dropdown-toggle'
-                  data-toggle='dropdown'
-                  role='button'
-                  aria-haspopup='true'
-                  aria-expanded='false'>
-                  About <span className='caret'></span>
+                  href="#"
+                  className="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  About <span className="caret"></span>
                 </a>
-                <ul className='dropdown-menu'>
+                <ul className="dropdown-menu">
                   <li>
-                    <Link to='/company'>Company</Link>
+                    <Link to="/company">Company</Link>
                   </li>
                   <li>
-                    <Link to='/certificate'>Certificate</Link>
+                    <Link to="/certificate">Certificate</Link>
                   </li>
                   <li>
                     <Link
-                      to='/about-detail'
+                      to="/about-detail"
                       onClick={() => handleNavItemClick("/about-detail")} // Close navbar on click and navigate to '/about-detail'
                     >
                       Key Persons
@@ -135,22 +141,29 @@ export const Navigation = () => {
                 </ul>
               </li>
 
-              <li className='dropdown'>
+              <li className="dropdown">
                 <a
-                  href='#'
-                  className='dropdown-toggle'
-                  data-toggle='dropdown'
-                  role='button'
-                  aria-haspopup='true'
-                  aria-expanded='false'>
-                  Products <span className='caret'></span>
+                  href="#"
+                  className="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Products <span className="caret"></span>
                 </a>
-                <ul className='dropdown-menu'>
+                <ul className="dropdown-menu">
                   {categories &&
                     categories.map((category) => (
                       <li>
-                        <Link key={category.categoryUrl} to={category.categoryUrl}>{category.categoryName}</Link>
-                      </li>))}
+                        <Link
+                          key={category.categoryUrl}
+                          to={category.categoryUrl}
+                        >
+                          {category.categoryName}
+                        </Link>
+                      </li>
+                    ))}
                 </ul>
               </li>
 
@@ -164,7 +177,7 @@ export const Navigation = () => {
               </li> */}
               <li>
                 <Link
-                  to='/sourcing-agent'
+                  to="/sourcing-agent"
                   onClick={() => handleNavItemClick("/sourcing-agent")} // Close navbar on click and navigate to '/sourcing-agent'
                 >
                   Sourcing Agent
@@ -172,7 +185,7 @@ export const Navigation = () => {
               </li>
               {location.pathname === "/" && (
                 <li>
-                  <a href='#contact'>Contact Us</a>
+                  <a href="#contact">Contact Us</a>
                 </li>
               )}
               {/* <li>

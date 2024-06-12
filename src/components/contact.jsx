@@ -37,7 +37,7 @@ export const Contact = (props) => {
 
   const routeto = () => {
     window.open(
-      "https://fieo.globallinker.com/network/profile/darshit-patel/568516",
+      "https://fieo.globallinker.com/network/profile/darshit-patel/549022",
       "_blank"
     );
   };
@@ -153,18 +153,22 @@ export const Contact = (props) => {
               <div className="social">
                 <ul>
                   <li>
-                    <a href={props.data ? props.data.facebook : "/"}>
+                    <a
+                      href={
+                        "https://www.facebook.com/profile.php?id=61551837035808"
+                      }
+                    >
                       <i className="fa fa-facebook"></i>
                     </a>
                   </li>
                   <li>
-                    <a href={props.data ? props.data.linkedIn : "/"}>
+                    <a href={"https://www.linkedin.com/company/damodarr/"}>
                       <i className="fa fa-linkedin"></i>
                     </a>
                   </li>
                   <li>
-                    <a href={props.data ? props.data.youtube : "/"}>
-                      <i className="fa fa-youtube"></i>
+                    <a href={"https://wa.me/+919104403474"}>
+                      <i className="fa fa-whatsapp"></i>
                     </a>
                   </li>
                 </ul>

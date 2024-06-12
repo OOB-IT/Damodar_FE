@@ -229,12 +229,6 @@ a:focus,
   -o-background-size: cover;
 }
 
-@media (max-width: 600px) {
-  .intro {
-    margin-left: 20px; /* Apply margin-left only on screens up to 600px width (mobile view) */
-  }
-}
-
 .intro .overlay {
   background: rgba(0, 0, 0, 0.2);
 }
