@@ -40,56 +40,56 @@
   "ProductCatalog": [
     {
       "title": "A-2 pure cow ghee",
-      "desc": "Pure and nutritious cow ghee for your culinary delights.",
+      "desc": "Our A-2 pure cow ghee offers unmatched quality and rich, authentic flavor, perfect for culinary and health benefits.",
       "largeImage": "img/catalog/ghee.jpg",
       "smallImage": "img/catalog/ghee.jpg",
       "productPageUrl": "/products?p=a2ghee"
     },
     {
       "title": "Natural & raw honey",
-      "desc": "Delicious natural honey straight from the hive to your table.",
+      "desc": "Our honey is 100% natural and raw, harvested sustainably to ensure the highest purity and rich, natural sweetness.",
       "largeImage": "img/catalog/honey.jpg",
       "smallImage": "img/catalog/honey.jpg",
       "productPageUrl": "/products?p=honey"
     },
     {
       "title": "Lentils & cereals",
-      "desc": "Nutritious lentils and cereals for a healthy diet.",
+      "desc": "We provide a variety of high-quality lentils and cereals, rich in nutrients and perfect for diverse culinary applications.",
       "largeImage": "img/catalog/len.jpg",
       "smallImage": "img/catalog/len.jpg",
       "productPageUrl": "/products?p=lentils"
     },
     {
       "title": "Snacks & namkeens",
-      "desc": "Delicious snacks and namkeens to satisfy your cravings.",
+      "desc": "Indulge in our premium snacks and namkeens, crafted to deliver a delicious and authentic taste experience.",
       "largeImage": "img/catalog/snak.jpg",
       "smallImage": "img/catalog/snak.jpg",
       "productPageUrl": "/products?p=snacks"
     },
     {
       "title": "Paper packaging products",
-      "desc": "Eco-friendly paper packaging products for sustainable living.",
+      "desc": "Eco-friendly and durable, our paper packaging solutions are designed for sustainability and practicality.",
       "largeImage": "img/catalog/paper.jpg",
       "smallImage": "img/catalog/paper.jpg",
       "productPageUrl": "/products?p=paper"
     },
     {
       "title": "sugarcane bagasse tableware",
-      "desc": "Durable and eco-friendly tableware made from sugarcane.",
+      "desc": "Our biodegradable and compostable tableware made from sugarcane bagasse is ideal for eco-conscious dining.",
       "largeImage": "img/catalog/suger.jpg",
       "smallImage": "img/catalog/suger.jpg",
       "productPageUrl": "/products?p=sbt"
     },
     {
       "title": "vermicompost fertilizer",
-      "desc": "Organic vermicompost fertilizer for healthier plants.",
+      "desc": "Enhance soil fertility with our high-quality vermicompost, promoting healthy and sustainable agriculture.",
       "largeImage": "img/catalog/ferti.jpg",
       "smallImage": "img/catalog/ferti.jpg",
       "productPageUrl": "/products?p=fertilizer"
     },
     {
       "title": "wooden & furniture",
-      "desc": "High-quality wooden furniture for your home and office.",
+      "desc": "Our handcrafted wooden furniture combines elegance and durability, perfect for enhancing any living space.",
       "largeImage": "img/catalog/sofa.jpg",
       "smallImage": "img/catalog/sofa.jpg",
       "productPageUrl": "/products?p=furniture"
