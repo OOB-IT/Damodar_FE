@@ -6,7 +6,6 @@ import { About } from "./components/about";
 import { ProductCatalog } from "./components/ProductCatalog";
 import { Contact } from "./components/contact";
 import MembershipCertification from "./components/Certificate";
-import Footer from "./components/Footer";
 
 const HomeRoutes = () => {
   const [landingPageData, setLandingPageData] = useState({});

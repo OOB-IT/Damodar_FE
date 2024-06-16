@@ -7,50 +7,51 @@ import TitleBar from "./TitleBar";
 import JsonData from "../data/data.json";
 
 export const Navigation = () => {
-  const navigate = useNavigate(); // useNavigate hook
+  const navigate = useNavigate();
   const location = useLocation();
   const viewType = useViewType();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    // Function to handle scroll event
     const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScrolled(true); // Set state to true if scrolled
-      } else {
-        setIsScrolled(false); // Set state to false if at top of the page
-      }
+      setIsScrolled(window.scrollY > 0);
     };
 
-    window.addEventListener("scroll", handleScroll); // Add event listener for scroll
+    window.addEventListener("scroll", handleScroll);
 
-    // Cleanup function to remove event listener on unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  // Function to close the navbar and navigate to the specified path
   const handleNavItemClick = (path) => {
-    navigate(path); // Navigate to the specified path
-    closeNavbar(); // Close the navbar after clicking a nav item
+    navigate(path);
+    closeNavbar();
   };
 
-  // Function to close the navbar
   const closeNavbar = () => {
     const navbarToggler = document.querySelector(".navbar-toggle");
-    if (navbarToggler.classList.contains("collapsed")) return; // Navbar is already collapsed
-    navbarToggler.click(); // Click to collapse the navbar
+    const navbarCollapse = document.querySelector(
+      "#bs-example-navbar-collapse-1"
+    );
+
+    if (navbarToggler && navbarCollapse.classList.contains("in")) {
+      navbarToggler.click();
+    }
   };
+
   const [landingPageData, setLandingPageData] = useState({});
   useEffect(() => {
     setLandingPageData(JsonData);
   }, []);
 
   const categories = landingPageData.ProductCategories;
+
   return (
     <>
-      {location.pathname === "/" && viewType === "desktop" ? <TitleBar /> : " "}
+      {location.pathname === "/" && viewType === "desktop" ? (
+        <TitleBar />
+      ) : null}
       <nav
         id="menu"
         style={{
@@ -61,7 +62,7 @@ export const Navigation = () => {
               : location.pathname === "/"
               ? "40px"
               : "20px",
-        }} // Update paddingTop based on scroll state
+        }}
         className="navbar navbar-default navbar-fixed-top"
       >
         <div className="container">
@@ -73,11 +74,10 @@ export const Navigation = () => {
                 data-toggle="collapse"
                 data-target="#bs-example-navbar-collapse-1"
               >
-                {" "}
-                <span className="sr-only">Toggle navigation</span>{" "}
-                <span className="icon-bar"></span>{" "}
-                <span className="icon-bar"></span>{" "}
-                <span className="icon-bar"></span>{" "}
+                <span className="sr-only">Toggle navigation</span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
               </button>
               <Link
                 to="/"
@@ -95,8 +95,8 @@ export const Navigation = () => {
                     maxWidth: "200px",
                   }}
                   alt="Logo"
-                ></img>
-              </Link>{" "}
+                />
+              </Link>
             </div>
           </div>
           <div
@@ -105,10 +105,7 @@ export const Navigation = () => {
           >
             <ul className="nav navbar-nav navbar-right">
               <li>
-                <Link
-                  to="/"
-                  onClick={() => handleNavItemClick("/")} // Close navbar on click and navigate to '/'
-                >
+                <Link to="/" onClick={() => handleNavItemClick("/")}>
                   Home
                 </Link>
               </li>
@@ -125,22 +122,31 @@ export const Navigation = () => {
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link to="/company">Company</Link>
+                    <Link
+                      to="/company"
+                      onClick={() => handleNavItemClick("/company")}
+                    >
+                      Company
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/certificate">Certificate</Link>
+                    <Link
+                      to="/certificate"
+                      onClick={() => handleNavItemClick("/certificate")}
+                    >
+                      Certificate
+                    </Link>
                   </li>
                   <li>
                     <Link
                       to="/about-detail"
-                      onClick={() => handleNavItemClick("/about-detail")} // Close navbar on click and navigate to '/about-detail'
+                      onClick={() => handleNavItemClick("/about-detail")}
                     >
                       Key Persons
                     </Link>
                   </li>
                 </ul>
               </li>
-
               <li className="dropdown">
                 <a
                   href="#"
@@ -155,10 +161,12 @@ export const Navigation = () => {
                 <ul className="dropdown-menu">
                   {categories &&
                     categories.map((category) => (
-                      <li>
+                      <li key={category.categoryUrl}>
                         <Link
-                          key={category.categoryUrl}
                           to={category.categoryUrl}
+                          onClick={() =>
+                            handleNavItemClick(category.categoryUrl)
+                          }
                         >
                           {category.categoryName}
                         </Link>
@@ -166,19 +174,10 @@ export const Navigation = () => {
                     ))}
                 </ul>
               </li>
-
-              {/* <li>
-                <Link
-                  to="/products"
-                  onClick={() => handleNavItemClick("/products")} // Close navbar on click and navigate to '/product-detail'
-                >
-                  Products
-                </Link>
-              </li> */}
               <li>
                 <Link
                   to="/sourcing-agent"
-                  onClick={() => handleNavItemClick("/sourcing-agent")} // Close navbar on click and navigate to '/sourcing-agent'
+                  onClick={() => handleNavItemClick("/sourcing-agent")}
                 >
                   Sourcing Agent
                 </Link>
@@ -188,14 +187,6 @@ export const Navigation = () => {
                   <a href="#contact">Contact Us</a>
                 </li>
               )}
-              {/* <li>
-              <Link
-                to='/contact'
-                onClick={() => handleNavItemClick('/contact')} // Close navbar on click and navigate to '/contact'
-              >
-                Contact
-              </Link>
-            </li> */}
             </ul>
           </div>
         </div>

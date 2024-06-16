@@ -51,11 +51,12 @@ const ViewButton = styled(Button)`
 `;
 
 const CardTitle = styled(Card.Title)`
-  font-size: 1.2rem; /* Example: Adjust font size for title */
+  font-size: 1.6rem; /* Example: Adjust font size for title */
 `;
 
 const CardDesc = styled(Card.Text)`
-  font-size: 0.9rem; /* Example: Adjust font size for description */
+  font-size: 1.2rem; /* Example: Adjust font size for description */
+  font-weight: bold;
 `;
 
 // Component
