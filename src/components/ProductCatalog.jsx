@@ -2,13 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { Image } from "./image";
-
-// Styled components
-const PortfolioSection = styled.section`
-  text-align: center;
-  padding: 60px 0;
-`;
 
 const CardContainer = styled.div`
   display: flex;
@@ -79,7 +72,10 @@ export const ProductCatalog = (props) => {
                   <CardBody>
                     <CardTitle>{d.title}</CardTitle>
                     <CardDesc>{d.desc}</CardDesc>
-                    <ViewButton variant="primary" href={d.productPageUrl}>
+                    <ViewButton
+                      variant="primary"
+                      href={`/#${d.productPageUrl}`}
+                    >
                       View
                     </ViewButton>
                   </CardBody>
