@@ -14,7 +14,7 @@ const HomeRoutes = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <Header data={landingPageData.Header} />
       <About data={landingPageData.About} />
       <ProductCatalog data={landingPageData.ProductCatalog} />
