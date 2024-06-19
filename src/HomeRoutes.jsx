@@ -6,6 +6,7 @@ import { About } from "./components/about";
 import { ProductCatalog } from "./components/ProductCatalog";
 import { Contact } from "./components/contact";
 import MembershipCertification from "./components/Certificate";
+import Gallery from "./components/Gallery";
 
 const HomeRoutes = () => {
   const [landingPageData, setLandingPageData] = useState({});
@@ -18,6 +19,7 @@ const HomeRoutes = () => {
       <Header data={landingPageData.Header} />
       <About data={landingPageData.About} />
       <ProductCatalog data={landingPageData.ProductCatalog} />
+      <Gallery />
       <MembershipCertification />
       <Contact data={landingPageData.Contact} />
     </div>
