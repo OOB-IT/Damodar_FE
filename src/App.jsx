@@ -12,7 +12,7 @@ import Company from "./components/Company";
 import CertificatePage from "./components/CertificatePage";
 import Products from "./components/Products";
 import SourcingAgentPage from "./components/SourcingAgentPage";
-import Footer from './components/Footer';
+import Footer from "./components/Footer";
 
 // Initialize SmoothScroll
 const scroll = new SmoothScroll('a[href*="#"]', {
@@ -23,23 +23,21 @@ const scroll = new SmoothScroll('a[href*="#"]', {
 const App = () => {
   return (
     <BrowserRouter>
-      <div>
-        <Navigation />
-        <Routes>
-          {/* Specify exact prop to prevent partial matching */}
-          <Route path="/" element={<HomeRoutes />} />
-          <Route path="/about-detail" element={<AboutUsDetail />} />
-          <Route path="/product-detail" element={<ProductDetails />} />
-          <Route path="/testimonials" element={<ComingSoon />} />
-          <Route path="/company" element={<Company />} />
-          <Route path="/certificate" element={<CertificatePage />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/sourcing-agent" element={<SourcingAgentPage />} />
-          {/* Add a wildcard route for unmatched paths */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
-      </div>
+      <Navigation />
+      <Routes>
+        {/* Specify exact prop to prevent partial matching */}
+        <Route path="/" element={<HomeRoutes />} />
+        <Route path="/about-detail" element={<AboutUsDetail />} />
+        <Route path="/product-detail" element={<ProductDetails />} />
+        <Route path="/testimonials" element={<ComingSoon />} />
+        <Route path="/company" element={<Company />} />
+        <Route path="/certificate" element={<CertificatePage />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/sourcing-agent" element={<SourcingAgentPage />} />
+        {/* Add a wildcard route for unmatched paths */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
