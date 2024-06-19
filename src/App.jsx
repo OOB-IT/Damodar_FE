@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 
 import { Navigation } from "./components/navigation";
 import SmoothScroll from "smooth-scroll";
@@ -22,7 +22,7 @@ const scroll = new SmoothScroll('a[href*="#"]', {
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Navigation />
       <Routes>
         {/* Specify exact prop to prevent partial matching */}
@@ -38,7 +38,7 @@ const App = () => {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
