@@ -7,6 +7,7 @@ import { ProductCatalog } from "./components/ProductCatalog";
 import { Contact } from "./components/contact";
 import MembershipCertification from "./components/Certificate";
 import Gallery from "./components/Gallery";
+import { Testimonials } from "./components/testimonials";
 
 const HomeRoutes = () => {
   const [landingPageData, setLandingPageData] = useState({});
@@ -21,6 +22,7 @@ const HomeRoutes = () => {
       <ProductCatalog data={landingPageData.ProductCatalog} />
       <Gallery />
       <MembershipCertification />
+      <Testimonials data={landingPageData.Testimonials} />
       <Contact data={landingPageData.Contact} />
     </div>
   );
