@@ -218,15 +218,26 @@ a:focus,
 }
 /* Header Section */
 .intro {
-  display: table;
+  position: relative;
   width: 100%;
-  padding: 0;
-  background: url("https://images.unsplash.com/photo-1617952739858-28043cecdae3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
-    center center no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
+  height: 100vh; /* Adjust height as needed */
+  overflow: hidden;
+}
+
+#background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -1; /* Ensure the video is behind other content */
+}
+
+.content {
+  position: relative;
+  z-index: 1; /* Ensure content is above the video */
 }
 
 .intro .overlay {
