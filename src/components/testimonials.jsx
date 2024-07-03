@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Modal from "./Modal"; // Import your Modal component
 import PostReview from "./PostReview";
+import userImg from "../asset/user.png";
+import axios from "axios";
+import Toast from "../utils/Toast";
+import toastImg from '../asset/logo2.png'
+
+
 
 const TestimonialsSection = styled.div`
   padding: 100px 0;
@@ -82,7 +88,7 @@ const StarRating = styled.div`
 const Star = ({ filled }) => <span>{filled ? "★" : "☆"}</span>;
 
 const PostReviewButton = styled.button`
-  background-color: #007bff;
+  background-color: #5ca9fb;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -92,12 +98,36 @@ const PostReviewButton = styled.button`
   margin-top: 20px;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #6372ff; 
   }
 `;
 
-export const Testimonials = ({ data }) => {
+export const Testimonials = () => {
   const [isModalOpen, setModalOpen] = useState(false);
+  const [testimonialData, setTestimonialData] = useState([]);
+  const [isRef, setIsRef] = useState(false);
+
+  const [showToast, setShowToast] = useState(false);
+
+  const handleShow = () => setShowToast(true);
+  const handleClose = () => setShowToast(false);
+
+  useEffect(() => {
+    fetchtestimonialData();
+  }, [isRef]);
+
+  const fetchtestimonialData = async () => {
+    try {
+      const response = await axios.get('https://api.damodarr.com/api/getFeedbacksForClientPage', {
+        params: {
+          limit: 6
+        }
+      });
+      setTestimonialData(response.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
   const renderStars = (count) => {
     return (
@@ -116,34 +146,42 @@ export const Testimonials = ({ data }) => {
           <h2>What our clients say</h2>
         </SectionTitle>
         <TestimonialsRow className="row">
-          {data
-            ? data.map((d, i) => (
-                <TestimonialColumn key={`${d.name}-${i}`} className="col-md-4">
-                  <TestimonialCard className="testimonial">
-                    <TestimonialImage className="testimonial-image">
-                      <img src={d.img} alt="" />
-                    </TestimonialImage>
-                    <TestimonialContent className="testimonial-content text-center">
-                      <p>"{d.text}"</p>
-                    </TestimonialContent>
-                    <TestimonialMeta className="testimonial-meta">
-                      - {d.name}
-                    </TestimonialMeta>
-                    {renderStars(d.rating)}
-                  </TestimonialCard>
-                </TestimonialColumn>
-              ))
+          {testimonialData
+            ? testimonialData.map((d, i) => (
+              <TestimonialColumn key={`${d.fbkUserName}-${i}`} className="col-md-4">
+                <TestimonialCard className="testimonial">
+                  <TestimonialImage className="testimonial-image">
+                    <img src={userImg} alt="" />
+                  </TestimonialImage>
+                  <TestimonialContent className="testimonial-content text-center">
+                    <p>"{d.fbkReviewDesc}"</p>
+                  </TestimonialContent>
+                  <TestimonialMeta className="testimonial-meta">
+                    - {d.fbkUserName}
+                  </TestimonialMeta>
+                  {renderStars(d.fbkStarCount)}
+                </TestimonialCard>
+              </TestimonialColumn>
+            ))
             : "loading"}
         </TestimonialsRow>
         <PostReviewButton onClick={() => setModalOpen(true)}>
-          Post Review
+          Post a Review
         </PostReviewButton>
         {isModalOpen && (
-          <Modal onClose={() => setModalOpen(false)}>
-            <PostReview />
+          <Modal onClose={() => { setModalOpen(false) }}>
+            <PostReview handleShow={handleShow} />
           </Modal>
         )}
       </div>
-    </TestimonialsSection>
+      <Toast
+        show={showToast}
+        onClose={handleClose}
+        headerText="Feedback Posted"
+        bodyText="Thank you for your valuable feedback."
+        timeAgo="Just now"
+        imageSrc={toastImg}
+      />
+    </TestimonialsSection >
   );
 };

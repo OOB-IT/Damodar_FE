@@ -15,6 +15,8 @@ const HomeRoutes = () => {
     setLandingPageData(JsonData);
   }, []);
 
+
+
   return (
     <div style={{ width: "100%" }}>
       <Header data={landingPageData.Header} />
@@ -22,7 +24,7 @@ const HomeRoutes = () => {
       <ProductCatalog data={landingPageData.ProductCatalog} />
       <Gallery />
       <MembershipCertification />
-      <Testimonials data={landingPageData.Testimonials} />
+      <Testimonials />
       <Contact data={landingPageData.Contact} />
     </div>
   );
