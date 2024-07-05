@@ -11,16 +11,15 @@ import {
   CloseButton,
   StarRatingInput,
 } from "./StyledComponents";
-import axios from 'axios';
+import axios from "axios";
 
 const PostReview = ({ onClose, handleShow }) => {
-  const saveUrl = 'https://api.damodarr.com/api/postFeedback'
+  const saveUrl = "https://api.damodarr.com/api/postFeedback";
   const [formData, setFormData] = useState({
     userName: "",
     reviewDesc: "",
     starCount: 0,
   });
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,7 +40,7 @@ const PostReview = ({ onClose, handleShow }) => {
         handleShow();
       }
     } catch (error) {
-      console.error('Error posting feedback:', error);
+      console.error("Error posting feedback:", error);
     }
   };
 
@@ -74,7 +73,7 @@ const PostReview = ({ onClose, handleShow }) => {
               />
             </FormField>
             <FormField>
-              <FormLabel>Rating</FormLabel>
+              <p className="text-center">Rate Us!</p>
               <StarRatingInput>
                 {[5, 4, 3, 2, 1].map((star) => (
                   <React.Fragment key={star}>

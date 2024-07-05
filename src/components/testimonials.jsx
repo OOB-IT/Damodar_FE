@@ -5,9 +5,7 @@ import PostReview from "./PostReview";
 import userImg from "../asset/user.png";
 import axios from "axios";
 import Toast from "../utils/Toast";
-import toastImg from '../asset/logo2.png'
-
-
+import toastImg from "../asset/logo2.png";
 
 const TestimonialsSection = styled.div`
   padding: 100px 0;
@@ -46,6 +44,7 @@ const TestimonialCard = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: left;
+  min-height: 350px;
 `;
 
 const TestimonialImage = styled.div`
@@ -54,6 +53,7 @@ const TestimonialImage = styled.div`
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 15px;
+  margin-left: 15px;
 
   img {
     width: 100%;
@@ -98,7 +98,7 @@ const PostReviewButton = styled.button`
   margin-top: 20px;
 
   &:hover {
-    background-color: #6372ff; 
+    background-color: #6372ff;
   }
 `;
 
@@ -118,14 +118,17 @@ export const Testimonials = () => {
 
   const fetchtestimonialData = async () => {
     try {
-      const response = await axios.get('https://api.damodarr.com/api/getFeedbacksForClientPage', {
-        params: {
-          limit: 6
+      const response = await axios.get(
+        "https://api.damodarr.com/api/getFeedbacksForClientPage",
+        {
+          params: {
+            limit: 6,
+          },
         }
-      });
+      );
       setTestimonialData(response.data);
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error("Error fetching data:", error);
     }
   };
 
@@ -148,28 +151,35 @@ export const Testimonials = () => {
         <TestimonialsRow className="row">
           {testimonialData
             ? testimonialData.map((d, i) => (
-              <TestimonialColumn key={`${d.fbkUserName}-${i}`} className="col-md-4">
-                <TestimonialCard className="testimonial">
-                  <TestimonialImage className="testimonial-image">
-                    <img src={userImg} alt="" />
-                  </TestimonialImage>
-                  <TestimonialContent className="testimonial-content text-center">
-                    <p>"{d.fbkReviewDesc}"</p>
-                  </TestimonialContent>
-                  <TestimonialMeta className="testimonial-meta">
-                    - {d.fbkUserName}
-                  </TestimonialMeta>
-                  {renderStars(d.fbkStarCount)}
-                </TestimonialCard>
-              </TestimonialColumn>
-            ))
+                <TestimonialColumn
+                  key={`${d.fbkUserName}-${i}`}
+                  className="col-md-4"
+                >
+                  <TestimonialCard className="testimonial">
+                    <TestimonialImage className="testimonial-image">
+                      <img src={userImg} alt="" />
+                    </TestimonialImage>
+                    <TestimonialContent className="testimonial-content text-center">
+                      <p>"{d.fbkReviewDesc}"</p>
+                    </TestimonialContent>
+                    <TestimonialMeta className="testimonial-meta">
+                      - {d.fbkUserName}
+                    </TestimonialMeta>
+                    {renderStars(d.fbkStarCount)}
+                  </TestimonialCard>
+                </TestimonialColumn>
+              ))
             : "loading"}
         </TestimonialsRow>
         <PostReviewButton onClick={() => setModalOpen(true)}>
           Post a Review
         </PostReviewButton>
         {isModalOpen && (
-          <Modal onClose={() => { setModalOpen(false) }}>
+          <Modal
+            onClose={() => {
+              setModalOpen(false);
+            }}
+          >
             <PostReview handleShow={handleShow} />
           </Modal>
         )}
@@ -182,6 +192,6 @@ export const Testimonials = () => {
         timeAgo="Just now"
         imageSrc={toastImg}
       />
-    </TestimonialsSection >
+    </TestimonialsSection>
   );
 };
