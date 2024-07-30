@@ -1,74 +1,150 @@
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import about from "../asset/about.jpg";
 import JsonData from "../data/data.json";
 import { Link } from "react-router-dom";
 import { Features } from "./features";
+import { baseUrl } from "../utils/config";
 
 export const About = (props) => {
   const [landingPageData, setLandingPageData] = useState({});
   const [sectionDetails, setSectionDetails] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLandingPageData(JsonData);
+    fetchSectionDetails();
+  }, []);
+
   const fetchSectionDetails = async () => {
     try {
-      const response = await fetch(
-        "https://api.damodarr.com/api/getSectionDetails/1"
-      );
+      const response = await fetch(`${baseUrl}/getSectionDetails/1`);
       if (response.ok) {
         const data = await response.json();
-        console.log("API Response:", data.data);
         setSectionDetails(data?.data);
       } else {
         console.error("Error fetching section details:", response.statusText);
       }
     } catch (error) {
       console.error("Error fetching section details:", error);
+    } finally {
+      setLoading(false);
     }
   };
-  useEffect(() => {
-    setLandingPageData(JsonData);
-    fetchSectionDetails();
-  }, []);
-  const fdata = landingPageData.Features;
 
-  // Convert \r\n\r\n to <br /><br />
   const formatSectionDesc = (text) => {
-    console.log("////", text);
     if (!text) return "";
-    return text.replace(/\n/g, "<br />");
+    return text.replace(/\n/g, "<br />") || text.replace("\r\n\r\n", "<br />");
   };
 
   return (
     <div id="about">
       <div className="container">
         <div className="row">
-          <div className="col-xs-12 col-md-6">
-            {" "}
-            <img
-              src={about}
-              style={{ borderRadius: "10px", objectFit: "cover" }}
-              className="img-responsive"
-              alt=""
-            />{" "}
-          </div>
-          <div className="col-xs-12 col-md-6">
-            <div className=" ">
-              <h2>About Us</h2>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: props.data
-                    ? formatSectionDesc(sectionDetails?.sectionDesc)
-                    : "laoding....",
-                }}
-              ></p>
-              <button type="submit" className="btn btn-custom btn-lg rounded">
-                <Link style={{ color: "#f5f5f5" }} to="/company">
-                  View More
-                </Link>
-              </button>
-            </div>
-          </div>
+          {loading ? (
+            <SkeletonContainer>
+              <SkeletonImage />
+              <SkeletonTextBlock>
+                <SkeletonTitle />
+                <SkeletonParagraph />
+                <SkeletonParagraph />
+                <SkeletonButton />
+              </SkeletonTextBlock>
+            </SkeletonContainer>
+          ) : (
+            <>
+              <div className="col-xs-12 col-md-6">
+                <img
+                  src={about}
+                  style={{ borderRadius: "10px", objectFit: "cover" }}
+                  className="img-responsive"
+                  alt="About Us"
+                />
+              </div>
+              <div className="col-xs-12 col-md-6">
+                <div>
+                  <h2>About Us</h2>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: sectionDetails
+                        ? formatSectionDesc(sectionDetails.sectionDesc)
+                        : "loading...",
+                    }}
+                  ></p>
+                  <button
+                    type="submit"
+                    className="btn btn-custom btn-lg rounded"
+                  >
+                    <Link style={{ color: "#f5f5f5" }} to="/company">
+                      View More
+                    </Link>
+                  </button>
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </div>
-      <Features data={fdata} showTitle={true} fromHome={true} />
+      {!loading && (
+        <Features
+          data={landingPageData.Features}
+          showTitle={true}
+          fromHome={true}
+        />
+      )}
     </div>
   );
 };
+
+// Styled components for skeleton loading
+const SkeletonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+`;
+
+const SkeletonImage = styled.div`
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  background: linear-gradient(-90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
+  border-radius: 10px;
+  animation: skeleton-loading 1.5s infinite;
+`;
+
+const SkeletonTextBlock = styled.div`
+  width: 100%;
+  max-width: 600px;
+  padding: 0 20px;
+`;
+
+const SkeletonTitle = styled.div`
+  width: 50%;
+  height: 30px;
+  background: linear-gradient(-90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  animation: skeleton-loading 1.5s infinite;
+`;
+
+const SkeletonParagraph = styled.div`
+  width: 100%;
+  height: 15px;
+  background: linear-gradient(-90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  animation: skeleton-loading 1.5s infinite;
+`;
+
+const SkeletonButton = styled.div`
+  width: 30%;
+  height: 40px;
+  background: linear-gradient(-90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
+  border-radius: 5px;
+  margin-top: 20px;
+  animation: skeleton-loading 1.5s infinite;
+`;
+
+export default About;

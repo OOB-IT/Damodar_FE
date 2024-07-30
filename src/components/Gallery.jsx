@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-// Import your local images
 import image1 from "../asset/gallary/1.jpg";
 import image2 from "../asset/gallary/2.jpg";
 import image3 from "../asset/gallary/3.jpg";
@@ -9,35 +8,65 @@ import image5 from "../asset/gallary/5.jpg";
 import image6 from "../asset/gallary/6.jpg";
 import image7 from "../asset/gallary/7.jpg";
 import image8 from "../asset/gallary/8.jpg";
+import axios from "axios";
+import { baseUrl } from "../utils/config";
 
 const Gallery = () => {
-  // Array of imported local images
-  const images = [
-    image1,
-    image2,
-    image3,
-    image4,
-    image5,
-    image6,
-    image7,
-    image8,
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get(`${baseUrl}/getGalleryImages`)
+      .then((response) => {
+        if (response?.data) {
+          setImages(response.data);
+        } else {
+          setImages(localImages);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching images:", error);
+        setImages(localImages); // Fallback to local images
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
+  // Array of imported local images as a fallback
+  const localImages = [
+    { gImagePath: image1 },
+    { gImagePath: image2 },
+    { gImagePath: image3 },
+    { gImagePath: image4 },
+    { gImagePath: image5 },
+    { gImagePath: image6 },
+    { gImagePath: image7 },
+    { gImagePath: image8 },
   ];
 
   return (
     <GalleryContainer>
       <h2>Photo Gallery</h2>
-      {images.map((image, index) => (
-        <GalleryItem key={index}>
-          <img src={image} alt={`Image ${index + 1}`} />
-        </GalleryItem>
-      ))}
+      <GalleryGrid>
+        {loading
+          ? Array.from({ length: 8 }).map((_, index) => (
+              <SkeletonItem key={index}>
+                <SkeletonImage />
+              </SkeletonItem>
+            ))
+          : images.map((image, index) => (
+              <GalleryItem key={index}>
+                <img src={image.gImagePath} alt={`Image ${index + 1}`} />
+              </GalleryItem>
+            ))}
+      </GalleryGrid>
     </GalleryContainer>
   );
 };
 
 // Styled components with responsive grid layout
 const GalleryContainer = styled.div`
-  text-align: center; /* Center align the title and items */
+  text-align: center;
   margin: 20px;
 
   @media (min-width: 768px) {
@@ -46,10 +75,15 @@ const GalleryContainer = styled.div`
   }
 `;
 
+const GalleryGrid = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+`;
+
 const GalleryItem = styled.div`
   position: relative;
-  display: inline-block; /* Ensures items are in a row */
-  width: calc(25% - 15px); /* 4 items per row with gap */
+  width: calc(25% - 15px);
   margin-bottom: 15px;
 
   img {
@@ -65,11 +99,45 @@ const GalleryItem = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: calc(50% - 15px); /* 2 items per row on smaller screens */
+    width: calc(50% - 15px);
   }
 
   @media (max-width: 480px) {
-    width: 100%; /* 1 item per row on mobile */
+    width: 100%;
+  }
+`;
+
+const SkeletonItem = styled.div`
+  position: relative;
+  width: calc(25% - 15px);
+  margin-bottom: 15px;
+  background: #f0f0f0;
+  border-radius: 8px;
+
+  @media (max-width: 768px) {
+    width: calc(50% - 15px);
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+`;
+
+const SkeletonImage = styled.div`
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(-90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  border-radius: 8px;
+  animation: skeleton-loading 1.5s infinite;
+
+  @keyframes skeleton-loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
   }
 `;
 

@@ -6,6 +6,8 @@ import userImg from "../asset/user.png";
 import axios from "axios";
 import Toast from "../utils/Toast";
 import toastImg from "../asset/logo2.png";
+import { Carousel } from "react-responsive-carousel";
+import { baseUrl } from "../utils/config";
 
 const TestimonialsSection = styled.div`
   padding: 100px 0;
@@ -15,23 +17,6 @@ const TestimonialsSection = styled.div`
 
 const SectionTitle = styled.div`
   margin-bottom: 50px;
-`;
-
-const TestimonialsRow = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
-
-const TestimonialColumn = styled.div`
-  flex: 0 0 33.3333%;
-  max-width: 33.3333%;
-  padding: 15px;
-
-  @media (max-width: 768px) {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
 `;
 
 const TestimonialCard = styled.div`
@@ -102,33 +87,77 @@ const PostReviewButton = styled.button`
   }
 `;
 
+const SkeletonCard = styled.div`
+  background: #f0f0f0;
+  border-radius: 5px;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  min-height: 350px;
+  animation: skeleton-loading 1.5s infinite;
+
+  @keyframes skeleton-loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+`;
+
+const SkeletonImage = styled.div`
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(-90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
+  border-radius: 50%;
+  margin-bottom: 15px;
+`;
+
+const SkeletonText = styled.div`
+  width: 80%;
+  height: 20px;
+  background: linear-gradient(-90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
+  margin-bottom: 10px;
+  border-radius: 5px;
+`;
+
+const SkeletonStarRating = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  width: 50%;
+  height: 20px;
+  background: linear-gradient(-90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
+  border-radius: 5px;
+`;
+
 export const Testimonials = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [testimonialData, setTestimonialData] = useState([]);
-  const [isRef, setIsRef] = useState(false);
-
+  const [loading, setLoading] = useState(true);
   const [showToast, setShowToast] = useState(false);
-
-  const handleShow = () => setShowToast(true);
-  const handleClose = () => setShowToast(false);
 
   useEffect(() => {
     fetchtestimonialData();
-  }, [isRef]);
+  }, []);
 
   const fetchtestimonialData = async () => {
     try {
-      const response = await axios.get(
-        "https://api.damodarr.com/api/getFeedbacksForClientPage",
-        {
-          params: {
-            limit: 6,
-          },
-        }
-      );
+      const response = await axios.get(`${baseUrl}/getFeedbacksForClientPage`, {
+        params: {
+          limit: 6,
+        },
+      });
       setTestimonialData(response.data);
+      setLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);
+      setLoading(false);
     }
   };
 
@@ -148,45 +177,77 @@ export const Testimonials = () => {
         <SectionTitle className="section-title">
           <h2>What our clients say</h2>
         </SectionTitle>
-        <TestimonialsRow className="row">
-          {testimonialData
-            ? testimonialData.map((d, i) => (
-                <TestimonialColumn
-                  key={`${d.fbkUserName}-${i}`}
-                  className="col-md-4"
-                >
-                  <TestimonialCard className="testimonial">
-                    <TestimonialImage className="testimonial-image">
-                      <img src={userImg} alt="" />
-                    </TestimonialImage>
-                    <TestimonialContent className="testimonial-content text-center">
-                      <p>"{d.fbkReviewDesc}"</p>
-                    </TestimonialContent>
-                    <TestimonialMeta className="testimonial-meta">
-                      - {d.fbkUserName}
-                    </TestimonialMeta>
-                    {renderStars(d.fbkStarCount)}
-                  </TestimonialCard>
-                </TestimonialColumn>
-              ))
-            : "loading"}
-        </TestimonialsRow>
+        {loading ? (
+          <Carousel
+            autoPlay
+            interval={1000}
+            infiniteLoop
+            showThumbs={false}
+            showStatus={false}
+            showArrows={false}
+            stopOnHover={false}
+            transitionTime={500}
+            slidesToShow={3}
+            centerMode
+            centerSlidePercentage={100 / 3}
+            renderIndicator={false}
+          >
+            {Array.from({ length: 6 }).map((_, index) => (
+              <div key={index}>
+                <SkeletonCard>
+                  <SkeletonImage />
+                  <SkeletonText />
+                  <SkeletonText />
+                  <SkeletonStarRating />
+                </SkeletonCard>
+              </div>
+            ))}
+          </Carousel>
+        ) : (
+          <Carousel
+            autoPlay
+            interval={1000}
+            infiniteLoop
+            showThumbs={false}
+            showStatus={false}
+            showArrows={true}
+            stopOnHover={false}
+            transitionTime={500}
+            slidesToShow={3}
+            centerMode
+            centerSlidePercentage={100 / 3}
+            renderIndicator={false}
+          >
+            {testimonialData.map((d, i) => (
+              <div key={`${d.fbkUserName}-${i}`}>
+                <TestimonialCard className="testimonial">
+                  <TestimonialImage className="testimonial-image">
+                    <img src={userImg} alt={d.fbkUserName} />
+                  </TestimonialImage>
+                  <TestimonialContent className="testimonial-content text-center">
+                    <p>"{d.fbkReviewDesc}"</p>
+                  </TestimonialContent>
+                  <TestimonialMeta className="testimonial-meta">
+                    - {d.fbkUserName}
+                  </TestimonialMeta>
+                  {renderStars(d.fbkStarCount)}
+                </TestimonialCard>
+              </div>
+            ))}
+          </Carousel>
+        )}
         <PostReviewButton onClick={() => setModalOpen(true)}>
           Post a Review
         </PostReviewButton>
         {isModalOpen && (
-          <Modal
-            onClose={() => {
-              setModalOpen(false);
-            }}
-          >
-            <PostReview handleShow={handleShow} />
+          <Modal onClose={() => setModalOpen(false)}>
+            <PostReview />
           </Modal>
         )}
       </div>
       <Toast
         show={showToast}
-        onClose={handleClose}
+        onClose={() => setShowToast(false)}
         headerText="Feedback Posted"
         bodyText="Thank you for your valuable feedback."
         timeAgo="Just now"
@@ -195,3 +256,5 @@ export const Testimonials = () => {
     </TestimonialsSection>
   );
 };
+
+export default Testimonials;
