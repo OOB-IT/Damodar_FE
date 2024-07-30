@@ -136,27 +136,27 @@ export const ProductCatalog = (props) => {
         <CardContainer>
           {loading
             ? [...Array(6)].map((_, i) => (
-                <SkeletonCard key={i}>
-                  <SkeletonText width="100%" height="200px" />
-                  <SkeletonText width="60%" />
-                  <SkeletonText width="80%" />
-                </SkeletonCard>
-              ))
+              <SkeletonCard key={i}>
+                <SkeletonText width="100%" height="200px" />
+                <SkeletonText width="60%" />
+                <SkeletonText width="80%" />
+              </SkeletonCard>
+            ))
             : apiRes?.map((d, i) => (
-                <CustomCard key={`${d.title}-${i}`}>
-                  <CardImage variant="top" src={d.productTypeCtgImg} />
-                  <CardBody>
-                    <CardTitle>{d.productTypeTitle}</CardTitle>
-                    <CardDesc>{d.productTypeCtgDesc}</CardDesc>
-                    <ViewButton
-                      variant="primary"
-                      href={`/#${d.productPageUrl}`}
-                    >
-                      View
-                    </ViewButton>
-                  </CardBody>
-                </CustomCard>
-              ))}
+              <CustomCard key={`${d.title}-${i}`}>
+                <CardImage variant="top" src={d.productTypeCtgImg} />
+                <CardBody>
+                  <CardTitle>{d.productTypeTitle}</CardTitle>
+                  <CardDesc>{d.productTypeCtgDesc}</CardDesc>
+                  <ViewButton
+                    variant="primary"
+                    href={`#${d.productPageUrl}`}
+                  >
+                    View
+                  </ViewButton>
+                </CardBody>
+              </CustomCard>
+            ))}
         </CardContainer>
       </div>
     </div>

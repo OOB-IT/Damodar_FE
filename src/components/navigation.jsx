@@ -5,6 +5,9 @@ import useViewType from "../utils/useViewType";
 import logo from "../asset/logo.png";
 import TitleBar from "./TitleBar";
 import JsonData from "../data/data.json";
+import { baseUrl } from "../utils/config";
+import axios from "axios";
+
 
 export const Navigation = () => {
   const navigate = useNavigate();
@@ -40,12 +43,29 @@ export const Navigation = () => {
     }
   };
 
-  const [landingPageData, setLandingPageData] = useState({});
+  const [landingPageData, setLandingPageData] = useState([]);
+  const localData = JsonData.ProductCategories;
   useEffect(() => {
-    setLandingPageData(JsonData);
+    axios
+      .get(`${baseUrl}/getProductCategories`)
+      .then((response) => {
+        if (response?.data) {
+          setLandingPageData(response?.data);
+        } else {
+          setLandingPageData(localData);
+        }
+      })
+      .catch((error) => {
+        setLandingPageData(localData);
+        console.error("Error :", error);
+      })
   }, []);
 
-  const categories = landingPageData.ProductCategories;
+
+
+  const categories = landingPageData;
+  // console.log("landingPageData", landingPageData);
+  // console.log("localData", localData);
 
   return (
     <>
@@ -60,8 +80,8 @@ export const Navigation = () => {
             isScrolled && location.pathname === "/"
               ? "20px"
               : location.pathname === "/"
-              ? "40px"
-              : "20px",
+                ? "40px"
+                : "20px",
         }}
         className="navbar navbar-default navbar-fixed-top"
       >
@@ -161,14 +181,14 @@ export const Navigation = () => {
                 <ul className="dropdown-menu">
                   {categories &&
                     categories.map((category) => (
-                      <li key={category.categoryUrl}>
+                      <li key={category.productTypeId}>
                         <Link
-                          to={category.categoryUrl}
+                          to={category.productPageUrl}
                           onClick={() =>
-                            handleNavItemClick(category.categoryUrl)
+                            handleNavItemClick(category.productPageUrl)
                           }
                         >
-                          {category.categoryName}
+                          {category.productTypeTitle}
                         </Link>
                       </li>
                     ))}

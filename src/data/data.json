@@ -202,44 +202,44 @@
   ],
   "ProductCategories": [
     {
-      "categoryId": 1,
-      "categoryName": "A-2 Cow Ghee",
-      "categoryUrl": "/products?p=a2ghee"
+      "productTypeId": 1,
+      "productTypeTitle": "A-2 Cow Ghee",
+      "productPageUrl": "/products?p=a2ghee"
     },
     {
-      "categoryId": 2,
-      "categoryName": "Natural & raw honey",
-      "categoryUrl": "/products?p=honey"
+      "productTypeId": 2,
+      "productTypeTitle": "Natural & raw honey",
+      "productPageUrl": "/products?p=honey"
     },
     {
-      "categoryId": 3,
-      "categoryName": "Lentils & Cereals",
-      "categoryUrl": "/products?p=lentils"
+      "productTypeId": 3,
+      "productTypeTitle": "Lentils & Cereals",
+      "productPageUrl": "/products?p=lentils"
     },
     {
-      "categoryId": 4,
-      "categoryName": "Snacks & Namkeens",
-      "categoryUrl": "/products?p=snacks"
+      "productTypeId": 4,
+      "productTypeTitle": "Snacks & Namkeens",
+      "productPageUrl": "/products?p=snacks"
     },
     {
-      "categoryId": 5,
-      "categoryName": "Paper packaging products",
-      "categoryUrl": "/products?p=paper"
+      "productTypeId": 5,
+      "productTypeTitle": "Paper packaging products",
+      "productPageUrl": "/products?p=paper"
     },
     {
-      "categoryId": 6,
-      "categoryName": "Sugarcane bagasse tableware",
-      "categoryUrl": "/products?p=sbt"
+      "productTypeId": 6,
+      "productTypeTitle": "Sugarcane bagasse tableware",
+      "productPageUrl": "/products?p=sbt"
     },
     {
-      "categoryId": 7,
-      "categoryName": "Vermicompost fertilizer",
-      "categoryUrl": "/products?p=fertilizer"
+      "productTypeId": 7,
+      "productTypeTitle": "Vermicompost fertilizer",
+      "productPageUrl": "/products?p=fertilizer"
     },
     {
-      "categoryId": 8,
-      "categoryName": "Wooden furniture",
-      "categoryUrl": "/products?p=furniture"
+      "productTypeId": 8,
+      "productTypeTitle": "Wooden furniture",
+      "productPageUrl": "/products?p=furniture"
     }
   ],
   "Products": {
