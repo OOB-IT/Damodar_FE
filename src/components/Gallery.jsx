@@ -84,7 +84,18 @@ const Gallery = () => {
   );
 };
 
-// Styled components with responsive grid layout
+// Keyframes for the flip animation
+const flipIn = keyframes`
+  0% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0);
+    opacity: 1;
+  }
+`;
+
 const GalleryContainer = styled.div`
   text-align: center;
   margin: 20px;
@@ -113,6 +124,7 @@ const GalleryItem = styled.div`
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: ${flipIn} 0.6s ease-out; // Apply the flip animation
 
     &:hover {
       transform: scale(1.05);
