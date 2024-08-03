@@ -32,7 +32,7 @@ const CustomCard = styled(Card)`
 const CardImage = styled(Card.Img)`
   height: 200px;
   object-fit: cover;
-  width: -webkit-fill-available; /* Add this line */
+  width: -webkit-fill-available;
 `;
 
 const CardBody = styled(Card.Body)`
@@ -46,33 +46,31 @@ const ViewButton = styled(Button)`
 `;
 
 const CardTitle = styled(Card.Title)`
-  font-size: 1.6rem; /* Example: Adjust font size for title */
+  font-size: 1.6rem;
 `;
 
 const CardDesc = styled(Card.Text)`
-  font-size: 1.2rem; /* Example: Adjust font size for description */
+  font-size: 1.2rem;
   font-weight: bold;
 `;
 
-// Skeleton Loading Styles
-const skeletonLoading = keyframes`
+// Skeleton Loading Styles with Wave Animation
+const waveAnimation = keyframes`
   0% {
-    background-color: #e0e0e0;
-  }
-  50% {
-    background-color: #f5f5f5;
+    background-position: -200% 0;
   }
   100% {
-    background-color: #e0e0e0;
+    background-position: 200% 0;
   }
 `;
 
 const SkeletonCard = styled.div`
   width: 100%;
   height: 300px;
-  background-color: #f0f0f0;
+  background: linear-gradient(90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
   border-radius: 8px;
-  animation: ${skeletonLoading} 1.5s infinite;
+  animation: ${waveAnimation} 1.5s infinite;
   margin-bottom: 20px;
 
   @media (min-width: 576px) {
@@ -91,16 +89,17 @@ const SkeletonCard = styled.div`
 const SkeletonText = styled.div`
   width: ${(props) => props.width || "100%"};
   height: ${(props) => props.height || "20px"};
-  background-color: #e0e0e0;
+  background: linear-gradient(90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
   border-radius: 4px;
   margin: 10px 0;
-  animation: ${skeletonLoading} 1.5s infinite;
+  animation: ${waveAnimation} 1.5s infinite;
 `;
 
 // Component
 export const ProductCatalog = (props) => {
   const localData = props.data;
-  const [apiRes, setApires] = useState();
+  const [apiRes, setApiRes] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -108,13 +107,13 @@ export const ProductCatalog = (props) => {
       .get(`${baseUrl}/getProductCategories`)
       .then((response) => {
         if (response?.data) {
-          setApires(response?.data);
+          setApiRes(response?.data);
         } else {
-          setApires(localData);
+          setApiRes(localData);
         }
       })
       .catch((error) => {
-        setApires(localData);
+        setApiRes(localData);
         console.error("Error fetching images:", error);
       })
       .finally(() => {
@@ -136,27 +135,24 @@ export const ProductCatalog = (props) => {
         <CardContainer>
           {loading
             ? [...Array(6)].map((_, i) => (
-              <SkeletonCard key={i}>
-                <SkeletonText width="100%" height="200px" />
-                <SkeletonText width="60%" />
-                <SkeletonText width="80%" />
-              </SkeletonCard>
-            ))
+                <SkeletonCard key={i}>
+                  <SkeletonText width="100%" height="200px" />
+                  <SkeletonText width="60%" />
+                  <SkeletonText width="80%" />
+                </SkeletonCard>
+              ))
             : apiRes?.map((d, i) => (
-              <CustomCard key={`${d.title}-${i}`}>
-                <CardImage variant="top" src={d.productTypeCtgImg} />
-                <CardBody>
-                  <CardTitle>{d.productTypeTitle}</CardTitle>
-                  <CardDesc>{d.productTypeCtgDesc}</CardDesc>
-                  <ViewButton
-                    variant="primary"
-                    href={`#${d.productPageUrl}`}
-                  >
-                    View
-                  </ViewButton>
-                </CardBody>
-              </CustomCard>
-            ))}
+                <CustomCard key={`${d.title}-${i}`}>
+                  <CardImage variant="top" src={d.productTypeCtgImg} />
+                  <CardBody>
+                    <CardTitle>{d.productTypeTitle}</CardTitle>
+                    <CardDesc>{d.productTypeCtgDesc}</CardDesc>
+                    <ViewButton variant="primary" href={`#${d.productPageUrl}`}>
+                      View
+                    </ViewButton>
+                  </CardBody>
+                </CustomCard>
+              ))}
         </CardContainer>
       </div>
     </div>

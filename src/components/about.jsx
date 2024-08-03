@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import about from "../asset/about.jpg";
 import JsonData from "../data/data.json";
 import { Link } from "react-router-dom";
@@ -97,6 +97,15 @@ export const About = (props) => {
 };
 
 // Styled components for skeleton loading
+const waveAnimation = keyframes`
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+`;
+
 const SkeletonContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -105,13 +114,17 @@ const SkeletonContainer = styled.div`
   margin: 20px 0;
 `;
 
-const SkeletonImage = styled.div`
+const SkeletonElement = styled.div`
+  background: linear-gradient(90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  animation: ${waveAnimation} 1.5s infinite;
+`;
+
+const SkeletonImage = styled(SkeletonElement)`
   width: 100%;
   max-width: 500px;
   height: 300px;
-  background: linear-gradient(-90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
   border-radius: 10px;
-  animation: skeleton-loading 1.5s infinite;
 `;
 
 const SkeletonTextBlock = styled.div`
@@ -120,31 +133,25 @@ const SkeletonTextBlock = styled.div`
   padding: 0 20px;
 `;
 
-const SkeletonTitle = styled.div`
+const SkeletonTitle = styled(SkeletonElement)`
   width: 50%;
   height: 30px;
-  background: linear-gradient(-90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
   border-radius: 5px;
   margin-bottom: 20px;
-  animation: skeleton-loading 1.5s infinite;
 `;
 
-const SkeletonParagraph = styled.div`
+const SkeletonParagraph = styled(SkeletonElement)`
   width: 100%;
   height: 15px;
-  background: linear-gradient(-90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
   border-radius: 5px;
   margin-bottom: 10px;
-  animation: skeleton-loading 1.5s infinite;
 `;
 
-const SkeletonButton = styled.div`
+const SkeletonButton = styled(SkeletonElement)`
   width: 30%;
   height: 40px;
-  background: linear-gradient(-90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
   border-radius: 5px;
   margin-top: 20px;
-  animation: skeleton-loading 1.5s infinite;
 `;
 
 export default About;
