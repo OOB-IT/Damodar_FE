@@ -10,6 +10,8 @@ import paper from "../asset/product/cup.jpg";
 import sbt from "../asset/product/sugarcane bagasse compartment meal tray.jpg";
 import furniture from "../asset/product/wooden bed.jpg";
 import fertilizer from "../asset/product/vermicompost smooth and natural.jpg";
+import axios from "axios";
+import { baseUrl } from "../utils/config";
 
 const ProductsContainer = styled.div`
   padding: 150px 0 0 0;
@@ -187,10 +189,10 @@ const Products = () => {
     a2ghee: {
       pId: 1,
       pUrlParam: "a2ghee",
-      pTitle: "A-2 Cow Ghee",
-      pimage: ghee,
+      productTypeTitle: "A-2 Cow Ghee",
+      productTypeImgPath: ghee,
       pMetaDesc: "",
-      pDesc: `### A-2 Pure Cow Ghee - The Essence of Health from India
+      productTypeDesc: `### A-2 Pure Cow Ghee - The Essence of Health from India
 
         #### Experience the Authentic Taste and Wellness of A-2 Pure Cow Ghee
         
@@ -217,10 +219,10 @@ const Products = () => {
     honey: {
       pId: 2,
       pUrlParam: "honey",
-      pTitle: "Natural & raw honey",
-      pimage: mainHoney,
+      productTypeTitle: "Natural & raw honey",
+      productTypeImgPath: mainHoney,
       pMetaDesc: "",
-      pDesc: `### Natural and Raw Honey - Pure Nectar from India
+      productTypeDesc: `### Natural and Raw Honey - Pure Nectar from India
 
         #### Introducing the Pure Essence of Nature: Natural and Raw Honey
         
@@ -247,10 +249,10 @@ const Products = () => {
     lentils: {
       pId: 3,
       pUrlParam: "lentils",
-      pTitle: "Lentils & Cereals",
-      pimage: millets,
+      productTypeTitle: "Lentils & Cereals",
+      productTypeImgPath: millets,
       pMetaDesc: "",
-      pDesc: `### Premium Quality Lentils and Cereals - From India to the World
+      productTypeDesc: `### Premium Quality Lentils and Cereals - From India to the World
 
         #### Discover the Rich Variety of Indian Lentils and Cereals
         
@@ -299,10 +301,10 @@ const Products = () => {
     snacks: {
       pId: 4,
       pUrlParam: "snacks",
-      pTitle: "Snacks & Namkeens",
-      pimage: snacks,
+      productTypeTitle: "Snacks & Namkeens",
+      productTypeImgPath: snacks,
       pMetaDesc: "",
-      pDesc: `### Authentic Indian Snacks and Namkeens - A Taste of Tradition
+      productTypeDesc: `### Authentic Indian Snacks and Namkeens - A Taste of Tradition
 
         #### Savor the Flavors of India: Premium Snacks and Namkeens
         
@@ -349,10 +351,10 @@ const Products = () => {
     paper: {
       pId: 5,
       pUrlParam: "paper",
-      pTitle: "Paper packaging products",
-      pimage: paper,
+      productTypeTitle: "Paper packaging products",
+      productTypeImgPath: paper,
       pMetaDesc: "",
-      pDesc: `### Eco-Friendly Paper Packaging Products - Sustainable Solutions from India
+      productTypeDesc: `### Eco-Friendly Paper Packaging Products - Sustainable Solutions from India
 
        #### Introducing Our Range of High-Quality Paper Packaging Products
        
@@ -391,10 +393,10 @@ const Products = () => {
     sbt: {
       pId: 6,
       pUrlParam: "sbt",
-      pTitle: "Sugarcane bagasse tableware",
-      pimage: sbt,
+      productTypeTitle: "Sugarcane bagasse tableware",
+      productTypeImgPath: sbt,
       pMetaDesc: "",
-      pDesc: `### Eco-Friendly Sugarcane Bagasse Tableware - Sustainable Solutions from India
+      productTypeDesc: `### Eco-Friendly Sugarcane Bagasse Tableware - Sustainable Solutions from India
 
        #### Introducing Our Range of Premium Sugarcane Bagasse Tableware
        
@@ -442,10 +444,10 @@ const Products = () => {
     fertilizer: {
       pId: 7,
       pUrlParam: "fertilizer",
-      pTitle: "Vermicompost fertilizer",
-      pimage: fertilizer,
+      productTypeTitle: "Vermicompost fertilizer",
+      productTypeImgPath: fertilizer,
       pMetaesc: "",
-      pDesc: `### Premium Vermicompost Fertilizer - Sustainable Agriculture Solutions from India
+      productTypeDesc: `### Premium Vermicompost Fertilizer - Sustainable Agriculture Solutions from India
 
        #### Introducing Our High-Quality Vermicompost Fertilizer
        
@@ -484,10 +486,10 @@ const Products = () => {
     furniture: {
       pId: 8,
       pUrlParam: "furniture",
-      pTitle: "Wooden furniture",
-      pimage: furniture,
+      productTypeTitle: "Wooden furniture",
+      productTypeImgPath: furniture,
       pMetaDesc: "",
-      pDesc: `### Exquisite Wooden Furniture - Elegance and Craftsmanship from India
+      productTypeDesc: `### Exquisite Wooden Furniture - Elegance and Craftsmanship from India
 
        #### Introducing Our Premium Range of Wooden Furniture
        
@@ -539,16 +541,45 @@ const Products = () => {
   };
 
   const [landingPageData, setLandingPageData] = useState({});
+  const [apiData, setApiData] = useState([]);
   const [product, setProduct] = useSearchParams();
+  let selectedProduct;
 
   useEffect(() => {
     setLandingPageData(JsonData);
+    axios
+      .get(`${baseUrl}/getProductCategories`)
+      .then((response) => {
+        if (response?.data) {
+          console.log("API");
+          console.log(product.get("p"));
+          setApiData(response?.data);
+          selectedProduct = apiData ? apiData?.find(p => p?.productTypeShortName === product?.get("p")) : null;
+          console.log("selectedProduct : ", product.get("p"), selectedProduct);
+          setProductDetails(selectedProduct)
+        } else {
+          console.log("local");
+          setApiData(productData);
+        }
+      })
+      .catch((error) => {
+        setApiData(productData);
+        console.error("Error :", error);
+      })
   }, []);
 
   const [productDetails, setProductDetails] = useState({});
   useEffect(() => {
-    setProductDetails(productData[[product.get("p")]]);
-  }, [product.get("p")]);
+    if (!apiData) {
+      console.log("if");
+      setProductDetails(productData[[product.get("p")]]);
+    } else {
+      // Find the specific product based on productTypeShortName
+      selectedProduct = apiData ? apiData?.find(p => p?.productTypeShortName === product?.get("p")) : null;
+      console.log("selectedProduct : ", product.get("p"), selectedProduct);
+      setProductDetails(selectedProduct) // Replace 'desiredShortName' with the actual short name you are looking for
+    }
+  }, [product.get("p")], apiData);
 
   const products = landingPageData.Products;
 
@@ -569,17 +600,18 @@ const Products = () => {
       .replace(/\n/g, "<br />");
   };
 
+  // console.log(productDetails?.productTypeDesc);
   return (
     <ProductsContainer>
       <div className="container" data-aos="fade-up">
         <SectionTitle className="section-title">
-          <h2>{productDetails.pTitle}</h2>
+          <h2>{productDetails?.productTypeTitle}</h2>
           <p>Explore our Products.</p>
         </SectionTitle>
         <IntroSection>
           <IntroImage
             style={{ width: "40%" }}
-            src={productDetails.pimage}
+            src={productDetails?.productTypeImgPath}
             alt="Intro Image"
           />
           <IntroDescription>
@@ -588,14 +620,14 @@ const Products = () => {
               <TopFade />
               <div
                 dangerouslySetInnerHTML={{
-                  __html: parseMarkdown(productDetails.pDesc),
+                  __html: parseMarkdown(productDetails?.productTypeDesc),
                 }}
               ></div>
               <BottomFade />
             </ScrollableContent>
           </IntroDescription>
         </IntroSection>
-        <section id="portfolio" className="portfolio">
+        {/* <section id="portfolio" className="portfolio">
           <div className="">
             <PortfolioContainer data-aos="fade-up">
               {products &&
@@ -623,7 +655,7 @@ const Products = () => {
                 ))}
             </PortfolioContainer>
           </div>
-        </section>
+        </section> */}
       </div>
     </ProductsContainer>
   );
