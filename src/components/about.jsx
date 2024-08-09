@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import about from "../asset/about.jpg";
 import JsonData from "../data/data.json";
 import { Link } from "react-router-dom";
@@ -10,10 +10,23 @@ export const About = (props) => {
   const [landingPageData, setLandingPageData] = useState({});
   const [sectionDetails, setSectionDetails] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [mainLoaderVisible, setMainLoaderVisible] = useState(true);
 
   useEffect(() => {
-    setLandingPageData(JsonData);
-    fetchSectionDetails();
+    const fetchData = async () => {
+      setLandingPageData(JsonData);
+      await fetchSectionDetails();
+      setMainLoaderVisible(false);
+    };
+
+    fetchData();
+
+    // Show skeleton loading after half of the main loading time
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1500); // Adjust this time as needed
+
+    return () => clearTimeout(timer);
   }, []);
 
   const fetchSectionDetails = async () => {
@@ -39,64 +52,106 @@ export const About = (props) => {
 
   return (
     <div id="about">
-      <div className="container">
-        <div className="row">
-          {loading ? (
-            <SkeletonContainer>
-              <SkeletonImage />
-              <SkeletonTextBlock>
-                <SkeletonTitle />
-                <SkeletonParagraph />
-                <SkeletonParagraph />
-                <SkeletonButton />
-              </SkeletonTextBlock>
-            </SkeletonContainer>
-          ) : (
-            <>
-              <div className="col-xs-12 col-md-6">
-                <img
-                  src={about}
-                  style={{ borderRadius: "10px", objectFit: "cover" }}
-                  className="img-responsive"
-                  alt="About Us"
-                />
-              </div>
-              <div className="col-xs-12 col-md-6">
-                <div>
-                  <h2>About Us</h2>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: sectionDetails
-                        ? formatSectionDesc(sectionDetails.sectionDesc)
-                        : "loading...",
-                    }}
-                  ></p>
-                  <button
-                    type="submit"
-                    className="btn btn-custom btn-lg rounded"
-                  >
-                    <Link style={{ color: "#f5f5f5" }} to="/company">
-                      View More
-                    </Link>
-                  </button>
-                </div>
-              </div>
-            </>
-          )}
-        </div>
+      {mainLoaderVisible && <MainLoader />}
+      <div className={mainLoaderVisible ? "hidden" : ""}>
+        {loading ? (
+          <SkeletonContainer>
+            <SkeletonImage />
+            <SkeletonTextBlock>
+              <SkeletonTitle />
+              <SkeletonParagraph />
+              <SkeletonParagraph />
+              <SkeletonButton />
+            </SkeletonTextBlock>
+          </SkeletonContainer>
+        ) : (
+          <>
+            <div className="col-xs-12 col-md-6">
+              <img
+                src={about}
+                style={{ borderRadius: "10px", objectFit: "cover" }}
+                className="img-responsive"
+                alt="About Us"
+              />
+            </div>
+            <div className="col-xs-12 col-md-6">
+              <TextContainer>
+                <h2 className="animated-heading">About Us</h2>
+                <p
+                  className="animated-text"
+                  dangerouslySetInnerHTML={{
+                    __html: sectionDetails
+                      ? formatSectionDesc(sectionDetails.sectionDesc)
+                      : "loading...",
+                  }}
+                ></p>
+                <button type="submit" className="btn btn-custom btn-lg rounded">
+                  <Link style={{ color: "#f5f5f5" }} to="/company">
+                    View More
+                  </Link>
+                </button>
+              </TextContainer>
+            </div>
+          </>
+        )}
+        {!loading && (
+          <Features
+            data={landingPageData.Features}
+            showTitle={true}
+            fromHome={true}
+          />
+        )}
       </div>
-      {!loading && (
-        <Features
-          data={landingPageData.Features}
-          showTitle={true}
-          fromHome={true}
-        />
-      )}
     </div>
   );
 };
 
-// Styled components for skeleton loading
+// Keyframes for animations
+const waveAnimation = keyframes`
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+`;
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const spin = keyframes`
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+`;
+
+// Main Loader Styled Component
+const MainLoader = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: ${spin} 1s linear infinite;
+  z-index: 1000;
+`;
+
+// Hide main loader when data is loaded
+const Hidden = styled.div`
+  display: none;
+`;
+
 const SkeletonContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -105,13 +160,17 @@ const SkeletonContainer = styled.div`
   margin: 20px 0;
 `;
 
-const SkeletonImage = styled.div`
+const SkeletonElement = styled.div`
+  background: linear-gradient(90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  animation: ${waveAnimation} 1.5s infinite;
+`;
+
+const SkeletonImage = styled(SkeletonElement)`
   width: 100%;
   max-width: 500px;
   height: 300px;
-  background: linear-gradient(-90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
   border-radius: 10px;
-  animation: skeleton-loading 1.5s infinite;
 `;
 
 const SkeletonTextBlock = styled.div`
@@ -120,31 +179,35 @@ const SkeletonTextBlock = styled.div`
   padding: 0 20px;
 `;
 
-const SkeletonTitle = styled.div`
+const SkeletonTitle = styled(SkeletonElement)`
   width: 50%;
   height: 30px;
-  background: linear-gradient(-90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
   border-radius: 5px;
   margin-bottom: 20px;
-  animation: skeleton-loading 1.5s infinite;
 `;
 
-const SkeletonParagraph = styled.div`
+const SkeletonParagraph = styled(SkeletonElement)`
   width: 100%;
   height: 15px;
-  background: linear-gradient(-90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
   border-radius: 5px;
   margin-bottom: 10px;
-  animation: skeleton-loading 1.5s infinite;
 `;
 
-const SkeletonButton = styled.div`
+const SkeletonButton = styled(SkeletonElement)`
   width: 30%;
   height: 40px;
-  background: linear-gradient(-90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
   border-radius: 5px;
   margin-top: 20px;
-  animation: skeleton-loading 1.5s infinite;
+`;
+
+const TextContainer = styled.div`
+  animation: ${fadeIn} 1s ease-out;
+  .animated-heading {
+    animation: ${fadeIn} 1s ease-out;
+  }
+  .animated-text {
+    animation: ${fadeIn} 1.5s ease-out;
+  }
 `;
 
 export default About;

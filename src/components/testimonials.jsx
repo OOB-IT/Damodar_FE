@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Modal from "./Modal"; // Import your Modal component
 import PostReview from "./PostReview";
 import userImg from "../asset/user.png";
@@ -87,6 +87,16 @@ const PostReviewButton = styled.button`
   }
 `;
 
+// Skeleton Loading Styles
+const waveAnimation = keyframes`
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+`;
+
 const SkeletonCard = styled.div`
   background: #f0f0f0;
   border-radius: 5px;
@@ -98,16 +108,7 @@ const SkeletonCard = styled.div`
   align-items: center;
   text-align: left;
   min-height: 350px;
-  animation: skeleton-loading 1.5s infinite;
-
-  @keyframes skeleton-loading {
-    0% {
-      background-position: 200% 0;
-    }
-    100% {
-      background-position: -200% 0;
-    }
-  }
+  animation: ${waveAnimation} 1.5s infinite;
 `;
 
 const SkeletonImage = styled.div`
