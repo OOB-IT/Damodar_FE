@@ -245,306 +245,306 @@
   "Products": {
     "honey": [
       {
-        "ID": 1,
-        "ProductTitle": "Product 1",
+        "id": 1,
+        "name": "Product 1",
         "Type": "Honey",
-        "FeaturedImage": "img/products/honey (8).jpg"
+        "imageUrl": "img/products/honey (8).jpg"
       },
       {
-        "ID": 2,
-        "ProductTitle": "Product 2",
+        "id": 2,
+        "name": "Product 2",
         "Type": "Honey",
-        "FeaturedImage": "img/products/honey (3).jpg"
+        "imageUrl": "img/products/honey (3).jpg"
       },
       {
-        "ID": 3,
-        "ProductTitle": "Product 3",
+        "id": 3,
+        "name": "Product 3",
         "Type": "Honey",
-        "FeaturedImage": "img/products/honey (4).jpg"
+        "imageUrl": "img/products/honey (4).jpg"
       },
       {
-        "ID": 4,
-        "ProductTitle": "Product 4",
+        "id": 4,
+        "name": "Product 4",
         "Type": "Honey",
-        "FeaturedImage": "img/products/honey (5).jpg"
+        "imageUrl": "img/products/honey (5).jpg"
       },
       {
-        "ID": 5,
-        "ProductTitle": "Product 5",
+        "id": 5,
+        "name": "Product 5",
         "Type": "Honey",
-        "FeaturedImage": "img/products/honey (6).jpg"
+        "imageUrl": "img/products/honey (6).jpg"
       },
       {
-        "ID": 6,
-        "ProductTitle": "Product 6",
+        "id": 6,
+        "name": "Product 6",
         "Type": "Honey",
-        "FeaturedImage": "img/products/honey (7).jpg"
+        "imageUrl": "img/products/honey (7).jpg"
       }
     ],
     "a2ghee": [
       {
-        "ID": 1,
-        "ProductTitle": "Product 1",
+        "id": 1,
+        "name": "Product 1",
         "Type": "Ghee",
-        "FeaturedImage": "img/products/ghee (2).jpg"
+        "imageUrl": "img/products/ghee (2).jpg"
       },
       {
-        "ID": 2,
-        "ProductTitle": "Product 2",
+        "id": 2,
+        "name": "Product 2",
         "Type": "Ghee",
-        "FeaturedImage": "img/products/ghee (3).jpg"
+        "imageUrl": "img/products/ghee (3).jpg"
       },
       {
-        "ID": 3,
-        "ProductTitle": "Product 3",
+        "id": 3,
+        "name": "Product 3",
         "Type": "Ghee",
-        "FeaturedImage": "img/products/ghee (4).jpg"
+        "imageUrl": "img/products/ghee (4).jpg"
       },
       {
-        "ID": 4,
-        "ProductTitle": "Product 4",
+        "id": 4,
+        "name": "Product 4",
         "Type": "Ghee",
-        "FeaturedImage": "img/products/ghee (5).jpg"
+        "imageUrl": "img/products/ghee (5).jpg"
       },
       {
-        "ID": 5,
-        "ProductTitle": "Product 5",
+        "id": 5,
+        "name": "Product 5",
         "Type": "Ghee",
-        "FeaturedImage": "img/products/ghee (6).jpg"
+        "imageUrl": "img/products/ghee (6).jpg"
       },
       {
-        "ID": 6,
-        "ProductTitle": "Product 6",
+        "id": 6,
+        "name": "Product 6",
         "Type": "Ghee",
-        "FeaturedImage": "img/products/ghee (7).jpg"
+        "imageUrl": "img/products/ghee (7).jpg"
       }
     ],
     "lentils": [
       {
-        "ID": 1,
-        "ProductTitle": "Product 1",
+        "id": 1,
+        "name": "Product 1",
         "Type": "Lentils",
-        "FeaturedImage": "img/products/millets (1).jpg"
+        "imageUrl": "img/products/millets (1).jpg"
       },
       {
-        "ID": 2,
-        "ProductTitle": "Product 2",
+        "id": 2,
+        "name": "Product 2",
         "Type": "Lentils",
-        "FeaturedImage": "img/products/millets (1).jpeg"
+        "imageUrl": "img/products/millets (1).jpeg"
       },
       {
-        "ID": 3,
-        "ProductTitle": "Product 3",
+        "id": 3,
+        "name": "Product 3",
         "Type": "Lentils",
-        "FeaturedImage": "img/products/millets (2).jpeg"
+        "imageUrl": "img/products/millets (2).jpeg"
       },
       {
-        "ID": 4,
-        "ProductTitle": "Ragi Millets",
+        "id": 4,
+        "name": "Ragi Millets",
         "Type": "Lentils",
-        "FeaturedImage": "img/products/millets (6).jpg"
+        "imageUrl": "img/products/millets (6).jpg"
       },
       {
-        "ID": 5,
-        "ProductTitle": "Red Lentils",
+        "id": 5,
+        "name": "Red Lentils",
         "Type": "Lentils",
-        "FeaturedImage": "img/products/millets (7).jpg"
+        "imageUrl": "img/products/millets (7).jpg"
       },
       {
-        "ID": 6,
-        "ProductTitle": "Sorghum Millet",
+        "id": 6,
+        "name": "Sorghum Millet",
         "Type": "Lentils",
-        "FeaturedImage": "img/products/millets (8).jpg"
+        "imageUrl": "img/products/millets (8).jpg"
       }
     ],
     "snacks": [
       {
-        "ID": 1,
-        "ProductTitle": "Dry Snacks",
+        "id": 1,
+        "name": "Dry Snacks",
         "Type": "Snacks",
-        "FeaturedImage": "img/products/dry snacks.jpg"
+        "imageUrl": "img/products/dry snacks.jpg"
       },
       {
-        "ID": 2,
-        "ProductTitle": "Masala Boondi",
+        "id": 2,
+        "name": "Masala Boondi",
         "Type": "Snacks",
-        "FeaturedImage": "img/products/masala boondi namkeen.jpg"
+        "imageUrl": "img/products/masala boondi namkeen.jpg"
       },
       {
-        "ID": 3,
-        "ProductTitle": "Nadiyadi Mix",
+        "id": 3,
+        "name": "Nadiyadi Mix",
         "Type": "Snacks",
-        "FeaturedImage": "img/products/nadayadi mix namkeen.jpg"
+        "imageUrl": "img/products/nadayadi mix namkeen.jpg"
       },
       {
-        "ID": 4,
-        "ProductTitle": "Ratlami Sev",
+        "id": 4,
+        "name": "Ratlami Sev",
         "Type": "Snacks",
-        "FeaturedImage": "img/products/ratlami sev namkeen.jpg"
+        "imageUrl": "img/products/ratlami sev namkeen.jpg"
       },
       {
-        "ID": 5,
-        "ProductTitle": "Wheat Chips",
+        "id": 5,
+        "name": "Wheat Chips",
         "Type": "Snacks",
-        "FeaturedImage": "img/products/rectangle wheat chips.jpg"
+        "imageUrl": "img/products/rectangle wheat chips.jpg"
       },
       {
-        "ID": 6,
-        "ProductTitle": "Rice Crackers",
+        "id": 6,
+        "name": "Rice Crackers",
         "Type": "Snacks",
-        "FeaturedImage": "img/products/rice crackers.jpg"
+        "imageUrl": "img/products/rice crackers.jpg"
       }
     ],
     "paper": [
       {
-        "ID": 1,
-        "ProductTitle": "Premium paper bags",
+        "id": 1,
+        "name": "Premium paper bags",
         "Type": "Paper Product",
-        "FeaturedImage": "img/products/premium paper bags .jpg"
+        "imageUrl": "img/products/premium paper bags .jpg"
       },
       {
-        "ID": 2,
-        "ProductTitle": "Paper tubes and cores",
+        "id": 2,
+        "name": "Paper tubes and cores",
         "Type": "Paper Product",
-        "FeaturedImage": "img/products/paper tubes and cores.jpg"
+        "imageUrl": "img/products/paper tubes and cores.jpg"
       },
       {
-        "ID": 3,
-        "ProductTitle": "Paper cups",
+        "id": 3,
+        "name": "Paper cups",
         "Type": "Paper Product",
-        "FeaturedImage": "img/products/paper cups.jpg"
+        "imageUrl": "img/products/paper cups.jpg"
       },
       {
-        "ID": 4,
-        "ProductTitle": "Paper wraps",
+        "id": 4,
+        "name": "Paper wraps",
         "Type": "Paper Product",
-        "FeaturedImage": "img/products/paper wraps .jpg"
+        "imageUrl": "img/products/paper wraps .jpg"
       },
       {
-        "ID": 5,
-        "ProductTitle": "Folding cartons",
+        "id": 5,
+        "name": "Folding cartons",
         "Type": "Paper Product",
-        "FeaturedImage": "img/products/folding cartons.jpg"
+        "imageUrl": "img/products/folding cartons.jpg"
       },
       {
-        "ID": 6,
-        "ProductTitle": "pouch",
+        "id": 6,
+        "name": "pouch",
         "Type": "Paper Product",
-        "FeaturedImage": "img/products/pouch.jpg"
+        "imageUrl": "img/products/pouch.jpg"
       }
     ],
     "sbt": [
       {
-        "ID": 1,
-        "ProductTitle": "Sugarcane bagasse tray",
+        "id": 1,
+        "name": "Sugarcane bagasse tray",
         "Type": "Sugarcane",
-        "FeaturedImage": "img/products/sugarcane bagasse tray.jpg"
+        "imageUrl": "img/products/sugarcane bagasse tray.jpg"
       },
       {
-        "ID": 2,
-        "ProductTitle": "Sugarcane bagasse plates",
+        "id": 2,
+        "name": "Sugarcane bagasse plates",
         "Type": "Sugarcane",
-        "FeaturedImage": "img/products/sugarcane bagasse plates.jpg"
+        "imageUrl": "img/products/sugarcane bagasse plates.jpg"
       },
       {
-        "ID": 3,
-        "ProductTitle": "Sugarcane bagasse egg tray",
+        "id": 3,
+        "name": "Sugarcane bagasse egg tray",
         "Type": "Sugarcane",
-        "FeaturedImage": "img/products/sugarcane bagasse egg tray.jpg"
+        "imageUrl": "img/products/sugarcane bagasse egg tray.jpg"
       },
       {
-        "ID": 4,
-        "ProductTitle": "Sugarcane bagasse cutlery",
+        "id": 4,
+        "name": "Sugarcane bagasse cutlery",
         "Type": "Sugarcane",
-        "FeaturedImage": "img/products/sugarcane bagasse cutlery.jpg"
+        "imageUrl": "img/products/sugarcane bagasse cutlery.jpg"
       },
       {
-        "ID": 5,
-        "ProductTitle": "Sugarcane bagasse tableware",
+        "id": 5,
+        "name": "Sugarcane bagasse tableware",
         "Type": "Sugarcane",
-        "FeaturedImage": "img/products/bagasse tableware.jpg"
+        "imageUrl": "img/products/bagasse tableware.jpg"
       },
       {
-        "ID": 6,
-        "ProductTitle": "Sugarcane bagasse bowls",
+        "id": 6,
+        "name": "Sugarcane bagasse bowls",
         "Type": "Sugarcane",
-        "FeaturedImage": "img/products/sugarcane bagasse bowls.jpg"
+        "imageUrl": "img/products/sugarcane bagasse bowls.jpg"
       }
     ],
     "fertilizer": [
       {
-        "ID": 1,
-        "ProductTitle": "Healthy Worms",
+        "id": 1,
+        "name": "Healthy Worms",
         "Type": "Fertilizer",
-        "FeaturedImage": "img/products/healthy worms.jpg"
+        "imageUrl": "img/products/healthy worms.jpg"
       },
       {
-        "ID": 2,
-        "ProductTitle": "Fresh vermicompost",
+        "id": 2,
+        "name": "Fresh vermicompost",
         "Type": "Fertilizer",
-        "FeaturedImage": "img/products/fresh vermicompost.jpg"
+        "imageUrl": "img/products/fresh vermicompost.jpg"
       },
       {
-        "ID": 3,
-        "ProductTitle": "Vermicompost quality packing",
+        "id": 3,
+        "name": "Vermicompost quality packing",
         "Type": "Fertilizer",
-        "FeaturedImage": "img/products/vermicompost quality packing.jpg"
+        "imageUrl": "img/products/vermicompost quality packing.jpg"
       },
       {
-        "ID": 4,
-        "ProductTitle": "Vermicompost for organic farming",
+        "id": 4,
+        "name": "Vermicompost for organic farming",
         "Type": "Fertilizer",
-        "FeaturedImage": "img/products/vermicompost for organic farming.jpg"
+        "imageUrl": "img/products/vermicompost for organic farming.jpg"
       },
       {
-        "ID": 5,
-        "ProductTitle": "Vermicompost export in jumbo",
+        "id": 5,
+        "name": "Vermicompost export in jumbo",
         "Type": "Fertilizer",
-        "FeaturedImage": "img/products/vermicompost export in jumbo.jpg"
+        "imageUrl": "img/products/vermicompost export in jumbo.jpg"
       },
       {
-        "ID": 6,
-        "ProductTitle": "Fertilizer cultivation process",
+        "id": 6,
+        "name": "Fertilizer cultivation process",
         "Type": "Fertilizer",
-        "FeaturedImage": "img/products/fertilizer cultivation process.jpg"
+        "imageUrl": "img/products/fertilizer cultivation process.jpg"
       }
     ],
     "furniture": [
       {
-        "ID": 1,
-        "ProductTitle": "Wooden bookshelf",
+        "id": 1,
+        "name": "Wooden bookshelf",
         "Type": "Furniture",
-        "FeaturedImage": "img/products/wooden bookshelf.jpg"
+        "imageUrl": "img/products/wooden bookshelf.jpg"
       },
       {
-        "ID": 2,
-        "ProductTitle": "Wooden TV unit",
+        "id": 2,
+        "name": "Wooden TV unit",
         "Type": "Furniture",
-        "FeaturedImage": "img/products/wooden tv unit.jpg"
+        "imageUrl": "img/products/wooden tv unit.jpg"
       },
       {
-        "ID": 3,
-        "ProductTitle": "Wooden cabinets and sideboards",
+        "id": 3,
+        "name": "Wooden cabinets and sideboards",
         "Type": "Furniture",
-        "FeaturedImage": "img/products/wooden cabinets and sideboards.jpg"
+        "imageUrl": "img/products/wooden cabinets and sideboards.jpg"
       },
       {
-        "ID": 4,
-        "ProductTitle": "Wooden sofaas",
+        "id": 4,
+        "name": "Wooden sofaas",
         "Type": "Furniture",
-        "FeaturedImage": "img/products/wooden sofaas.jpg"
+        "imageUrl": "img/products/wooden sofaas.jpg"
       },
       {
-        "ID": 5,
-        "ProductTitle": "Wooden dinning and chairs",
+        "id": 5,
+        "name": "Wooden dinning and chairs",
         "Type": "Furniture",
-        "FeaturedImage": "img/products/wooden dinning and chairs.jpg"
+        "imageUrl": "img/products/wooden dinning and chairs.jpg"
       },
       {
-        "ID": 6,
-        "ProductTitle": "Wooden center table",
+        "id": 6,
+        "name": "Wooden center table",
         "Type": "Furniture",
-        "FeaturedImage": "img/products/wooden center table.jpg"
+        "imageUrl": "img/products/wooden center table.jpg"
       }
     ]
   }

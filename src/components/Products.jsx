@@ -541,7 +541,9 @@ const Products = () => {
   };
 
   const [landingPageData, setLandingPageData] = useState({});
-  const [apiData, setApiData] = useState([]);
+  const [productTypeData, setProductTypeData] = useState([]);
+  const [productDetails, setProductDetails] = useState({});
+  const [apiProductData, setApiProductData] = useState([]);
   const [product, setProduct] = useSearchParams();
   let selectedProduct;
 
@@ -553,35 +555,46 @@ const Products = () => {
         if (response?.data) {
           console.log("API");
           console.log(product.get("p"));
-          setApiData(response?.data);
-          selectedProduct = apiData ? apiData?.find(p => p?.productTypeShortName === product?.get("p")) : null;
-          console.log("selectedProduct : ", product.get("p"), selectedProduct);
+          setProductTypeData(response?.data);
+          selectedProduct = productTypeData ? productTypeData?.find(p => p?.productTypeShortName === product?.get("p")) : null;
           setProductDetails(selectedProduct)
         } else {
           console.log("local");
-          setApiData(productData);
+          setProductTypeData(productData);
         }
       })
       .catch((error) => {
-        setApiData(productData);
+        setProductTypeData(productData);
         console.error("Error :", error);
-      })
+      });
   }, []);
 
-  const [productDetails, setProductDetails] = useState({});
   useEffect(() => {
-    if (!apiData) {
+    if (!productTypeData) {
       console.log("if");
       setProductDetails(productData[[product.get("p")]]);
     } else {
       // Find the specific product based on productTypeShortName
-      selectedProduct = apiData ? apiData?.find(p => p?.productTypeShortName === product?.get("p")) : null;
+      selectedProduct = productTypeData ? productTypeData?.find(p => p?.productTypeShortName === product?.get("p")) : null;
       console.log("selectedProduct : ", product.get("p"), selectedProduct);
       setProductDetails(selectedProduct) // Replace 'desiredShortName' with the actual short name you are looking for
     }
-  }, [product.get("p")], apiData);
 
-  const products = landingPageData.Products;
+    if (selectedProduct) {
+      axios.get(`${baseUrl}/getProducts`, {
+        params: {
+          productTypeId: selectedProduct?.productTypeId
+        }
+      })
+        .then(response => {
+          console.log(response.data);
+          setApiProductData(response.data);
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        })
+    }
+  }, [product.get("p")], productTypeData);
 
   // Simple Markdown to HTML parser
   const parseMarkdown = (markdown) => {
@@ -601,6 +614,8 @@ const Products = () => {
   };
 
   // console.log(productDetails?.productTypeDesc);
+  console.log("parse", parseMarkdown(productDetails?.productTypeDesc));
+  console.log("parse local", parseMarkdown(productData["paper"].productTypeDesc));
   return (
     <ProductsContainer>
       <div className="container" data-aos="fade-up">
@@ -627,35 +642,35 @@ const Products = () => {
             </ScrollableContent>
           </IntroDescription>
         </IntroSection>
-        {/* <section id="portfolio" className="portfolio">
+        <section id="portfolio" className="portfolio">
           <div className="">
             <PortfolioContainer data-aos="fade-up">
-              {products &&
-                products[productDetails.pUrlParam].map((product) => (
+              {apiProductData &&
+                apiProductData.map((product) => (
                   <PortfolioItem
-                    key={product.ID}
-                    className={`col-lg-12 col-md-12 portfolio-item filter-${product.Type}`}
+                    key={product.id}
+                    className={`col-lg-12 col-md-12 portfolio-item filter-${product.id}`}
                   >
                     <div className="portfolio-wrap hover-bg">
                       <div className="hover-text">
-                        <h4>{product.ProductTitle}</h4>
+                        <h4>{product.name}</h4>
                       </div>
                       <PortfolioImgWrapper>
                         <PortfolioImage
-                          src={`${product.FeaturedImage}`}
-                          alt=""
+                          src={`${product.imageUrl}`}
+                          alt={product.name}
                         />
                       </PortfolioImgWrapper>
                       <PortfolioInfo>
-                        <PortfolioTitle>{product.ProductTitle}</PortfolioTitle>
-                        <PortfolioType>{product.Type}</PortfolioType>
+                        <PortfolioTitle>{product.name}</PortfolioTitle>
+                        <PortfolioType>{product.name}</PortfolioType>
                       </PortfolioInfo>
                     </div>
                   </PortfolioItem>
                 ))}
             </PortfolioContainer>
           </div>
-        </section> */}
+        </section>
       </div>
     </ProductsContainer>
   );
