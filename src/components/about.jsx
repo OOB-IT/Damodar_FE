@@ -21,12 +21,13 @@ export const About = (props) => {
 
     fetchData();
 
-    // Show skeleton loading after half of the main loading time
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1500); // Adjust this time as needed
+    // Show skeleton loading after the main loader has been visible for 1.2 seconds
+    const mainLoaderTimer = setTimeout(() => {
+      setMainLoaderVisible(false); // Hide main loader
+      setLoading(false); // Show skeleton loader
+    }, 1200); // Adjust this time as needed
 
-    return () => clearTimeout(timer);
+    return () => clearTimeout(mainLoaderTimer);
   }, []);
 
   const fetchSectionDetails = async () => {
@@ -95,11 +96,13 @@ export const About = (props) => {
           </>
         )}
         {!loading && (
-          <Features
-            data={landingPageData.Features}
-            showTitle={true}
-            fromHome={true}
-          />
+          <FeaturesContainer>
+            <Features
+              data={landingPageData.Features}
+              showTitle={true}
+              fromHome={true}
+            />
+          </FeaturesContainer>
         )}
       </div>
     </div>
@@ -207,6 +210,21 @@ const TextContainer = styled.div`
   }
   .animated-text {
     animation: ${fadeIn} 1.5s ease-out;
+  }
+`;
+
+// Container for Features component with spacing
+const FeaturesContainer = styled.div`
+  margin-top: 40px; // Add margin to create space from the button
+  padding: 0 15px; // Padding to ensure responsiveness on smaller screens
+
+  @media (max-width: 768px) {
+    margin-top: 30px;
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 20px;
+    padding: 0 10px;
   }
 `;
 
