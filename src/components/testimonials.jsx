@@ -13,10 +13,22 @@ const TestimonialsSection = styled.div`
   padding: 100px 0;
   background-color: #f9f9f9;
   text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 50px 20px;
+  }
 `;
 
 const SectionTitle = styled.div`
   margin-bottom: 50px;
+
+  h2 {
+    font-size: 36px;
+
+    @media (max-width: 768px) {
+      font-size: 28px;
+    }
+  }
 `;
 
 const TestimonialCard = styled.div`
@@ -24,12 +36,18 @@ const TestimonialCard = styled.div`
   padding: 30px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: left;
   min-height: 350px;
+  box-sizing: border-box;
+  width: 80%; /* Adjust width to make the card larger on mobile */
+  margin: 0 auto; /* Center the card */
+
+  @media (max-width: 768px) {
+    width: 100%; /* Full width on mobile */
+  }
 `;
 
 const TestimonialImage = styled.div`
@@ -51,6 +69,11 @@ const TestimonialContent = styled.div`
   font-size: 16px;
   line-height: 1.5;
   margin-bottom: 15px;
+  flex-grow: 1;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const TestimonialMeta = styled.div`
@@ -85,6 +108,10 @@ const PostReviewButton = styled.button`
   &:hover {
     background-color: #6372ff;
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 // Skeleton Loading Styles
@@ -102,13 +129,19 @@ const SkeletonCard = styled.div`
   border-radius: 5px;
   padding: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: left;
   min-height: 350px;
-  animation: ${waveAnimation} 1.5s infinite;
+  animation: ${waveAnimation} 2s infinite;
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const SkeletonImage = styled.div`
@@ -142,12 +175,21 @@ export const Testimonials = () => {
   const [testimonialData, setTestimonialData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showToast, setShowToast] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    fetchtestimonialData();
+    fetchTestimonialData();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
-  const fetchtestimonialData = async () => {
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  const fetchTestimonialData = async () => {
     try {
       const response = await axios.get(`${baseUrl}/getFeedbacksForClientPage`, {
         params: {
@@ -172,6 +214,8 @@ export const Testimonials = () => {
     );
   };
 
+  const centerSlidePercentage = windowWidth <= 768 ? 100 : 100 / 3;
+
   return (
     <TestimonialsSection id="testimonials">
       <div className="container">
@@ -188,9 +232,8 @@ export const Testimonials = () => {
             showArrows={false}
             stopOnHover={false}
             transitionTime={500}
-            slidesToShow={3}
             centerMode
-            centerSlidePercentage={100 / 3}
+            centerSlidePercentage={100} // Show only 1 card at a time on mobile
             renderIndicator={false}
           >
             {Array.from({ length: 6 }).map((_, index) => (
@@ -214,9 +257,8 @@ export const Testimonials = () => {
             showArrows={true}
             stopOnHover={false}
             transitionTime={500}
-            slidesToShow={3}
             centerMode
-            centerSlidePercentage={100 / 3}
+            centerSlidePercentage={centerSlidePercentage} // Dynamically set based on screen size
             renderIndicator={false}
           >
             {testimonialData.map((d, i) => (

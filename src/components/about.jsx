@@ -95,6 +95,7 @@ export const About = (props) => {
             </div>
           </>
         )}
+        &nbsp;
         {!loading && (
           <FeaturesContainer>
             <Features
