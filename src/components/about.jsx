@@ -52,61 +52,67 @@ export const About = (props) => {
   };
 
   return (
-    <div id="about">
-      {mainLoaderVisible && <MainLoader />}
-      <div className={mainLoaderVisible ? "hidden" : ""}>
-        {loading ? (
-          <SkeletonContainer>
-            <SkeletonImage />
-            <SkeletonTextBlock>
-              <SkeletonTitle />
-              <SkeletonParagraph />
-              <SkeletonParagraph />
-              <SkeletonButton />
-            </SkeletonTextBlock>
-          </SkeletonContainer>
-        ) : (
-          <>
-            <div className="col-xs-12 col-md-6">
-              <img
-                src={about}
-                style={{ borderRadius: "10px", objectFit: "cover" }}
-                className="img-responsive"
-                alt="About Us"
-              />
-            </div>
-            <div className="col-xs-12 col-md-6">
-              <TextContainer>
-                <h2 className="animated-heading">About Us</h2>
-                <p
-                  className="animated-text"
-                  dangerouslySetInnerHTML={{
-                    __html: sectionDetails
-                      ? formatSectionDesc(sectionDetails.sectionDesc)
-                      : "loading...",
-                  }}
-                ></p>
-                <button type="submit" className="btn btn-custom btn-lg rounded">
-                  <Link style={{ color: "#f5f5f5" }} to="/company">
-                    View More
-                  </Link>
-                </button>
-              </TextContainer>
-            </div>
-          </>
-        )}
-        &nbsp;
-        {!loading && (
-          <FeaturesContainer>
-            <Features
-              data={landingPageData.Features}
-              showTitle={true}
-              fromHome={true}
-            />
-          </FeaturesContainer>
-        )}
+    <>
+      <div id="about">
+        {mainLoaderVisible && <MainLoader />}
+        <div className={mainLoaderVisible ? "hidden" : ""}>
+          {loading ? (
+            <SkeletonContainer>
+              <SkeletonImage />
+              <SkeletonTextBlock>
+                <SkeletonTitle />
+                <SkeletonParagraph />
+                <SkeletonParagraph />
+                <SkeletonButton />
+              </SkeletonTextBlock>
+            </SkeletonContainer>
+          ) : (
+            <>
+              <div className="col-xs-12 col-md-6">
+                <img
+                  src={about}
+                  style={{ borderRadius: "10px", objectFit: "cover" }}
+                  className="img-responsive"
+                  alt="About Us"
+                />
+              </div>
+              <div className="col-xs-12 col-md-6">
+                <TextContainer>
+                  <h2 className="animated-heading">About Us</h2>
+                  <p
+                    className="animated-text"
+                    dangerouslySetInnerHTML={{
+                      __html: sectionDetails
+                        ? formatSectionDesc(sectionDetails.sectionDesc)
+                        : "loading...",
+                    }}
+                  ></p>
+                  <button
+                    type="submit"
+                    className="btn btn-custom btn-lg rounded"
+                  >
+                    <Link style={{ color: "#f5f5f5" }} to="/company">
+                      View More
+                    </Link>
+                  </button>
+                </TextContainer>
+              </div>
+            </>
+          )}
+        </div>
       </div>
-    </div>
+      <div>&nbsp;</div>
+      <div>&nbsp;</div>
+      {!loading && (
+        <FeaturesContainer>
+          <Features
+            data={landingPageData.Features}
+            showTitle={true}
+            fromHome={true}
+          />
+        </FeaturesContainer>
+      )}
+    </>
   );
 };
 
