@@ -8,7 +8,6 @@ import JsonData from "../data/data.json";
 import { baseUrl } from "../utils/config";
 import axios from "axios";
 
-
 export const Navigation = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -28,7 +27,7 @@ export const Navigation = () => {
   }, []);
 
   const handleNavItemClick = (path) => {
-    navigate(path);
+    // navigate(path);
     closeNavbar();
   };
 
@@ -58,10 +57,8 @@ export const Navigation = () => {
       .catch((error) => {
         setLandingPageData(localData);
         console.error("Error :", error);
-      })
+      });
   }, []);
-
-
 
   const categories = landingPageData;
   // console.log("landingPageData", landingPageData);
@@ -80,8 +77,8 @@ export const Navigation = () => {
             isScrolled && location.pathname === "/"
               ? "20px"
               : location.pathname === "/"
-                ? "40px"
-                : "20px",
+              ? "40px"
+              : "20px",
         }}
         className="navbar navbar-default navbar-fixed-top"
       >
@@ -125,13 +122,13 @@ export const Navigation = () => {
           >
             <ul className="nav navbar-nav navbar-right">
               <li>
-                <Link to="/" onClick={() => handleNavItemClick("/")}>
+                <Link to="/" onClick={() => handleNavItemClick("")}>
                   Home
                 </Link>
               </li>
               <li className="dropdown">
                 <a
-                  href="#"
+                  // href="#"
                   className="dropdown-toggle"
                   data-toggle="dropdown"
                   role="button"

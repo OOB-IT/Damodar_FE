@@ -540,82 +540,53 @@ const Products = () => {
     },
   };
 
-  const [landingPageData, setLandingPageData] = useState({});
-  const [productTypeData, setProductTypeData] = useState([]);
+  const [landingPageData, setLandingPageData] = useState(JsonData);
+  const [productTypeData, setProductTypeData] = useState(null);
   const [productDetails, setProductDetails] = useState({});
   const [apiProductData, setApiProductData] = useState([]);
   const [product, setProduct] = useSearchParams();
-  let selectedProduct;
 
   useEffect(() => {
-    setLandingPageData(JsonData);
-    axios
-      .get(`${baseUrl}/getProductCategories`)
-      .then((response) => {
-        if (response?.data) {
-          console.log("API");
-          console.log(product.get("p"));
-          setProductTypeData(response?.data);
-          selectedProduct = productTypeData ? productTypeData?.find(p => p?.productTypeShortName === product?.get("p")) : null;
-          setProductDetails(selectedProduct)
-        } else {
-          console.log("local");
-          setProductTypeData(productData);
-        }
-      })
-      .catch((error) => {
-        setProductTypeData(productData);
-        console.error("Error :", error);
-      });
-  }, []);
+    axios.get(`${baseUrl}/getProductCategories`).then((response) => {
+      const data = response?.data || productData;
+      setProductTypeData(data);
+      const selectedProduct =
+        data?.find((p) => p?.productTypeShortName === product?.get("p")) ||
+        productData[product.get("p")];
 
-  useEffect(() => {
-    if (!productTypeData) {
-      console.log("if");
-      setProductDetails(productData[[product.get("p")]]);
-    } else {
-      // Find the specific product based on productTypeShortName
-      selectedProduct = productTypeData ? productTypeData?.find(p => p?.productTypeShortName === product?.get("p")) : null;
-      console.log("selectedProduct : ", product.get("p"), selectedProduct);
-      setProductDetails(selectedProduct) // Replace 'desiredShortName' with the actual short name you are looking for
-    }
+      setProductDetails(selectedProduct);
 
-    if (selectedProduct) {
-      axios.get(`${baseUrl}/getProducts`, {
-        params: {
-          productTypeId: selectedProduct?.productTypeId
-        }
-      })
-        .then(response => {
-          console.log(response.data);
-          setApiProductData(response.data);
-        })
-        .catch(error => {
-          console.error('Error fetching data:', error);
-        })
-    }
-  }, [product.get("p")], productTypeData);
+      if (selectedProduct) {
+        axios
+          .get(`${baseUrl}/getProducts`, {
+            params: { productTypeId: selectedProduct.productTypeId },
+          })
+          .then((response) => {
+            setApiProductData(response.data);
+          });
+      }
+    });
+  }, [product]);
 
-  // Simple Markdown to HTML parser
+  useEffect(() => {}, [productTypeData, product]);
+
   const parseMarkdown = (markdown) => {
     if (!markdown) return "";
 
     return markdown
-      .replace(/###### (.*?)(\n|$)/g, "<h6>$1</h6>")
-      .replace(/##### (.*?)(\n|$)/g, "<h5>$1</h5>")
-      .replace(/#### (.*?)(\n|$)/g, "<h4>$1</h4>")
-      .replace(/### (.*?)(\n|$)/g, "<h3>$1</h3>")
-      .replace(/## (.*?)(\n|$)/g, "<h2>$1</h2>")
-      .replace(/# (.*?)(\n|$)/g, "<h1>$1</h1>")
+      .replace(/^###### (.*?)(\r?\n|$)/gm, "<h6>$1</h6>")
+      .replace(/^##### (.*?)(\r?\n|$)/gm, "<h5>$1</h5>")
+      .replace(/^#### (.*?)(\r?\n|$)/gm, "<h4>$1</h4>")
+      .replace(/^### (.*?)(\r?\n|$)/gm, "<h3>$1</h3>")
+      .replace(/^## (.*?)(\r?\n|$)/gm, "<h2>$1</h2>")
+      .replace(/^# (.*?)(\r?\n|$)/gm, "<h1>$1</h1>")
       .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
       .replace(/\*(.*?)\*/g, "<em>$1</em>")
       .replace(/`(.*?)`/g, "<code>$1</code>")
-      .replace(/\n/g, "<br />");
+      .replace(/\r?\n/g, "<br />");
   };
 
-  // console.log(productDetails?.productTypeDesc);
-  console.log("parse", parseMarkdown(productDetails?.productTypeDesc));
-  console.log("parse local", parseMarkdown(productData["paper"].productTypeDesc));
+  console.log("check..", productDetails);
   return (
     <ProductsContainer>
       <div className="container" data-aos="fade-up">
