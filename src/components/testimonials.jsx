@@ -284,7 +284,7 @@ export const Testimonials = () => {
         </PostReviewButton>
         {isModalOpen && (
           <Modal onClose={() => setModalOpen(false)}>
-            <PostReview />
+            <PostReview handleShow={() => setShowToast(true)} />
           </Modal>
         )}
       </div>
@@ -293,7 +293,7 @@ export const Testimonials = () => {
         onClose={() => setShowToast(false)}
         headerText="Feedback Posted"
         bodyText="Thank you for your valuable feedback."
-        timeAgo="Just now"
+        timeAgo="1 Seconds Ago"
         imageSrc={toastImg}
       />
     </TestimonialsSection>
