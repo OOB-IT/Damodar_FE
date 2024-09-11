@@ -11,7 +11,6 @@ export const About = (props) => {
   const [sectionDetails, setSectionDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [mainLoaderVisible, setMainLoaderVisible] = useState(true);
-
   useEffect(() => {
     const fetchData = async () => {
       setLandingPageData(JsonData);
@@ -29,6 +28,7 @@ export const About = (props) => {
 
     return () => clearTimeout(mainLoaderTimer);
   }, []);
+  console.log();
 
   const fetchSectionDetails = async () => {
     try {
@@ -84,7 +84,7 @@ export const About = (props) => {
                     dangerouslySetInnerHTML={{
                       __html: sectionDetails
                         ? formatSectionDesc(sectionDetails.sectionDesc)
-                        : "loading...",
+                        : formatSectionDesc(landingPageData?.About?.sectionDesc),
                     }}
                   ></p>
                   <button
