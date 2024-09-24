@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./CertificatePage.css";
 import {
   dgft,
@@ -9,6 +9,8 @@ import {
   fssai,
   halal,
 } from "../asset/certificate/index";
+import axios from "axios";
+import { baseUrl } from "../utils/config";
 const images = [
   { src: apeda, alt: "apeda" },
   { src: dgft, alt: "dgft" },
@@ -19,6 +21,29 @@ const images = [
   { src: halal, alt: "halal" },
 ];
 const CertificatePage = () => {
+  const [certificates, setCertificates] = useState();
+
+  useEffect(() => {
+    fetchCertificateData();
+  }, []);
+
+  const fetchCertificateData = async () => {
+    try {
+      const response = await axios.get(`${baseUrl}/getCertificatesImg`, {
+        params: {
+          limit: 6,
+        },
+      });
+      if (response !== undefined) {
+        setCertificates(response?.data);
+      } else {
+        setCertificates(images);
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setCertificates(images);
+    }
+  };
   return (
     <div style={{ padding: "150px 0 0 0", textAlign: "center" }}>
       <div className="container" data-aos="fade-up">
@@ -30,7 +55,7 @@ const CertificatePage = () => {
           <div className="container-fluid">
             {/*  */}
             <div className="row gy-4 justify-content-center">
-              {images.map((image, index) => (
+              {certificates?.map((image, index) => (
                 <div key={index} className="col-xl-3 col-lg-4 col-md-6 pb-2">
                   <div className="gallery-item h-100">
                     <img

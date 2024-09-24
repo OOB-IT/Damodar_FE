@@ -25,7 +25,7 @@ export const About = (props) => {
     const mainLoaderTimer = setTimeout(() => {
       setMainLoaderVisible(false); // Hide main loader
       setLoading(false); // Show skeleton loader
-    }, 1200); // Adjust this time as needed
+    }, 3500); // Adjust this time as needed
 
     return () => clearTimeout(mainLoaderTimer);
   }, []);
