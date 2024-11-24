@@ -46,10 +46,10 @@ export const Navigation = () => {
   const localData = JsonData.ProductCategories;
   useEffect(() => {
     axios
-      .get(`${baseUrl}/getProductCategories`)
+      .get(`${baseUrl}/getMainCategoryNamesList`)
       .then((response) => {
-        if (response?.data) {
-          setLandingPageData(response?.data);
+        if (response?.data?.data) {
+          setLandingPageData(response?.data?.data);
         } else {
           setLandingPageData(localData);
         }
@@ -61,6 +61,8 @@ export const Navigation = () => {
   }, []);
 
   const categories = landingPageData;
+  console.log(categories);
+
   // console.log("landingPageData", landingPageData);
   // console.log("localData", localData);
 
@@ -77,8 +79,8 @@ export const Navigation = () => {
             isScrolled && location.pathname === "/"
               ? "20px"
               : location.pathname === "/"
-              ? "40px"
-              : "20px",
+                ? "40px"
+                : "20px",
         }}
         className="navbar navbar-default navbar-fixed-top"
       >
@@ -178,14 +180,14 @@ export const Navigation = () => {
                 <ul className="dropdown-menu">
                   {categories &&
                     categories.map((category) => (
-                      <li key={category.productTypeId}>
+                      <li key={category.mainCategoryId}>
                         <Link
                           to={category.productPageUrl}
                           onClick={() =>
                             handleNavItemClick(category.productPageUrl)
                           }
                         >
-                          {category.productTypeTitle}
+                          {category.mainCategoryTitle}
                         </Link>
                       </li>
                     ))}

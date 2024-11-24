@@ -1,15 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
-import JsonData from "../data/data.json";
-import mainHoney from "../asset/product/mainHoney.jpg";
-import ghee from "../asset/product/ghee (1).jpg";
-import millets from "../asset/product/millets.jpg";
-import snacks from "../asset/product/dry snacks.jpg";
-import paper from "../asset/product/cup.jpg";
-import sbt from "../asset/product/sugarcane bagasse compartment meal tray.jpg";
-import furniture from "../asset/product/wooden bed.jpg";
-import fertilizer from "../asset/product/vermicompost smooth and natural.jpg";
 import axios from "axios";
 import { baseUrl } from "../utils/config";
 
@@ -48,13 +39,9 @@ const IntroImage = styled.img`
 
 const IntroDescription = styled.div`
   flex: 1;
-  padding: 10px;
+  padding: 20px;
   text-align: left;
-  max-height: 400px; /* Limit the height */
-
-  padding: 20px; /* Add padding inside the box */
-
-  position: relative; /* Position for shading effect */
+  position: relative;
 
   @media (max-width: 768px) {
     text-align: center;
@@ -62,107 +49,84 @@ const IntroDescription = styled.div`
 `;
 
 const PortfolioContainer = styled.div`
-  padding: 150px 0 0 0;
+  padding: 20px;
   text-align: center;
   display: flex;
-  flex-direction: row;
-  padding: 10px;
-  flex-wrap: wrap;
-  justify-content: center; /* Center items horizontally */
+  flex-direction: column;
+  gap: 40px;
+`;
 
-  @media (max-width: 768px) {
-    justify-content: flex-start; /* Align items to the start for mobile view */
-  }
+const ProductTypeSection = styled.div`
+  text-align: left;
+`;
+
+const ProductTypeTitle = styled.h3`
+  margin-bottom: 10px;
+  color: #37517e;
+`;
+
+const ProductTypeDescription = styled.p`
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #555;
+`;
+
+const ProductList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 `;
 
 const PortfolioItem = styled.div`
-  margin: auto auto 20px auto;
-  max-width: 350px;
+  max-width: 200px;
   transition: 0.3s;
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  z-index: 1;
 
   &:hover {
-    transform: scale(1.03);
-    transition: all 0.2 ease-in-out;
+    transform: scale(1.05);
   }
 `;
+
 const PortfolioImgWrapper = styled.div`
-  width: 400px;
-  height: 300px;
+  width: 100%;
+  height: 200px;
   overflow: hidden;
-  text-align: center;
+  border-radius: 10px;
 `;
 
 const PortfolioImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: all 0.6s;
-`;
-
-const PortfolioInfo = styled.div`
-  opacity: 0;
-  position: absolute;
-  left: 15px;
-  bottom: 0;
-  z-index: 3;
-  right: 15px;
-  transition: all 0.3s;
-  background: rgba(55, 81, 126, 0.8);
-  padding: 10px 15px;
 `;
 
 const PortfolioTitle = styled.h4`
-  font-size: 18px;
-  color: #fff;
-  font-weight: 600;
-  margin-bottom: 0px;
-`;
-
-const PortfolioType = styled.p`
-  color: #f9fcfe;
-  font-size: 14px;
-  margin-bottom: 0;
+  font-size: 16px;
+  margin-top: 10px;
+  color: #333;
 `;
 
 const Products = () => {
-  const productData = "";
-
-  const [productTypeData, setProductTypeData] = useState(null);
   const [productDetails, setProductDetails] = useState({});
-  const [apiProductData, setApiProductData] = useState([]);
   const [product, setProduct] = useSearchParams();
+  const mcId = product?.get("id");
 
   useEffect(() => {
-    axios.get(`${baseUrl}/getProductCategories`).then((response) => {
-      const data = response?.data || productData;
-      setProductTypeData(data);
-      const selectedProduct =
-        data?.find((p) => p?.productTypeShortName === product?.get("p")) ||
-        productData[product.get("p")];
+    axios
+      .get(`${baseUrl}/getProductDataByMainCategory?id=${mcId}`)
+      .then((response) => {
+        const data = response?.data?.data || {};
+        console.log(data);
 
-      setProductDetails(selectedProduct);
-
-      if (selectedProduct) {
-        axios
-          .get(`${baseUrl}/getProducts`, {
-            params: { productTypeId: selectedProduct.productTypeId },
-          })
-          .then((response) => {
-            setApiProductData(response.data);
-          });
-      }
-    });
+        setProductDetails(data);
+      });
   }, [product]);
-
-  useEffect(() => {}, [productTypeData, product]);
 
   const parseMarkdown = (markdown) => {
     if (!markdown) return "";
-
     return markdown
       .replace(/^###### (.*?)(\r?\n|$)/gm, "<h6>$1</h6>")
       .replace(/^##### (.*?)(\r?\n|$)/gm, "<h5>$1</h5>")
@@ -180,53 +144,47 @@ const Products = () => {
     <ProductsContainer>
       <div className="container" data-aos="fade-up">
         <SectionTitle className="section-title">
-          <h2>{productDetails?.productTypeTitle}</h2>
+          <h2>{productDetails?.mainCategoryTitle}</h2>
           <p>Explore our Products.</p>
         </SectionTitle>
         <IntroSection>
           <IntroImage
             style={{ width: window.innerWidth <= 768 ? "100%" : "40%" }}
-            src={productDetails?.productTypeImgPath}
+            src={productDetails?.mainCategoryImgPath || ""}
             alt="Intro Image"
           />
           <IntroDescription>
             <h3>Product Introduction</h3>
             <div
               dangerouslySetInnerHTML={{
-                __html: parseMarkdown(productDetails?.productTypeDesc),
+                __html: parseMarkdown(productDetails?.mainCategoryDesc),
               }}
             ></div>
           </IntroDescription>
         </IntroSection>
-        <section id="portfolio" className="portfolio">
-          <div className="">
-            <PortfolioContainer data-aos="fade-up">
-              {apiProductData &&
-                apiProductData.map((product) => (
-                  <PortfolioItem
-                    key={product.id}
-                    className={`col-lg-12 col-md-12 portfolio-item filter-${product.id}`}
-                  >
-                    <div className="portfolio-wrap hover-bg">
-                      <div className="hover-text">
-                        <h4>{product.name}</h4>
-                      </div>
-                      <PortfolioImgWrapper>
-                        <PortfolioImage
-                          src={`${product.imageUrl}`}
-                          alt={product.name}
-                        />
-                      </PortfolioImgWrapper>
-                      <PortfolioInfo>
-                        <PortfolioTitle>{product.name}</PortfolioTitle>
-                        <PortfolioType>{product.name}</PortfolioType>
-                      </PortfolioInfo>
-                    </div>
+        <PortfolioContainer>
+          {productDetails?.productsCategory?.map((productType) => (
+            <ProductTypeSection key={productType.productTypeId}>
+              <ProductTypeTitle>{productType.productTypeTitle}</ProductTypeTitle>
+              <ProductTypeDescription>
+                {productType.productTypeDesc}
+              </ProductTypeDescription>
+              <ProductList>
+                {productType.productList.map((product) => (
+                  <PortfolioItem key={product.productId}>
+                    <PortfolioImgWrapper>
+                      <PortfolioImage
+                        src={product.productImgPath}
+                        alt={product.productName}
+                      />
+                    </PortfolioImgWrapper>
+                    <PortfolioTitle>{product.productName}</PortfolioTitle>
                   </PortfolioItem>
                 ))}
-            </PortfolioContainer>
-          </div>
-        </section>
+              </ProductList>
+            </ProductTypeSection>
+          ))}
+        </PortfolioContainer>
       </div>
     </ProductsContainer>
   );
