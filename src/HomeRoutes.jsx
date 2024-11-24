@@ -4,11 +4,10 @@ import JsonData from "./data/data.json";
 import { Header } from "./components/header";
 import { About } from "./components/about";
 import { ProductCatalog } from "./components/ProductCatalog";
-import { Testimonials } from "./components/testimonials";
 import { Contact } from "./components/contact";
 import MembershipCertification from "./components/Certificate";
-import Footer from "./components/Footer";
-import { Features } from "./components/features";
+import Gallery from "./components/Gallery";
+import { Testimonials } from "./components/testimonials";
 
 const HomeRoutes = () => {
   const [landingPageData, setLandingPageData] = useState({});
@@ -16,16 +15,17 @@ const HomeRoutes = () => {
     setLandingPageData(JsonData);
   }, []);
 
+
+
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <Header data={landingPageData.Header} />
       <About data={landingPageData.About} />
       <ProductCatalog data={landingPageData.ProductCatalog} />
-      {/* <Testimonials data={landingPageData.Testimonials} /> */}
+      <Gallery />
       <MembershipCertification />
-
+      <Testimonials />
       <Contact data={landingPageData.Contact} />
-      <Footer />
     </div>
   );
 };

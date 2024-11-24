@@ -218,21 +218,26 @@ a:focus,
 }
 /* Header Section */
 .intro {
-  display: table;
+  position: relative;
   width: 100%;
-  padding: 0;
-  background: url("https://images.unsplash.com/photo-1617952739858-28043cecdae3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
-    center center no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
+  height: 100vh; /* Adjust height as needed */
+  overflow: hidden;
 }
 
-@media (max-width: 600px) {
-  .intro {
-    margin-left: 20px; /* Apply margin-left only on screens up to 600px width (mobile view) */
-  }
+#background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -1; /* Ensure the video is behind other content */
+}
+
+.content {
+  position: relative;
+  z-index: 1; /* Ensure content is above the video */
 }
 
 .intro .overlay {
@@ -267,7 +272,7 @@ header .intro-text {
 /* Features Section */
 #features {
   background: #fafaff;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
 }
 #features i.fa {
   font-size: 38px;
@@ -282,6 +287,32 @@ header .intro-text {
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
 }
 /* About Section */
+.company {
+  background: url("../img/about-bg.jpg") center top no-repeat fixed;
+  background-size: cover;
+  padding: 60px 0 40px 0;
+  position: relative;
+}
+
+.company::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 1;
+}
+.company img {
+  position: relative;
+  z-index: 2;
+}
+.company .about-text {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 45px;
+}
 #about {
   padding: 100px 0;
 }
@@ -667,7 +698,7 @@ header .intro-text {
   font-size: 18px;
   letter-spacing: 1px;
   font-weight: 500;
-  text-transform: uppercase;
+  /* text-transform: uppercase;  to  uppercase the letters */
 }
 .hover-bg:hover .hover-text > h4 {
   opacity: 1;
@@ -832,6 +863,8 @@ label {
 }
 #contact .contact-item span {
   color: rgba(255, 255, 255, 1);
+  font-size: 1.5rem;
+  font-weight: 500;
   margin-bottom: 10px;
   display: block;
 }
@@ -848,6 +881,13 @@ label {
   display: inline-block;
   margin: 0 20px;
 }
+.social-links a {
+  font-size: 18px;
+  display: inline-block;
+  color: #fff;
+  padding-top: 5px;
+  margin-right: 8px;
+}
 #contact .social i.fa {
   font-size: 22px;
   width: 48px;
@@ -861,6 +901,11 @@ label {
 #contact .social i.fa:hover {
   color: #608dfd;
   background: #fff;
+}
+#contact .section-title p {
+  color: rgba(255, 255, 255, 1);
+  font-weight: 450;
+  font-size: 1.4rem;
 }
 /* Footer Section*/
 #footer {
@@ -878,6 +923,14 @@ label {
   border-bottom: 2px solid #608dfd;
 }
 
+.saIcon {
+  color: #6372ff;
+}
+
+.saCardContainer {
+  background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
+}
+
 @media (max-width: 768px) {
   #about img {
     margin: 50px 0;
@@ -885,4 +938,10 @@ label {
   #aboutDetail {
     padding: 100px 0 0 0;
   }
+}
+
+.contact-item > p {
+  color: rgba(255, 255, 255, 1);
+  font-weight: 450;
+  font-size: 1.4rem;
 }

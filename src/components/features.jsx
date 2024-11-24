@@ -1,39 +1,56 @@
 import React from "react";
 
 export const Features = (props) => {
+  const fromHome = props?.fromHome;
   return (
     <>
       <div
         id="features"
         className="text-center container"
-        style={{ marginTop: "50px", paddingBottom: "50px" }}
+        style={{
+          marginTop: "50px",
+          paddingBottom: fromHome ? undefined : "50px",
+          position: "relative",
+          background: fromHome ? "none" : undefined,
+          zIndex: "2",
+        }}
       >
-        <div className="section-title">
-          <h2>What we do</h2>
-          <p>
-            Discover our core activities and services that drive our mission
-            forward.
-          </p>
-        </div>
-        {/* <div className="container d-flex justify-content-center mx-auto"> */}{" "}
-        {/* Added d-flex justify-content-center classes */}
-        {/* <div className="d-flex" style={{ marginLeft: "auto" }}> */}{" "}
-        {/* Added d-flex class and marginLeft: auto */}
-        {props.data
-          ? props.data.map((d, i) => (
+        {!fromHome ? (
+          <div>
+            {props?.showTitle && (
+              <div className="section-title" style={{ paddingTop: "10px" }}>
+                <h2>What we do</h2>
+                <p>
+                  Discover our core activities and services that drive our
+                  mission forward.
+                </p>
+              </div>
+            )}
+          </div>
+        ) : (
+          ""
+        )}
+        {props?.data ? (
+          <div className="row">
+            {props.data.map((d, i) => (
               <div
                 key={`${d.title}-${i}`}
-                className="col-xs-6 col-sm-4 col-md-4 "
+                className="col-12 col-sm-6 col-md-4"
+                style={{ marginBottom: "30px" }}
               >
-                <i className={d.icon}></i>
+                <i
+                  className={d.icon}
+                  style={{ fontSize: "2em", marginBottom: "10px" }}
+                ></i>
                 <h3>{d.title}</h3>
                 <p>{d.text}</p>
               </div>
-            ))
-          : "Loading..."}
+            ))}
+          </div>
+        ) : (
+          "Loading..."
+        )}
       </div>
-      {/* </div> */}
-      {/* </div> */}
     </>
   );
 };

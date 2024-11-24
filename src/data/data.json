@@ -1,42 +1,80 @@
 {
+  "CompanyPage": {
+    "mainDesc": "At Damodarr Global Venture LLP, we are dedicated to delivering excellence in global trade. With a focus on quality, reliability, and customer satisfaction, we specialize in exporting a diverse range of high-quality products worldwide.",
+    "comprehensiveExportSolutions": "Comprehensive Export Solutions: From sourcing to shipping, we manage every aspect of the export process with precision and care.",
+    "customizedPackaging": "Customized Packaging: Tailored to meet your specific needs, our packaging solutions ensure your products arrive in perfect condition, every time.",
+    "regulatoryComplaince": "Regulatory Compliance: We navigate complex international regulations to ensure smooth, hassle-free transactions.",
+    "whyChooseTitle": "Why Choose Us?",
+    "whyChooseP1": "Trusted Quality: Our commitment to premium quality and rigorous quality control measures ensure you receive only the best products.",
+    "whyChooseP2": "Global Network: Leveraging our extensive network, we open doors to new markets and opportunities for your business.",
+    "whyChooseP3": "Proven Expertise: With years of experience, we bring unparalleled knowledge and expertise to every partnership.",
+    "keyPhrases": "Global Export Partner | Premium Quality | Reliable Shipping | Customized Packaging | Regulatory Compliance",
+    "discover1": "Discover the Damodarr Global Venture LLP difference – where your global trade needs are met with excellence and reliability.",
+    "discover2": "Join us and experience the benefits of a trusted export partner. Let's grow together!",
+    "contactUs": "Contact us today to learn more about how we can support your business needs."
+  },
   "Header": {
     "title": "Damodarr",
     "paragraph": "Global Venture LLP",
     "paragraph2": "Your premier destination for international trade solutions."
   },
   "About": {
-    "paragraph1": "Welcome to Damodarr  Global Venture LLP, your premier destination for international trade solutions. As a leading exporter and importer, we specialize in facilitating seamless transactions across borders, connecting businesses worldwide.",
-    "paragraph2": " At Damodarr GlobalVentureLLP, we pride ourselves on our commitment to excellence, reliability, and efficiency. With years of experience in the industry, our dedicated team ensures smooth operations and unparalleled customer satisfaction.",
-    "paragraph3": "From sourcing high-quality products to managing logistics and customs clearance, we handle every aspect of the export-import process with precision and professionalism. Whether you're looking to expand your market reach or streamline your supply chain, we're here to exceed your expectations. Explore our comprehensive range of services tailored to meet your unique business needs, and let us be your trusted partner in global trade success. Welcome aboard the journey to limitless opportunities with Damodarr Global Venture LLP.",
-    "paragraph4": " Explore our comprehensive range of services tailored to meet your unique business needs, and let us be your trusted partner in global trade success. Welcome aboard the journey to limitless opportunities with Damodarr Global Venture LLP.",
-    "Why": [
-      "Lorem ipsum dolor",
-      "Tempor incididunt",
-      "Lorem ipsum dolor",
-      "Incididunt ut labore"
-    ],
-    "Why2": [
-      "Aliquip ex ea commodo",
-      "Lorem ipsum dolor",
-      "Exercitation ullamco",
-      "Lorem ipsum dolor"
-    ]
+    "sectionId": 1,
+    "sectionTitle": "About Us",
+    "sectionDesc": "Welcome to Damodarr Global Venture LLP, a premier exporter dedicated to delivering the finest quality products to our global clientele. With a commitment to sustainability, health, and excellence, we offer a diverse range of products sourced and manufactured with the highest standards. Our goal is to provide exceptional service and premium goods that meet the unique needs of our customers worldwide.\r\n\r\nAt Damodarr Global Venture LLP, we prioritize building strong, lasting relationships based on integrity, transparency, and customer satisfaction. Our expert team ensures every product meets rigorous quality and safety standards. We are passionate about innovation and continuously improve our processes to stay ahead in the global market.\r\n\r\nOur robust logistics and supply chain management guarantee timely delivery, supported by our dedicated customer service team. Join us in our mission to create a healthier, more sustainable future with high-quality, eco-friendly products.",
+    "sectionCode": 1,
+    "imagePath": null,
+    "activeFlag": 901,
+    "secondaryDesc": null
   },
   "ProductCatalog": [
     {
-      "title": "A2 Cow Ghee",
-      "largeImage": "img/catalog/ghee.jpg",
-      "smallImage": "img/catalog/ghee.jpg"
+      "productTypeTitle": "A-2 pure cow ghee",
+      "productTypeCtgDesc": "Our A-2 pure cow ghee offers unmatched quality and rich, authentic flavor, perfect for culinary and health benefits.",
+      "productTypeCtgImg": "img/catalog/ghee.jpg",
+      "productPageUrl": "/products?p=a2ghee"
     },
     {
-      "title": "Honey",
-      "largeImage": "img/catalog/honey.jpg",
-      "smallImage": "img/catalog/honey.jpg"
+      "productTypeTitle": "Natural & raw honey",
+      "productTypeCtgDesc": "Our honey is 100% natural and raw, harvested sustainably to ensure the highest purity and rich, natural sweetness.",
+      "productTypeCtgImg": "img/catalog/honey.jpg",
+      "productPageUrl": "/products?p=honey"
     },
     {
-      "title": "Millets",
-      "largeImage": "img/catalog/millets.jpg",
-      "smallImage": "img/catalog/millets.jpg"
+      "productTypeTitle": "Lentils & cereals",
+      "productTypeCtgDesc": "We provide a variety of high-quality lentils and cereals, rich in nutrients and perfect for diverse culinary applications.",
+      "productTypeCtgImg": "img/catalog/len.jpg",
+      "productPageUrl": "/products?p=lentils"
+    },
+    {
+      "productTypeTitle": "Snacks & namkeens",
+      "productTypeCtgDesc": "Indulge in our premium snacks and namkeens, crafted to deliver a delicious and authentic taste experience.",
+      "productTypeCtgImg": "img/catalog/snak.jpg",
+      "productPageUrl": "/products?p=snacks"
+    },
+    {
+      "productTypeTitle": "Paper packaging products",
+      "productTypeCtgDesc": "Eco-friendly and durable, our paper packaging solutions are designed for sustainability and practicality.",
+      "productTypeCtgImg": "img/catalog/paper.jpg",
+      "productPageUrl": "/products?p=paper"
+    },
+    {
+      "productTypeTitle": "sugarcane bagasse tableware",
+      "productTypeCtgDesc": "Our biodegradable and compostable tableware made from sugarcane bagasse is ideal for eco-conscious dining.",
+      "productTypeCtgImg": "img/catalog/suger.jpg",
+      "productPageUrl": "/products?p=sbt"
+    },
+    {
+      "productTypeTitle": "vermicompost fertilizer",
+      "productTypeCtgDesc": "Enhance soil fertility with our high-quality vermicompost, promoting healthy and sustainable agriculture.",
+      "productTypeCtgImg": "img/catalog/ferti.jpg",
+      "productPageUrl": "/products?p=fertilizer"
+    },
+    {
+      "productTypeTitle": "wooden & furniture",
+      "productTypeCtgDesc": "Our handcrafted wooden furniture combines elegance and durability, perfect for enhancing any living space.",
+      "productTypeCtgImg": "img/catalog/sofa.jpg",
+      "productPageUrl": "/products?p=furniture"
     }
   ],
   "Services": [
@@ -73,7 +111,7 @@
   ],
   "Testimonials": [
     {
-      "img": "img/testimonials/01.jpg",
+      "img": "img/testimonials/user.png",
       "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
       "name": "John Doe"
     },
@@ -120,7 +158,7 @@
     "phone": "+91 91044 03474",
     "email": " info@damodarr.com",
     "facebook": "fb.com",
-    "twitter": "twitter.com",
+    "linkedIn": "linkedIn.com",
     "youtube": "youtube.com"
   },
   "Features": [
@@ -161,5 +199,353 @@
       "title": "Lorem ipsum",
       "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
     }
-  ]
+  ],
+  "ProductCategories": [
+    {
+      "productTypeId": 1,
+      "productTypeTitle": "A-2 Cow Ghee",
+      "productPageUrl": "/products?p=a2ghee"
+    },
+    {
+      "productTypeId": 2,
+      "productTypeTitle": "Natural & raw honey",
+      "productPageUrl": "/products?p=honey"
+    },
+    {
+      "productTypeId": 3,
+      "productTypeTitle": "Lentils & Cereals",
+      "productPageUrl": "/products?p=lentils"
+    },
+    {
+      "productTypeId": 4,
+      "productTypeTitle": "Snacks & Namkeens",
+      "productPageUrl": "/products?p=snacks"
+    },
+    {
+      "productTypeId": 5,
+      "productTypeTitle": "Paper packaging products",
+      "productPageUrl": "/products?p=paper"
+    },
+    {
+      "productTypeId": 6,
+      "productTypeTitle": "Sugarcane bagasse tableware",
+      "productPageUrl": "/products?p=sbt"
+    },
+    {
+      "productTypeId": 7,
+      "productTypeTitle": "Vermicompost fertilizer",
+      "productPageUrl": "/products?p=fertilizer"
+    },
+    {
+      "productTypeId": 8,
+      "productTypeTitle": "Wooden furniture",
+      "productPageUrl": "/products?p=furniture"
+    }
+  ],
+  "Products": {
+    "honey": [
+      {
+        "id": 1,
+        "name": "Product 1",
+        "Type": "Honey",
+        "imageUrl": "img/products/honey (8).jpg"
+      },
+      {
+        "id": 2,
+        "name": "Product 2",
+        "Type": "Honey",
+        "imageUrl": "img/products/honey (3).jpg"
+      },
+      {
+        "id": 3,
+        "name": "Product 3",
+        "Type": "Honey",
+        "imageUrl": "img/products/honey (4).jpg"
+      },
+      {
+        "id": 4,
+        "name": "Product 4",
+        "Type": "Honey",
+        "imageUrl": "img/products/honey (5).jpg"
+      },
+      {
+        "id": 5,
+        "name": "Product 5",
+        "Type": "Honey",
+        "imageUrl": "img/products/honey (6).jpg"
+      },
+      {
+        "id": 6,
+        "name": "Product 6",
+        "Type": "Honey",
+        "imageUrl": "img/products/honey (7).jpg"
+      }
+    ],
+    "a2ghee": [
+      {
+        "id": 1,
+        "name": "Product 1",
+        "Type": "Ghee",
+        "imageUrl": "img/products/ghee (2).jpg"
+      },
+      {
+        "id": 2,
+        "name": "Product 2",
+        "Type": "Ghee",
+        "imageUrl": "img/products/ghee (3).jpg"
+      },
+      {
+        "id": 3,
+        "name": "Product 3",
+        "Type": "Ghee",
+        "imageUrl": "img/products/ghee (4).jpg"
+      },
+      {
+        "id": 4,
+        "name": "Product 4",
+        "Type": "Ghee",
+        "imageUrl": "img/products/ghee (5).jpg"
+      },
+      {
+        "id": 5,
+        "name": "Product 5",
+        "Type": "Ghee",
+        "imageUrl": "img/products/ghee (6).jpg"
+      },
+      {
+        "id": 6,
+        "name": "Product 6",
+        "Type": "Ghee",
+        "imageUrl": "img/products/ghee (7).jpg"
+      }
+    ],
+    "lentils": [
+      {
+        "id": 1,
+        "name": "Product 1",
+        "Type": "Lentils",
+        "imageUrl": "img/products/millets (1).jpg"
+      },
+      {
+        "id": 2,
+        "name": "Product 2",
+        "Type": "Lentils",
+        "imageUrl": "img/products/millets (1).jpeg"
+      },
+      {
+        "id": 3,
+        "name": "Product 3",
+        "Type": "Lentils",
+        "imageUrl": "img/products/millets (2).jpeg"
+      },
+      {
+        "id": 4,
+        "name": "Ragi Millets",
+        "Type": "Lentils",
+        "imageUrl": "img/products/millets (6).jpg"
+      },
+      {
+        "id": 5,
+        "name": "Red Lentils",
+        "Type": "Lentils",
+        "imageUrl": "img/products/millets (7).jpg"
+      },
+      {
+        "id": 6,
+        "name": "Sorghum Millet",
+        "Type": "Lentils",
+        "imageUrl": "img/products/millets (8).jpg"
+      }
+    ],
+    "snacks": [
+      {
+        "id": 1,
+        "name": "Dry Snacks",
+        "Type": "Snacks",
+        "imageUrl": "img/products/dry snacks.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Masala Boondi",
+        "Type": "Snacks",
+        "imageUrl": "img/products/masala boondi namkeen.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Nadiyadi Mix",
+        "Type": "Snacks",
+        "imageUrl": "img/products/nadayadi mix namkeen.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Ratlami Sev",
+        "Type": "Snacks",
+        "imageUrl": "img/products/ratlami sev namkeen.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Wheat Chips",
+        "Type": "Snacks",
+        "imageUrl": "img/products/rectangle wheat chips.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Rice Crackers",
+        "Type": "Snacks",
+        "imageUrl": "img/products/rice crackers.jpg"
+      }
+    ],
+    "paper": [
+      {
+        "id": 1,
+        "name": "Premium paper bags",
+        "Type": "Paper Product",
+        "imageUrl": "img/products/premium paper bags .jpg"
+      },
+      {
+        "id": 2,
+        "name": "Paper tubes and cores",
+        "Type": "Paper Product",
+        "imageUrl": "img/products/paper tubes and cores.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Paper cups",
+        "Type": "Paper Product",
+        "imageUrl": "img/products/paper cups.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Paper wraps",
+        "Type": "Paper Product",
+        "imageUrl": "img/products/paper wraps .jpg"
+      },
+      {
+        "id": 5,
+        "name": "Folding cartons",
+        "Type": "Paper Product",
+        "imageUrl": "img/products/folding cartons.jpg"
+      },
+      {
+        "id": 6,
+        "name": "pouch",
+        "Type": "Paper Product",
+        "imageUrl": "img/products/pouch.jpg"
+      }
+    ],
+    "sbt": [
+      {
+        "id": 1,
+        "name": "Sugarcane bagasse tray",
+        "Type": "Sugarcane",
+        "imageUrl": "img/products/sugarcane bagasse tray.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Sugarcane bagasse plates",
+        "Type": "Sugarcane",
+        "imageUrl": "img/products/sugarcane bagasse plates.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Sugarcane bagasse egg tray",
+        "Type": "Sugarcane",
+        "imageUrl": "img/products/sugarcane bagasse egg tray.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Sugarcane bagasse cutlery",
+        "Type": "Sugarcane",
+        "imageUrl": "img/products/sugarcane bagasse cutlery.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Sugarcane bagasse tableware",
+        "Type": "Sugarcane",
+        "imageUrl": "img/products/bagasse tableware.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Sugarcane bagasse bowls",
+        "Type": "Sugarcane",
+        "imageUrl": "img/products/sugarcane bagasse bowls.jpg"
+      }
+    ],
+    "fertilizer": [
+      {
+        "id": 1,
+        "name": "Healthy Worms",
+        "Type": "Fertilizer",
+        "imageUrl": "img/products/healthy worms.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Fresh vermicompost",
+        "Type": "Fertilizer",
+        "imageUrl": "img/products/fresh vermicompost.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Vermicompost quality packing",
+        "Type": "Fertilizer",
+        "imageUrl": "img/products/vermicompost quality packing.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Vermicompost for organic farming",
+        "Type": "Fertilizer",
+        "imageUrl": "img/products/vermicompost for organic farming.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Vermicompost export in jumbo",
+        "Type": "Fertilizer",
+        "imageUrl": "img/products/vermicompost export in jumbo.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Fertilizer cultivation process",
+        "Type": "Fertilizer",
+        "imageUrl": "img/products/fertilizer cultivation process.jpg"
+      }
+    ],
+    "furniture": [
+      {
+        "id": 1,
+        "name": "Wooden bookshelf",
+        "Type": "Furniture",
+        "imageUrl": "img/products/wooden bookshelf.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Wooden TV unit",
+        "Type": "Furniture",
+        "imageUrl": "img/products/wooden tv unit.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Wooden cabinets and sideboards",
+        "Type": "Furniture",
+        "imageUrl": "img/products/wooden cabinets and sideboards.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Wooden sofaas",
+        "Type": "Furniture",
+        "imageUrl": "img/products/wooden sofaas.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Wooden dinning and chairs",
+        "Type": "Furniture",
+        "imageUrl": "img/products/wooden dinning and chairs.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Wooden center table",
+        "Type": "Furniture",
+        "imageUrl": "img/products/wooden center table.jpg"
+      }
+    ]
+  }
 }

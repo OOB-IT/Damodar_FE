@@ -54,7 +54,7 @@ export const KeyPersons = () => {
         <ProfileCard data={o1} />
         <ProfileCard data={owner2} />
       </CardsContainer>
-      <Footer in={"in"} />
+      {/* <Footer in={"in"} /> */}
     </Container>
   );
 };

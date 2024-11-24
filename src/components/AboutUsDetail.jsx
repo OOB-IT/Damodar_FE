@@ -53,9 +53,8 @@ const RandomElements = () => {
         const size = Math.random() * 20 + 15;
         const top = Math.random() * 100;
         const left = Math.random() * 100;
-        const color = `rgb(${Math.random() * 255},${Math.random() * 255},${
-          Math.random() * 255
-        },0.7)`;
+        const color = `rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255
+          },0.7)`;
         newElements.push({ size, top, left, color });
       }
       setElements(newElements);
