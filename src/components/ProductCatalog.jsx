@@ -147,9 +147,9 @@ export const ProductCatalog = (props) => {
                   <CardBody>
                     <CardTitle>{d.productTypeTitle}</CardTitle>
                     <CardDesc>{d.productTypeCtgDesc}</CardDesc>
-                    <ViewButton variant="primary" href={`#${d.productPageUrl}`}>
+                    {/* <ViewButton variant="primary" href={`#${d.productPageUrl}`}>
                       View
-                    </ViewButton>
+                    </ViewButton> */}
                   </CardBody>
                 </CustomCard>
               ))}
