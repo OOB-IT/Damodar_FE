@@ -1,13 +1,15 @@
 {
   "CompanyPage": {
     "mainDesc": "At Damodarr Global Venture LLP, we are dedicated to delivering excellence in global trade. With a focus on quality, reliability, and customer satisfaction, we specialize in exporting a diverse range of high-quality products worldwide.",
-    "comprehensiveExportSolutions": "Comprehensive Export Solutions: From sourcing to shipping, we manage every aspect of the export process with precision and care.",
-    "customizedPackaging": "Customized Packaging: Tailored to meet your specific needs, our packaging solutions ensure your products arrive in perfect condition, every time.",
-    "regulatoryComplaince": "Regulatory Compliance: We navigate complex international regulations to ensure smooth, hassle-free transactions.",
+    "comprehensiveExportSolutions": "DAMODARR GLOBAL VENTURE LLP is a trusted name in international trade, proudly serving global markets with innovative, eco-conscious, and industrial-grade solutions from India. We specialize in the export of premium paper packaging products, sugarcane bagasse tableware, and all types of adhesive tapes, tailored to meet the evolving needs of our international clientele.",
+    "customizedPackaging": "With a strong focus on quality, reliability, and sustainable sourcing, our company is committed to bridging the gap between India’s finest manufacturing capabilities and global business demands. Whether you're a wholesaler, distributor, or importer, we provide customized product solutions, competitive pricing, and timely delivery backed by efficient logistics.",
+    "regulatoryComplaince": "At DAMODARR, we operate with a clear vision—to become a globally recognized export partner that not only delivers products, but also builds trust and long-term value.",
     "whyChooseTitle": "Why Choose Us?",
-    "whyChooseP1": "Trusted Quality: Our commitment to premium quality and rigorous quality control measures ensure you receive only the best products.",
-    "whyChooseP2": "Global Network: Leveraging our extensive network, we open doors to new markets and opportunities for your business.",
-    "whyChooseP3": "Proven Expertise: With years of experience, we bring unparalleled knowledge and expertise to every partnership.",
+    "whyChooseP1": "✔ Certified Exporter – Compliant with global quality standards & documentation.",
+    "whyChooseP2": "✔ Eco-Friendly Solutions – Focused on biodegradable and recyclable product lines.",
+    "whyChooseP3": "✔ Customized Products – Tailored solutions as per buyer specifications.",
+    "whyChooseP4": "✔ Timely Execution – Efficient operations ensuring smooth and fast shipments.",
+    "whyChooseP5": "✔ Professional Communication – Transparent process from inquiry to delivery.",
     "keyPhrases": "Global Export Partner | Premium Quality | Reliable Shipping | Customized Packaging | Regulatory Compliance",
     "discover1": "Discover the Damodarr Global Venture LLP difference – where your global trade needs are met with excellence and reliability.",
     "discover2": "Join us and experience the benefits of a trusted export partner. Let's grow together!",
@@ -164,18 +166,8 @@
   "Features": [
     {
       "icon": "fa fa-shopping-cart",
-      "title": "Export",
-      "text": "We are Exporting best quality product around the world, You need best product on time you are at right place @ Damodarr Global Venture LLP"
-    },
-    {
-      "icon": "fa fa-bullhorn",
-      "title": "Import agent",
-      "text": "We help foreign company to introduce his best quality product in India and help them to find local partners in India."
-    },
-    {
-      "icon": "fa fa-group",
-      "title": "Sourcing Agent",
-      "text": "We are working as local partner of our foreign client to source best quality product from India as per client requirement and Specification."
+      "title": "Global Export Solutions",
+      "text": "At Damodarr Global Venture LLP, we specialize in exporting premium Indian products worldwide. Our commitment to quality and timely delivery ensures your satisfaction every step of the way."
     }
   ],
   "Company": [

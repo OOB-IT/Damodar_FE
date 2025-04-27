@@ -13,13 +13,13 @@ export const Header = (props) => {
           <div className="container">
             <div className="row">
               <div className="col-md-8 col-md-offset-2 intro-text text-center">
-                <h1 style={{ fontSize: "3rem" }}>
+                {/* <h1 style={{ fontSize: "3rem" }}>
                   {props.data ? props.data.title : "Loading"}
                   <span></span>
-                </h1>
-                <p style={{ fontSize: "2rem", margin: "1rem 0" }}>
+                </h1> */}
+                {/* <p style={{ fontSize: "2rem", margin: "1rem 0" }}>
                   {props.data ? props.data.paragraph : "Loading"}
-                </p>
+                </p> */}
                 <p style={{ fontSize: "2rem", margin: "1rem 0" }}>
                   {props.data ? props.data.paragraph2 : "Loading"}
                 </p>

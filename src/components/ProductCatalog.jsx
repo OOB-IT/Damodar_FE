@@ -8,7 +8,7 @@ import { baseUrl } from "../utils/config";
 const CardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 100px;
   justify-content: center;
 `;
 
@@ -30,9 +30,9 @@ const CustomCard = styled(Card)`
 `;
 
 const CardImage = styled(Card.Img)`
-  height: 200px;
+  height: 220px;
   object-fit: cover;
-  width: -webkit-fill-available;
+  width: 260px;
 `;
 
 const CardBody = styled(Card.Body)`
@@ -142,11 +142,11 @@ export const ProductCatalog = (props) => {
                 </SkeletonCard>
               ))
             : apiRes?.map((d, i) => (
-                <CustomCard key={`${d.title}-${i}`}>
-                  <CardImage variant="top" src={d.productTypeCtgImg} />
-                  <CardBody>
+                <CustomCard style={{marginTop: '20px'}} key={`${d.title}-${i}`}>
+                  <CardImage style={{borderRadius: '10px'}} variant="top" src={d.productTypeCtgImg} />
+                  <CardBody >
                     <CardTitle>{d.productTypeTitle}</CardTitle>
-                    <CardDesc>{d.productTypeCtgDesc}</CardDesc>
+                    <CardDesc style={{minHeight: '80px'}}>{d.productTypeCtgDesc}</CardDesc>
                     <ViewButton variant="primary" href={`#${d.productPageUrl}`}>
                       View
                     </ViewButton>

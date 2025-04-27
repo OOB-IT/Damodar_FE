@@ -78,8 +78,11 @@ export const About = (props) => {
               </div>
               <div className="col-xs-12 col-md-6">
                 <TextContainer>
-                  <h2 className="animated-heading">About Us</h2>
+                  <h2 className="animated-heading">Welcome to Damodarr Global Venture LLP </h2>
+                  <h3>Bridging Borders,<br/>Delivering Excellence </h3>
+                  <h3></h3>
                   <p
+                  style={{minHeight: '200px'}}
                     className="animated-text"
                     dangerouslySetInnerHTML={{
                       __html: sectionDetails

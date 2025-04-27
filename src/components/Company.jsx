@@ -60,6 +60,8 @@ const Company = () => {
                 <p>{data ? data.whyChooseP1 : "loading..."}</p>
                 <p>{data ? data.whyChooseP2 : "loading..."}</p>
                 <p>{data ? data.whyChooseP3 : "loading..."}</p>
+                <p>{data ? data.whyChooseP4 : "loading..."}</p>
+                <p>{data ? data.whyChooseP5 : "loading..."}</p>
               </div>
               <br />
               <h5>{data ? data.keyPhrases : "loading..."}</h5>
@@ -72,7 +74,7 @@ const Company = () => {
 
           <ImageContainer id="imageContainer">
             {/* <ResponsiveImage src="https://images.unsplash.com/photo-1634646809203-f3b4adff9127?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Damodarr Global Ventures LLP" /> */}
-            <ResponsiveImage src={foto} alt="Damodarr Global Ventures LLP" />
+            {/* <ResponsiveImage src={foto} alt="Damodarr Global Ventures LLP" /> */}
           </ImageContainer>
 
           <Features data={fdata} showTitle={true} />
