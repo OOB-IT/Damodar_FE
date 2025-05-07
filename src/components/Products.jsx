@@ -306,6 +306,8 @@ const Products = () => {
   const [apiProductData, setApiProductData] = useState([]);
   const [product, setProduct] = useSearchParams();
 
+  console.log("Product Details", productDetails);
+
   useEffect(() => {
     axios.get(`${baseUrl}/getProductCategories`).then((response) => {
       const data = response?.data || productData;
@@ -328,7 +330,7 @@ const Products = () => {
     });
   }, [product]);
 
-  useEffect(() => {}, [productTypeData, product]);
+  useEffect(() => { }, [productTypeData, product]);
 
   const parseMarkdown = (markdown) => {
     if (!markdown) return "";
@@ -356,7 +358,7 @@ const Products = () => {
         <IntroSection>
           <IntroImage
             style={{ width: window.innerWidth <= 768 ? "100%" : "40%" }}
-            src={productData?.productTypeImgPath}
+            src={productDetails?.productTypeImgPath}
             alt="Intro Image"
           />
           <IntroDescription>
