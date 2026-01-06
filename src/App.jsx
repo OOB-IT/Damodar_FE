@@ -1,32 +1,44 @@
-import React from "react";
-import { HashRouter, Route, Routes } from "react-router-dom";
-
-import { Navigation } from "./components/navigation";
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SmoothScroll from "smooth-scroll";
+
+// Import Styles
+import "./assets/css/bootstrap.css";
+import "./assets/fonts/font-awesome/css/font-awesome.css";
+import "./assets/css/style.css";
+import "./assets/css/nivo-lightbox/nivo-lightbox.css";
+import "./assets/css/nivo-lightbox/default.css";
 import "./App.css";
-import HomeRoutes from "./HomeRoutes";
-import { AboutUsDetail } from "./components/AboutUsDetail";
-import ProductDetails from "./components/ProductDetails";
-import ComingSoon from "./components/ComingSoon";
-import Company from "./components/Company";
-import CertificatePage from "./components/CertificatePage";
-import Products from "./components/Products";
-import SourcingAgentPage from "./components/SourcingAgentPage";
+
+// Import Components
+import { Navigation } from "./components/navigation";
 import Footer from "./components/Footer";
 
-// Initialize SmoothScroll
-const scroll = new SmoothScroll('a[href*="#"]', {
+// Import Pages
+import Home from "./pages/Home";
+import AboutUsDetail from "./pages/AboutUsDetail";
+import ProductDetails from "./pages/ProductDetails";
+import ComingSoon from "./pages/ComingSoon";
+import Company from "./pages/Company";
+import CertificatePage from "./pages/CertificatePage";
+import Products from "./pages/Products";
+import SourcingAgentPage from "./pages/SourcingAgentPage";
+
+export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
   speedAsDuration: true,
 });
 
 const App = () => {
+  useEffect(() => {
+    // Re-init smooth scroll if needed on mount
+  }, []);
+
   return (
-    <HashRouter>
+    <Router>
       <Navigation />
       <Routes>
-        {/* Specify exact prop to prevent partial matching */}
-        <Route path="/" element={<HomeRoutes />} />
+        <Route path="/" element={<Home />} />
         <Route path="/about-detail" element={<AboutUsDetail />} />
         <Route path="/product-detail" element={<ProductDetails />} />
         <Route path="/testimonials" element={<ComingSoon />} />
@@ -34,17 +46,11 @@ const App = () => {
         <Route path="/certificate" element={<CertificatePage />} />
         <Route path="/products" element={<Products />} />
         <Route path="/sourcing-agent" element={<SourcingAgentPage />} />
-        {/* Add a wildcard route for unmatched paths */}
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<h1 className="text-center mt-5">404 - Not Found</h1>} />
       </Routes>
       <Footer />
-    </HashRouter>
+    </Router>
   );
-};
-
-// A component to render when route is not found
-const NotFound = () => {
-  return <h1>404 - Not Found</h1>;
 };
 
 export default App;

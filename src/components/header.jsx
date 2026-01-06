@@ -1,5 +1,5 @@
 import React from "react";
-import bgVideo from "../asset/video.mp4";
+import bgVideo from "../assets/video.mp4";
 
 export const Header = (props) => {
   return (

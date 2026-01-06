@@ -9,7 +9,7 @@ import {
   fieo,
   fssai,
   halal,
-} from "../asset/certificate/index";
+} from "../assets/certificate/index";
 import "./ImageCarousel.css";
 import axios from "axios";
 import { baseUrl } from "../utils/config";

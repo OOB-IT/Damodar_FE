@@ -1,7 +1,7 @@
 import React from "react";
-import p1 from "../asset/p1.jpeg"
-import p2 from "../asset/p2.jpeg"
-import p3 from "../asset/p3.png"
+import p1 from "../assets/p1.jpeg"
+import p2 from "../assets/p2.jpeg"
+import p3 from "../assets/p3.png"
 
 export const Features = (props) => {
   const fromHome = props?.fromHome;

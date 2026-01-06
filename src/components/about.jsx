@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
-import about from "../asset/about.jpg";
+import about from "../assets/about.jpg";
 import JsonData from "../data/data.json";
 import { Link } from "react-router-dom";
 import { Features } from "./features";

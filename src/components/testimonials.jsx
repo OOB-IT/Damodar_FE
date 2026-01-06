@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import Modal from "./Modal"; // Import your Modal component
 import PostReview from "./PostReview";
-import userImg from "../asset/user.png";
-import axios from "axios";
+import userImg from "../assets/user.png";
+
 import Toast from "../utils/Toast";
-import toastImg from "../asset/logo2.png";
+import toastImg from "../assets/logo2.png";
 import { Carousel } from "react-responsive-carousel";
-import { baseUrl } from "../utils/config";
+import { getClientFeedbacks } from "../services/api";
 
 const TestimonialsSection = styled.div`
   padding: 100px 0;
@@ -191,11 +191,7 @@ export const Testimonials = () => {
 
   const fetchTestimonialData = async () => {
     try {
-      const response = await axios.get(`${baseUrl}/getFeedbacksForClientPage`, {
-        params: {
-          limit: 6,
-        },
-      });
+      const response = await getClientFeedbacks({ limit: 6 });
       setTestimonialData(response.data);
       setLoading(false);
     } catch (error) {

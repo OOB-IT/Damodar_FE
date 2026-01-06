@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import useViewType from "../utils/useViewType";
 
-import logo from "../asset/logo.png";
-import logo2 from "../asset/logo9.png";
+import logo from "../assets/logo.png";
+import logo2 from "../assets/logo9.png";
 import TitleBar from "./TitleBar";
 import JsonData from "../data/data.json";
 import { baseUrl } from "../utils/config";

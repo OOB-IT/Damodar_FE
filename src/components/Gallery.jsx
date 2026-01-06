@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
-import image1 from "../asset/gallary/1.jpg";
-import image2 from "../asset/gallary/2.jpg";
-import image3 from "../asset/gallary/3.jpg";
-import image4 from "../asset/gallary/4.jpg";
-import image5 from "../asset/gallary/5.jpg";
-import image6 from "../asset/gallary/6.jpg";
-import image7 from "../asset/gallary/7.jpg";
-import image8 from "../asset/gallary/8.jpg";
+import image1 from "../assets/gallary/1.jpg";
+import image2 from "../assets/gallary/2.jpg";
+import image3 from "../assets/gallary/3.jpg";
+import image4 from "../assets/gallary/4.jpg";
+import image5 from "../assets/gallary/5.jpg";
+import image6 from "../assets/gallary/6.jpg";
+import image7 from "../assets/gallary/7.jpg";
+import image8 from "../assets/gallary/8.jpg";
 import axios from "axios";
 import { baseUrl } from "../utils/config";
 
