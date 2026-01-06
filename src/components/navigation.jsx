@@ -8,6 +8,7 @@ import TitleBar from "./TitleBar";
 import JsonData from "../data/data.json";
 import { baseUrl } from "../utils/config";
 import axios from "axios";
+import "./navigation.css";
 
 export const Navigation = () => {
   const navigate = useNavigate();
@@ -78,55 +79,42 @@ export const Navigation = () => {
             isScrolled && location.pathname === "/"
               ? "20px"
               : location.pathname === "/"
-              ? "40px"
-              : "20px",
+                ? "40px"
+                : "20px",
         }}
         className="navbar navbar-default navbar-fixed-top"
       >
-        <div className="container">
+        <div className="nav-barr">
           <div className="navbar-header">
-            <div className="d-flex align-items-center">
-              <button
-                type="button"
-                className="navbar-toggle collapsed"
-                data-toggle="collapse"
-                data-target="#bs-example-navbar-collapse-1"
-              >
-                <span className="sr-only">Toggle navigation</span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-              </button>
-              <Link
-                to="/"
-                className="navbar-brand page-scroll"
-                style={{
-                  paddingTop: "5px",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
+            <Link
+              to="/"
+              className="navbar-brand page-scroll"
+            >
+              <div className="navbar-brand-container">
                 <img
                   src={logo}
-                  style={{
-                    maxHeight: "50px",
-                    maxWidth: "200px",
-                  }}
-                  alt="Logo"
+                  className="logo-image"
+                  alt="Damodarr Global Logo"
                 />
-
                 <img
-                src={logo2}
-                style={{
-                  marginTop: '15px',
-                  marginLeft:'20px',
-                  maxHeight: "50px",
-                  maxWidth: "200px",
-                }}
-                alt="logo2"
+                  src={logo2}
+                  className="logo-image-secondary"
+                  alt="Venture LLP"
                 />
-              </Link>
-            </div>
+              </div>
+            </Link>
+            <button
+              type="button"
+              className="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1"
+              aria-expanded="false"
+            >
+              <span className="sr-only">Toggle navigation</span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+            </button>
           </div>
           <div
             className="collapse navbar-collapse"
