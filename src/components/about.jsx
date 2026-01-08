@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
-import about from "../assets/about.jpg";
+import about from "../assets/about-business.jpg";
 import JsonData from "../data/data.json";
 import { Link } from "react-router-dom";
 import { Features } from "./features";
 import { baseUrl } from "../utils/config";
+import "./about.css";
 
 export const About = (props) => {
   const [landingPageData, setLandingPageData] = useState({});
@@ -68,37 +69,39 @@ export const About = (props) => {
             </SkeletonContainer>
           ) : (
             <>
-              <div className="col-xs-12 col-md-6">
-                <img
-                  src={about}
-                  style={{ borderRadius: "10px", objectFit: "cover" }}
-                  className="img-responsive"
-                  alt="About Us"
-                />
-              </div>
-              <div className="col-xs-12 col-md-6">
-                <TextContainer>
-                  <h2 className="animated-heading">Welcome to Damodarr Global Venture LLP </h2>
-                  <h3>Bridging Borders,<br/>Delivering Excellence </h3>
-                  <h3></h3>
-                  <p
-                  style={{minHeight: '200px'}}
-                    className="animated-text"
-                    dangerouslySetInnerHTML={{
-                      __html: sectionDetails
-                        ? formatSectionDesc(sectionDetails.sectionDesc)
-                        : formatSectionDesc(landingPageData?.About?.sectionDesc),
-                    }}
-                  ></p>
-                  <button
-                    type="submit"
-                    className="btn btn-custom btn-lg rounded"
-                  >
-                    <Link style={{ color: "#f5f5f5" }} to="/company">
-                      View More
-                    </Link>
-                  </button>
-                </TextContainer>
+              <div className="about-modern-container">
+                <div className="row">
+                  <div className="col-xs-12 col-md-6">
+                    <div className="about-image-card">
+                      <img
+                        src={about}
+                        className="img-responsive"
+                        alt="About Damodarr Global Venture LLP"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-xs-12 col-md-6">
+                    <div className="about-content-card">
+                      <h2 className="about-main-heading">
+                        Welcome to Damodarr Global Venture LLP
+                      </h2>
+                      <h3 className="about-subheading">
+                        Bridging Borders,<br />Delivering Excellence
+                      </h3>
+                      <div
+                        className="about-description"
+                        dangerouslySetInnerHTML={{
+                          __html: sectionDetails
+                            ? formatSectionDesc(sectionDetails.sectionDesc)
+                            : formatSectionDesc(landingPageData?.About?.sectionDesc),
+                        }}
+                      />
+                      <Link to="/company" className="about-cta-button">
+                        <span>View More</span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </div>
             </>
           )}

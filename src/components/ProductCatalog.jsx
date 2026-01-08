@@ -1,102 +1,8 @@
 import React, { useEffect, useState } from "react";
-import styled, { keyframes } from "styled-components";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import axios from "axios";
 import { baseUrl } from "../utils/config";
+import "./ProductCatalog.css";
 
-const CardContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 100px;
-  justify-content: center;
-`;
-
-const CustomCard = styled(Card)`
-  width: 100%;
-  margin-bottom: 20px;
-
-  @media (min-width: 576px) {
-    width: 45%;
-  }
-
-  @media (min-width: 768px) {
-    width: 30%;
-  }
-
-  @media (min-width: 992px) {
-    width: 22%;
-  }
-`;
-
-const CardImage = styled(Card.Img)`
-  height: 220px;
-  object-fit: cover;
-  width: 260px;
-`;
-
-const CardBody = styled(Card.Body)`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-`;
-
-const ViewButton = styled(Button)`
-  margin-top: auto;
-`;
-
-const CardTitle = styled(Card.Title)`
-  font-size: 1.6rem;
-`;
-
-const CardDesc = styled(Card.Text)`
-  font-size: 1.2rem;
-  font-weight: bold;
-`;
-
-// Skeleton Loading Styles with Wave Animation
-const waveAnimation = keyframes`
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-`;
-
-const SkeletonCard = styled.div`
-  width: 100%;
-  height: 300px;
-  background: linear-gradient(90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
-  background-size: 200% 100%;
-  border-radius: 8px;
-  animation: ${waveAnimation} 1.5s infinite;
-  margin-bottom: 20px;
-
-  @media (min-width: 576px) {
-    width: 45%;
-  }
-
-  @media (min-width: 768px) {
-    width: 30%;
-  }
-
-  @media (min-width: 992px) {
-    width: 22%;
-  }
-`;
-
-const SkeletonText = styled.div`
-  width: ${(props) => props.width || "100%"};
-  height: ${(props) => props.height || "20px"};
-  background: linear-gradient(90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
-  background-size: 200% 100%;
-  border-radius: 4px;
-  margin: 10px 0;
-  animation: ${waveAnimation} 1.5s infinite;
-`;
-
-// Component
 export const ProductCatalog = (props) => {
   const localData = props.data;
   const [apiRes, setApiRes] = useState([]);
@@ -124,36 +30,45 @@ export const ProductCatalog = (props) => {
   return (
     <div id="portfolio" className="text-center">
       <div className="container">
-        <div>
-          <h2>Product Catalog</h2>
-          <p>
+        <div className="catalog-header">
+          <h2 className="catalog-title">Product Catalog</h2>
+          <p className="catalog-description">
             Explore our comprehensive range of high-quality products and
             discover the perfect solutions for your needs.
           </p>
         </div>
 
-        <CardContainer>
-          {loading
-            ? [...Array(6)].map((_, i) => (
-                <SkeletonCard key={i}>
-                  <SkeletonText width="100%" height="200px" />
-                  <SkeletonText width="60%" />
-                  <SkeletonText width="80%" />
-                </SkeletonCard>
+        <div className="catalog-scroll-container">
+          <div className="catalog-grid">
+            {loading
+              ? [...Array(6)].map((_, i) => (
+                <div key={i} className="skeleton-card">
+                  <div className="skeleton-element skeleton-image"></div>
+                  <div className="skeleton-element skeleton-text skeleton-text-short"></div>
+                  <div className="skeleton-element skeleton-text skeleton-text-long"></div>
+                  <div className="skeleton-element skeleton-text"></div>
+                </div>
               ))
-            : apiRes?.map((d, i) => (
-                <CustomCard style={{marginTop: '20px'}} key={`${d.title}-${i}`}>
-                  <CardImage style={{borderRadius: '10px'}} variant="top" src={d.productTypeCtgImg} />
-                  <CardBody >
-                    <CardTitle>{d.productTypeTitle}</CardTitle>
-                    <CardDesc style={{minHeight: '80px'}}>{d.productTypeCtgDesc}</CardDesc>
-                    <ViewButton variant="primary" href={`#${d.productPageUrl}`}>
-                      View
-                    </ViewButton>
-                  </CardBody>
-                </CustomCard>
+              : apiRes?.map((d, i) => (
+                <div key={`${d.productTypeTitle}-${i}`} className="product-card">
+                  <div className="product-image-wrapper">
+                    <img
+                      src={d.productTypeCtgImg}
+                      alt={d.productTypeTitle}
+                      className="product-image"
+                    />
+                  </div>
+                  <div className="product-body">
+                    <h3 className="product-title">{d.productTypeTitle}</h3>
+                    <p className="product-description">{d.productTypeCtgDesc}</p>
+                    <a href={`#${d.productPageUrl}`} className="product-button">
+                      <span>View Details</span>
+                    </a>
+                  </div>
+                </div>
               ))}
-        </CardContainer>
+          </div>
+        </div>
       </div>
     </div>
   );

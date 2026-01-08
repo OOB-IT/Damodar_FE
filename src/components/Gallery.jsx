@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import styled, { keyframes } from "styled-components";
+import axios from "axios";
+import { baseUrl } from "../utils/config";
+import "./Gallery.css";
 import image1 from "../assets/gallary/1.jpg";
 import image2 from "../assets/gallary/2.jpg";
 import image3 from "../assets/gallary/3.jpg";
@@ -8,30 +10,11 @@ import image5 from "../assets/gallary/5.jpg";
 import image6 from "../assets/gallary/6.jpg";
 import image7 from "../assets/gallary/7.jpg";
 import image8 from "../assets/gallary/8.jpg";
-import axios from "axios";
-import { baseUrl } from "../utils/config";
 
 const Gallery = () => {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [lightboxImage, setLightboxImage] = useState(null);
-
-  useEffect(() => {
-    axios
-      .get(`${baseUrl}/getGalleryImages`)
-      .then((response) => {
-        if (response?.data) {
-          setImages(response.data);
-        } else {
-          setImages(localImages);
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching images:", error);
-        setImages(localImages); // Fallback to local images
-      })
-      .finally(() => setLoading(false));
-  }, []);
 
   // Array of imported local images as a fallback
   const localImages = [
@@ -45,6 +28,23 @@ const Gallery = () => {
     { gImagePath: image8 },
   ];
 
+  useEffect(() => {
+    axios
+      .get(`${baseUrl}/getGalleryImages`)
+      .then((response) => {
+        if (response?.data) {
+          setImages(response.data);
+        } else {
+          setImages(localImages);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching images:", error);
+        setImages(localImages);
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
   const handleImageClick = (src) => {
     setLightboxImage(src);
   };
@@ -54,149 +54,54 @@ const Gallery = () => {
   };
 
   return (
-    <GalleryContainer>
-      <h2>Photo Gallery</h2>
-      <GalleryGrid>
-        {loading
-          ? Array.from({ length: 8 }).map((_, index) => (
-              <SkeletonItem key={index}>
-                <SkeletonImage />
-              </SkeletonItem>
+    <div className="gallery-section">
+      <div className="gallery-container">
+        <div className="gallery-header">
+          <h2 className="gallery-title">Photo Gallery</h2>
+        </div>
+
+        <div className="gallery-grid">
+          {loading
+            ? Array.from({ length: 8 }).map((_, index) => (
+              <div key={index} className="skeleton-item">
+                <div className="skeleton-image"></div>
+              </div>
             ))
-          : images.map((image, index) => (
-              <GalleryItem
+            : images.map((image, index) => (
+              <div
                 key={index}
+                className="gallery-item"
                 onClick={() => handleImageClick(image.gImagePath)}
               >
-                <img src={image.gImagePath} alt={`Image ${index + 1}`} />
-              </GalleryItem>
+                <img src={image.gImagePath} alt={`Gallery ${index + 1}`} />
+              </div>
             ))}
-      </GalleryGrid>
+        </div>
+      </div>
 
       {lightboxImage && (
-        <LightboxOverlay onClick={handleCloseLightbox}>
-          <LightboxImage>
-            <img src={lightboxImage} alt="Lightbox" />
-          </LightboxImage>
-        </LightboxOverlay>
+        <div className="lightbox-overlay" onClick={handleCloseLightbox}>
+          <div
+            className="lightbox-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="lightbox-close"
+              onClick={handleCloseLightbox}
+              aria-label="Close lightbox"
+            >
+              ×
+            </button>
+            <img
+              src={lightboxImage}
+              alt="Lightbox view"
+              className="lightbox-image"
+            />
+          </div>
+        </div>
       )}
-    </GalleryContainer>
+    </div>
   );
 };
-
-// Keyframes for the flip animation
-const flipIn = keyframes`
-  0% {
-    transform: rotateX(90deg);
-    opacity: 0;
-  }
-  100% {
-    transform: rotateX(0);
-    opacity: 1;
-  }
-`;
-
-const GalleryContainer = styled.div`
-  text-align: center;
-  margin: 20px;
-
-  @media (min-width: 768px) {
-    margin: 20px auto;
-    max-width: 1200px;
-  }
-`;
-
-const GalleryGrid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-`;
-
-const GalleryItem = styled.div`
-  position: relative;
-  width: calc(25% - 15px);
-  margin-bottom: 15px;
-  cursor: pointer;
-
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: ${flipIn} 0.6s ease-out; // Apply the flip animation
-
-    &:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-  }
-
-  @media (max-width: 768px) {
-    width: calc(50% - 15px);
-  }
-
-  @media (max-width: 480px) {
-    width: 100%;
-  }
-`;
-
-const SkeletonItem = styled.div`
-  position: relative;
-  width: calc(25% - 15px);
-  margin-bottom: 15px;
-  background: #f0f0f0;
-  border-radius: 8px;
-
-  @media (max-width: 768px) {
-    width: calc(50% - 15px);
-  }
-
-  @media (max-width: 480px) {
-    width: 100%;
-  }
-`;
-
-// Define the wave animation
-const waveAnimation = keyframes`
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-`;
-
-const SkeletonImage = styled.div`
-  width: 100%;
-  height: 200px;
-  background: linear-gradient(90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
-  background-size: 200% 100%;
-  border-radius: 8px;
-  animation: ${waveAnimation} 1.5s infinite;
-`;
-
-const LightboxOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-`;
-
-const LightboxImage = styled.div`
-  max-width: 90%;
-  max-height: 80%;
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
-`;
 
 export default Gallery;
